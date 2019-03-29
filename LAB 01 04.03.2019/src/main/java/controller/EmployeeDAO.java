@@ -9,7 +9,7 @@ public interface EmployeeDAO {
     Employee findOne(Integer id);
 
     /** * Zwraca wszystkich pracowników */
-    Employee findAll(); // list
+    void findAll(); // list
 
     /** * Zwraca pracownika o podanym nazwisku */
     Employee findByName(String name);

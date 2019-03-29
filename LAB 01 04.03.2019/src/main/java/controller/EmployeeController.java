@@ -79,6 +79,12 @@ public class EmployeeController implements EmployeeDAO {
 
     }
 
+    @FXML
+    public void resetTable (ActionEvent event){
+        employees.clear();
+        findAll();
+    }
+
     private ObservableList<Employee> employees = FXCollections.observableArrayList();
     private ObservableList<Employee> employeeId = FXCollections.observableArrayList();
     private ObservableList<Employee> employeeName = FXCollections.observableArrayList();
@@ -105,7 +111,12 @@ public class EmployeeController implements EmployeeDAO {
         Connection MySQLConnectionion = null;
 
         try {
-            MySQLConnectionion = DriverManager.getConnection("jdbc:mysql://localhost:3306/zpo?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "admin");
+            MySQLConnectionion = DriverManager.getConnection("jdbc:mysql://localhost:3306/zpo" +
+                            "?useUnicode=true" +
+                            "&useJDBCCompliantTimezoneShift=true" +
+                            "&useLegacyDatetimeCode=false" +
+                            "&serverTimezone=UTC",
+                    "root", "admin");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -115,24 +126,7 @@ public class EmployeeController implements EmployeeDAO {
 
     public void initialize() {
 
-        try {
-            Statement myStatement = MySQLConnection().createStatement();
-            ResultSet myResultSet = myStatement.executeQuery("select * from employee");
-
-            while (myResultSet.next()) {
-                Employee e = new Employee((long) myResultSet.getInt("id"),
-                        myResultSet.getString("name"),
-                        myResultSet.getString("email"),
-                        myResultSet.getString("salary"));
-                employees.add(e);
-                addDataToEmployees(employees);
-
-            }
-            MySQLConnection().close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        findAll();
     }
 
     public Employee doQuery(PreparedStatement prpStm) {
@@ -191,8 +185,26 @@ public class EmployeeController implements EmployeeDAO {
         return find_empl;
     }
 
-    public Employee findAll() {
-        return null;
+    public void findAll() {
+        try {
+            Statement myStatement = MySQLConnection().createStatement();
+            ResultSet myResultSet = myStatement.executeQuery("select * from employee");
+
+            while (myResultSet.next()) {
+                Employee e = new Employee((long) myResultSet.getInt("id"),
+                        myResultSet.getString("name"),
+                        myResultSet.getString("email"),
+                        myResultSet.getString("salary"));
+                employees.add(e);
+                addDataToEmployees(employees);
+
+            }
+            MySQLConnection().close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void delete(Employee employee) {
@@ -200,6 +212,10 @@ public class EmployeeController implements EmployeeDAO {
     }
 
     public void save(Employee employee) {
+
+    }
+
+    public void  sortTable() {
 
     }
 }
