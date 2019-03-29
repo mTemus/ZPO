@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -21,7 +22,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="780.0">
                      <children>
-                        <TableView fx:id="tbl_employee" layoutX="10.0" layoutY="14.0" prefHeight="442.0" prefWidth="760.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                        <TableView fx:id="tbl_employee" layoutX="10.0" layoutY="14.0" prefHeight="380.0" prefWidth="760.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                           <columns>
                             <TableColumn fx:id="col_id" prefWidth="190.0" text="ID" />
                             <TableColumn fx:id="col_name" prefWidth="190.0" text="NAZWA" />
@@ -29,6 +30,7 @@
                               <TableColumn fx:id="col_salary" prefWidth="190.0" text="WYNAGRODZENIE" />
                           </columns>
                         </TableView>
+                        <Button fx:id="button_reset" layoutX="10.0" layoutY="407.0" mnemonicParsing="false" onAction="#resetTable" prefHeight="31.0" prefWidth="109.0" text="Odśwież" />
                      </children>
                   </AnchorPane>
             </content>
@@ -42,19 +44,40 @@
                             <TableColumn fx:id="col_id_find" prefWidth="190.0" text="ID" />
                             <TableColumn fx:id="col_name_find" prefWidth="190.0" text="NAZWA" />
                               <TableColumn fx:id="col_email_find" prefWidth="190.0" text="EMAIL" />
-                              <TableColumn fx:id="col_salary_find" prefWidth="190.0" text="WYNGARODZENIE" />
+                              <TableColumn fx:id="col_salary_find" prefWidth="190.0" text="WYNAGRODZENIE" />
                           </columns>
                         </TableView>
                         <Button fx:id="employee_button_id" layoutX="240.0" layoutY="215.0" mnemonicParsing="false" onAction="#findEmpolyeeById" prefHeight="26.0" prefWidth="150.0" text="Szukaj" />
-                        <TextField fx:id="employee_info_field_id" layoutX="10.0" layoutY="169.0" prefHeight="31.0" prefWidth="760.0" text="Aby wyszukać pracownika po id, wpisz jego id w poniższym polu, a nastepnie wciśnij przycisk &quot;szukaj&quot;." />
-                        <TextField fx:id="employee_id_field" layoutX="10.0" layoutY="215.0" prefHeight="31.0" prefWidth="205.0" />
-                        <TextField fx:id="employee_info_field1_name" layoutX="10.0" layoutY="267.0" prefHeight="31.0" prefWidth="760.0" text="Aby wyszukać pracownika po nazwie, wpisz jego nazwę w poniższym polu, a nastepnie wciśnij przycisk &quot;szukaj&quot;." />
-                        <TextField fx:id="employee_name_field" layoutX="10.0" layoutY="314.0" prefHeight="31.0" prefWidth="205.0" />
+                        <TextField fx:id="employee_info_field_id" editable="false" layoutX="10.0" layoutY="169.0" prefHeight="31.0" prefWidth="760.0" text="Aby wyszukać pracownika po id, wpisz jego id w poniższym polu, a nastepnie wciśnij przycisk &quot;szukaj&quot;." />
+                        <TextField fx:id="employee_id_field" layoutX="10.0" layoutY="215.0" prefHeight="31.0" prefWidth="205.0" promptText="Podaj id." />
+                        <TextField fx:id="employee_info_field1_name" editable="false" layoutX="10.0" layoutY="267.0" prefHeight="31.0" prefWidth="760.0" text="Aby wyszukać pracownika po nazwie, wpisz jego nazwę w poniższym polu, a nastepnie wciśnij przycisk &quot;szukaj&quot;." />
+                        <TextField fx:id="employee_name_field" layoutX="10.0" layoutY="314.0" prefHeight="31.0" prefWidth="205.0" promptText="Podaj nazwę." />
                         <Button fx:id="employee_button_name" layoutX="240.0" layoutY="314.0" mnemonicParsing="false" onAction="#findEmpolyeeByName" prefHeight="26.0" prefWidth="150.0" text="Szukaj" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Edycja Tabeli">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="employee_delete_field" layoutX="14.0" layoutY="91.0" prefHeight="31.0" prefWidth="205.0" promptText="Podaj id." />
+                        <TextField fx:id="employee_info_field_delete" editable="false" layoutX="10.0" layoutY="47.0" prefHeight="31.0" prefWidth="760.0" text="Aby usunąć pracownika, wpisz jego id, następnie wciśnij przycisk &quot;usuń&quot;." />
+                        <Button fx:id="employee_button_delete" layoutX="248.0" layoutY="91.0" mnemonicParsing="false" onAction="#findEmpolyeeById" prefHeight="26.0" prefWidth="150.0" text="Usuń" />
+                        <TextField fx:id="employee_info_field_delUpd" editable="false" layoutX="10.0" layoutY="416.0" prefHeight="31.0" prefWidth="760.0" text="Wynik operacji możesz sprawdzić po wciśnięciu przycisku &quot;odśwież&quot; w zakładce &quot;baza danych&quot;." />
+                        <TextArea layoutX="10.0" layoutY="172.0" prefHeight="59.0" prefWidth="760.0" text="Aby dodać pracownika, uzupełnij poniższe pola, a następnie wciśnij przycisk &quot;dodaj&quot;. &#10;Jeżeli pracownik istnieje, to zostanie zaktualizowany." />
+                        <TextField fx:id="employee_delete_field1" layoutX="156.0" layoutY="252.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz nazwę." />
+                        <TextField fx:id="employee_delete_field2" layoutX="156.0" layoutY="297.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz adres e-mail." />
+                        <TextField fx:id="employee_delete_field3" layoutX="156.0" layoutY="340.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz wynagrodzenie." />
+                        <Text layoutX="29.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa:" />
+                        <Text layoutX="29.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail:" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text layoutX="29.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wynagrodzenie:" />
+                        <Button fx:id="employee_button_add" layoutX="390.0" layoutY="340.0" mnemonicParsing="false" onAction="#findEmpolyeeById" prefHeight="26.0" prefWidth="150.0" text="Dodaj" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>
