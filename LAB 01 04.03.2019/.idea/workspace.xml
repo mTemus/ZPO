@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ab1eded-3621-46ea-b971-20660d60f8fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Connector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Connector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/employeeView.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/EmployeeController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -17,16 +21,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="22" column="193" selection-start-line="22" selection-start-column="193" selection-end-line="22" selection-end-column="193" />
+            <state relative-caret-position="391">
+              <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="29" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -34,17 +37,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="272">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/view/Connector.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/EmployeeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="15" selection-end-column="5" />
+            <state relative-caret-position="122">
+              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+              <folding>
+                <element signature="e#1406#1407#0" expanded="true" />
+                <element signature="e#1436#1437#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/employeeView.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="44" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Connector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="13" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -58,6 +84,13 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>fx:controller</find>
+      <find>exit</find>
+      <find>nazwisko</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -65,8 +98,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/view/Connector.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/view/employeeView.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/employeeView.fxml" />
       </list>
     </option>
   </component>
@@ -77,10 +113,37 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="LAB01" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="LAB01" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="LAB01" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="LAB01" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="mysql:mysql-connector-java:8.0.15" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="950" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -88,6 +151,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -115,34 +180,29 @@
             </path>
             <path>
               <item name="LAB 01 04.03.2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LAB 01 04.03.2019" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LAB 01 04.03.2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Temus\IdeaProjects\ZPO\LAB 01 04.03.2019\src\main\resources" />
       <recent name="C:\Users\Temus\IdeaProjects\ZPO\LAB 01 04.03.2019\src\main\java" />
     </key>
   </component>
@@ -182,7 +242,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553786126861</updated>
-      <workItem from="1553786131295" duration="2332000" />
+      <workItem from="1553786131295" duration="2621000" />
+      <workItem from="1553791978362" duration="1187000" />
+      <workItem from="1553850602805" duration="2632000" />
+      <workItem from="1553853844701" duration="1187000" />
+      <workItem from="1553859724618" duration="992000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.2">
       <created>1553786367194</created>
@@ -191,11 +255,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553786367194</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v0.0.3">
+      <created>1553788558284</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1553788558284</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2332000" />
+    <option name="totallyTimeSpent" value="8619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -206,7 +277,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.24026845" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.2536913" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.3286119" />
@@ -225,7 +296,7 @@
       <window_info anchor="right" id="Database" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.3295302" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
@@ -237,29 +308,70 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v0.0.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.0.2" />
+    <MESSAGE value="v0.0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.0.3" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="jar://D:/Programy/JDK 1.8/javafx-src.zip!/javafx/application/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="227">
+          <caret line="304" column="25" selection-start-line="304" selection-start-column="25" selection-end-line="304" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/Connector.java">
+    <entry file="jar://D:/Programy/JDK 1.8/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="15" selection-end-column="5" />
+        <state relative-caret-position="214">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Connector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="13" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="193" selection-start-line="22" selection-start-column="193" selection-end-line="22" selection-end-column="193" />
+        <state relative-caret-position="391">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="29" selection-end-column="17" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/EmployeeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding>
+            <element signature="e#1406#1407#0" expanded="true" />
+            <element signature="e#1436#1437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/employeeView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="44" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
