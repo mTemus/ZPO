@@ -2,12 +2,12 @@ package model;
 
 public class Employee {
     private Long id;
-    private String name, lastname, salary;
+    private String name, email, salary;
 
-    public Employee(Long id, String name, String lastname, String salary) {
+    public Employee(Long id, String name, String email, String salary) {
         this.id = id;
         this.name = name;
-        this.lastname = lastname;
+        this.email = email;
         this.salary = salary;
     }
 
@@ -27,12 +27,12 @@ public class Employee {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSalary() {

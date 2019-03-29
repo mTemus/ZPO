@@ -15,29 +15,5 @@ public class Main extends Application {
 
     }
 
-
-//    public static void main(String[] args) {
-//
-//        // to dziala
-////        try {
-////            Connection connMYSQL = DriverManager.getConnection("jdbc:mysql://localhost:3306/zpo?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "admin");
-////
-////            Statement myStatement = connMYSQL.createStatement();
-////            ResultSet myResultSet = myStatement.executeQuery("select * from employee");
-////
-////            while (myResultSet.next()) {
-////                System.out.println(myResultSet.getString("id") + ", " + myResultSet.getString("name"));
-////            }
-////
-////
-////        } catch (SQLException e) {
-////            e.printStackTrace();
-////        }
-//
-//
-//
-//
-//    }
-
 }
 
