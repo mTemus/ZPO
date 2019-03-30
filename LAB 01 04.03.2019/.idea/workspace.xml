@@ -4,6 +4,8 @@
     <list default="true" id="9ab1eded-3621-46ea-b971-20660d60f8fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/employeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/employeeView.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/EmployeeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="132" column="86" lean-forward="true" selection-start-line="132" selection-start-column="86" selection-end-line="132" selection-end-column="86" />
+            <state relative-caret-position="270">
+              <caret line="178" column="20" selection-start-line="178" selection-start-column="20" selection-end-line="178" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,10 +81,12 @@
       <find>addDataToEmployees</find>
       <find>MySQLConnectionion</find>
       <find>employee_add_field_name</find>
+      <find>update</find>
     </findStrings>
     <replaceStrings>
       <replace>addDataToEmployee</replace>
       <replace>MySQLConnection</replace>
+      <replace>updateEmployee</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -137,9 +141,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="952" />
+    <option name="y" value="515" />
+    <option name="width" value="977" />
+    <option name="height" value="523" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -213,6 +218,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -270,7 +276,7 @@
       <workItem from="1553853844701" duration="1187000" />
       <workItem from="1553859724618" duration="11466000" />
       <workItem from="1553878392033" duration="8188000" />
-      <workItem from="1553932937723" duration="6489000" />
+      <workItem from="1553932937723" duration="9778000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.2">
       <created>1553786367194</created>
@@ -321,11 +327,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553940568582</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="v0.6.2.1">
+      <created>1553940631495</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1553940631495</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33770000" />
+    <option name="totallyTimeSpent" value="37059000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -345,7 +358,7 @@
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
@@ -404,7 +417,8 @@
     <MESSAGE value="v0.4" />
     <MESSAGE value="v0.4.1" />
     <MESSAGE value="v0.6.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.6.2" />
+    <MESSAGE value="v0.6.2.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.6.2.1" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://D:/Programy/JDK 1.8/javafx-src.zip!/javafx/application/Application.java">
@@ -472,10 +486,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15-sources.jar!/com/mysql/cj/jdbc/exceptions/SQLError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="96" column="15" selection-start-line="96" selection-start-column="15" selection-end-line="96" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/EmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="132" column="86" lean-forward="true" selection-start-line="132" selection-start-column="86" selection-end-line="132" selection-end-column="86" />
+        <state relative-caret-position="270">
+          <caret line="178" column="20" selection-start-line="178" selection-start-column="20" selection-end-line="178" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

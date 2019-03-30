@@ -121,11 +121,12 @@ public class EmployeeController implements EmployeeDAO {
     public void findExistingEmployee(ActionEvent event) {
         String emplIdString = employee_add_field_id.getText();
 
-        int employeeToAddId = Integer.parseInt(emplIdString);
+        long employeeToAddId = Long.parseLong(emplIdString);
         String employeeToAddName = employee_add_field_name.getText();
         String employeeToAddEmail = employee_add_field_email.getText();
         String employeeToAddSalary = employee_add_field_salary.getText();
 
+        save(findExistingEmployeeToAddOrupdateEmployee(employeeToAddId, employeeToAddName, employeeToAddEmail, employeeToAddSalary), updateEmployee);
 
     }
 
@@ -133,7 +134,7 @@ public class EmployeeController implements EmployeeDAO {
     private ObservableList<Employee> employeeId = FXCollections.observableArrayList();
     private ObservableList<Employee> employeeName = FXCollections.observableArrayList();
 
-    boolean update = Boolean.parseBoolean(null);
+    boolean updateEmployee = Boolean.parseBoolean(null);
 
     private void addDataToEmployee(ObservableList<Employee> employeesList) {
         addDataToTable(employeesList, col_id, col_name, col_email, col_salary, tbl_employee);
@@ -275,37 +276,28 @@ public class EmployeeController implements EmployeeDAO {
 
     }
 
-    public Employee findExistingEmployeeToAddOrUpdate(int id, String name, String email, String salary) {
+    public Employee findExistingEmployeeToAddOrupdateEmployee(long id, String name, String email, String salary) {
 
-        Employee employeeToUpdate = null, employeeToAdd = null;
+        Employee employeeToFind = new Employee(id, name, email, salary);
 
+        isThereEmployeeToUpdate(employeeToFind);
 
-        PreparedStatement prpStm = null;
-        try {
-            prpStm = MySQLConnection().prepareStatement("select * from employee where id = ?");
-            prpStm.setLong(1, id);
-            ResultSet searchResultSet = prpStm.executeQuery();
-
-            if (searchResultSet.next()) {
-                employeeToUpdate = doFindingQuery(prpStm);
-                update = true;
-            } else {
-                employeeToAdd.setId((long) id);
-                employeeToAdd.setName(name);
-                employeeToAdd.setEmail(email);
-                employeeToAdd.setSalary(salary);
-                update = false;
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        if (update)
-            return employeeToUpdate;
-        else
-            return employeeToAdd;
+        return employeeToFind;
     }
+
+    private void isThereEmployeeToUpdate(Employee employeeToFind) {
+        for (Employee emp : employees) {
+
+            System.out.println(emp.getId());
+
+            if (emp.getId() == employeeToFind.getId()) {
+                updateEmployee = true;
+                break;
+            } else
+                updateEmployee = false;
+        }
+    }
+
 
     public void delete(Employee employee) {
 
@@ -326,7 +318,7 @@ public class EmployeeController implements EmployeeDAO {
 
     }
 
-    public void save(Employee employee, boolean update) {
+    public void save(Employee employee, boolean updateEmployee) {
 
     }
 
