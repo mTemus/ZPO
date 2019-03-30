@@ -133,6 +133,8 @@ public class EmployeeController implements EmployeeDAO {
     private ObservableList<Employee> employeeId = FXCollections.observableArrayList();
     private ObservableList<Employee> employeeName = FXCollections.observableArrayList();
 
+    boolean update = Boolean.parseBoolean(null);
+
     private void addDataToEmployee(ObservableList<Employee> employeesList) {
         addDataToTable(employeesList, col_id, col_name, col_email, col_salary, tbl_employee);
 
@@ -276,7 +278,7 @@ public class EmployeeController implements EmployeeDAO {
     public Employee findExistingEmployeeToAddOrUpdate(int id, String name, String email, String salary) {
 
         Employee employeeToUpdate = null, employeeToAdd = null;
-        boolean update = Boolean.parseBoolean(null);
+
 
         PreparedStatement prpStm = null;
         try {

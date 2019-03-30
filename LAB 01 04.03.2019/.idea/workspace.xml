@@ -4,8 +4,6 @@
     <list default="true" id="9ab1eded-3621-46ea-b971-20660d60f8fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/employeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/employeeView.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/EmployeeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="298" column="32" lean-forward="true" selection-start-line="298" selection-start-column="32" selection-end-line="298" selection-end-column="32" />
+            <state relative-caret-position="170">
+              <caret line="132" column="86" lean-forward="true" selection-start-line="132" selection-start-column="86" selection-end-line="132" selection-end-column="86" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -272,7 +270,7 @@
       <workItem from="1553853844701" duration="1187000" />
       <workItem from="1553859724618" duration="11466000" />
       <workItem from="1553878392033" duration="8188000" />
-      <workItem from="1553932937723" duration="6427000" />
+      <workItem from="1553932937723" duration="6489000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.2">
       <created>1553786367194</created>
@@ -316,11 +314,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553888820524</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="v0.6.2">
+      <created>1553940568581</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1553940568582</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33708000" />
+    <option name="totallyTimeSpent" value="33770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -398,7 +403,8 @@
     <MESSAGE value="v0.3" />
     <MESSAGE value="v0.4" />
     <MESSAGE value="v0.4.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.4.1" />
+    <MESSAGE value="v0.6.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.6.2" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://D:/Programy/JDK 1.8/javafx-src.zip!/javafx/application/Application.java">
@@ -468,8 +474,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/EmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="298" column="32" lean-forward="true" selection-start-line="298" selection-start-column="32" selection-end-line="298" selection-end-column="32" />
+        <state relative-caret-position="170">
+          <caret line="132" column="86" lean-forward="true" selection-start-line="132" selection-start-column="86" selection-end-line="132" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
