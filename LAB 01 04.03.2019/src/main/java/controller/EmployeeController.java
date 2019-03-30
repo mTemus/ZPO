@@ -75,6 +75,21 @@ public class EmployeeController implements EmployeeDAO {
     @FXML
     private TextField employee_add_field_salary;
 
+    @FXML
+    private RadioButton sortByNull;
+
+    @FXML
+    private RadioButton sortById;
+
+    @FXML
+    private RadioButton sortByName;
+
+    @FXML
+    private RadioButton sortByEmail;
+
+    @FXML
+    private RadioButton sortBySalary;
+
 
     @FXML
     public void findEmpolyeeById(ActionEvent event) {
@@ -100,8 +115,27 @@ public class EmployeeController implements EmployeeDAO {
 
     @FXML
     public void resetTable(ActionEvent event) {
-        employees.clear();
-        findAll();
+        SortType sorted = null;
+
+        if (sortByNull.isSelected()) {
+            sorted = SortType.sortNull;
+        } else if (sortById.isSelected()) {
+            sorted = SortType.sortById;
+        } else if (sortByName.isSelected()) {
+            sorted = SortType.sortByName;
+        } else if (sortByEmail.isSelected()) {
+            sorted = SortType.sortByEmail;
+        } else if (sortBySalary.isSelected()) {
+            sorted = SortType.sortBySalary;
+        }
+
+        if (sorted == SortType.sortNull && sorted != null) {
+            employees.clear();
+            findAll();
+        } else {
+
+        }
+
     }
 
     @FXML
@@ -134,8 +168,11 @@ public class EmployeeController implements EmployeeDAO {
     private ObservableList<Employee> employeeId = FXCollections.observableArrayList();
     private ObservableList<Employee> employeeName = FXCollections.observableArrayList();
 
-
     boolean updateEmployee = Boolean.parseBoolean(null);
+
+    public enum SortType {
+        sortById, sortByName, sortByEmail, sortBySalary, sortNull
+    }
 
     private void addDataToEmployee(ObservableList<Employee> employeesList) {
         addDataToTable(employeesList, col_id, col_name, col_email, col_salary, tbl_employee);
@@ -374,7 +411,17 @@ public class EmployeeController implements EmployeeDAO {
 
     }
 
-    public void sortTable() {
+    public void sortTable(SortType sorted) {
+
+        if (sorted == SortType.sortById) {
+
+        } else if (sorted == SortType.sortByName) {
+
+        } else if (sorted == SortType.sortByEmail) {
+
+        } else if (sorted == SortType.sortBySalary) {
+
+        }
 
     }
 }
