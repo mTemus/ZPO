@@ -134,6 +134,7 @@ public class EmployeeController implements EmployeeDAO {
     private ObservableList<Employee> employeeId = FXCollections.observableArrayList();
     private ObservableList<Employee> employeeName = FXCollections.observableArrayList();
 
+
     boolean updateEmployee = Boolean.parseBoolean(null);
 
     private void addDataToEmployee(ObservableList<Employee> employeesList) {
@@ -288,8 +289,6 @@ public class EmployeeController implements EmployeeDAO {
     private void isThereEmployeeToUpdate(Employee employeeToFind) {
         for (Employee emp : employees) {
 
-            System.out.println(emp.getId());
-
             if (emp.getId() == employeeToFind.getId()) {
                 updateEmployee = true;
                 break;
@@ -301,11 +300,9 @@ public class EmployeeController implements EmployeeDAO {
 
     public void delete(Employee employee) {
 
-        long emplIdToDelete = employee.getId();
-
         try {
 
-            String Query = "DELETE FROM employee WHERE id = " + emplIdToDelete;
+            String Query = "DELETE FROM employee WHERE id = " + employee.getId();
 
             Statement Stm = MySQLConnection().createStatement();
             Stm.executeUpdate(Query);
@@ -314,11 +311,66 @@ public class EmployeeController implements EmployeeDAO {
             e.printStackTrace();
         }
 
+        employees.clear();
         findAll();
 
     }
 
     public void save(Employee employee, boolean updateEmployee) {
+
+        try {
+            if (updateEmployee) {
+
+                System.out.println(employee.getId());
+                System.out.println(employee.getName());
+                System.out.println(employee.getEmail());
+                System.out.println(employee.getSalary());
+
+                String Query = "UPDATE employee " +
+                        "SET " +
+                        "name = '" + employee.getName() + "', " +
+                        "email = '" + employee.getEmail() + "', " +
+                        "salary = " + employee.getSalary() + " " +
+                        "WHERE id = " + employee.getId();
+                System.out.println(Query);
+
+                Statement Stm = MySQLConnection().createStatement();
+                Stm.executeUpdate(Query);
+                employees.clear();
+                findAll();
+
+            } else {
+
+                System.out.println(employee.getId());
+                System.out.println(employee.getName());
+                System.out.println(employee.getEmail());
+                System.out.println(employee.getSalary());
+
+                String Query = "INSERT INTO employee " +
+                        "(id, " +
+                        "name, " +
+                        "email, " +
+                        "salary) " +
+                        "VALUES " +
+                        "(" + employee.getId() + ", " +
+                        "'" + employee.getName() + "', " +
+                        "'" + employee.getEmail() + "', " +
+                        employee.getSalary() + ");";
+
+                System.out.println(Query);
+
+                Statement Stm = MySQLConnection().createStatement();
+                Stm.executeUpdate(Query);
+
+                employees.clear();
+                findAll();
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 
