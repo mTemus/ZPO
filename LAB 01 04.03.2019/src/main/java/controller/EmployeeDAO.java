@@ -4,7 +4,6 @@ import model.Employee;
 
 public interface EmployeeDAO {
 
-
     /** * Zwraca pracownika o podanym id */
     Employee findOne(Integer id);
 
@@ -19,9 +18,5 @@ public interface EmployeeDAO {
 
     /** * Dodaje, jeśli brak, lub aktualizuje pracownika */
     void save(Employee employee, boolean update);
-
-
-
-
 
 }
