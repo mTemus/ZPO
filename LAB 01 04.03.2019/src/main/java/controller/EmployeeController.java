@@ -133,7 +133,8 @@ public class EmployeeController implements EmployeeDAO {
             employees.clear();
             findAll();
         } else {
-
+            employeeSort.clear();
+            sortTable(sorted);
         }
 
     }
@@ -167,6 +168,7 @@ public class EmployeeController implements EmployeeDAO {
     private ObservableList<Employee> employees = FXCollections.observableArrayList();
     private ObservableList<Employee> employeeId = FXCollections.observableArrayList();
     private ObservableList<Employee> employeeName = FXCollections.observableArrayList();
+    private ObservableList<Employee> employeeSort = FXCollections.observableArrayList();
 
     boolean updateEmployee = Boolean.parseBoolean(null);
 
@@ -413,15 +415,52 @@ public class EmployeeController implements EmployeeDAO {
 
     public void sortTable(SortType sorted) {
 
-        if (sorted == SortType.sortById) {
+        Statement myStatement;
+        ResultSet myResultSet;
 
-        } else if (sorted == SortType.sortByName) {
+        try {
+            switch (sorted) {
+                case sortById:
+                    myStatement = MySQLConnection().createStatement();
+                    myResultSet = myStatement.executeQuery("select * from employee order by id DESC");
+                    employeeSortList(myResultSet);
+                    MySQLConnection().close();
+                    break;
+                case sortByName:
+                    myStatement = MySQLConnection().createStatement();
+                    myResultSet = myStatement.executeQuery("select * from employee order by name DESC");
+                    employeeSortList(myResultSet);
+                    MySQLConnection().close();
+                    break;
+                case sortByEmail:
+                    myStatement = MySQLConnection().createStatement();
+                    myResultSet = myStatement.executeQuery("select * from employee order by email DESC");
+                    employeeSortList(myResultSet);
+                    MySQLConnection().close();
+                    break;
+                case sortBySalary:
+                    myStatement = MySQLConnection().createStatement();
+                    myResultSet = myStatement.executeQuery("select * from employee order by salary DESC");
+                    employeeSortList(myResultSet);
+                    MySQLConnection().close();
+                    break;
+            }
 
-        } else if (sorted == SortType.sortByEmail) {
-
-        } else if (sorted == SortType.sortBySalary) {
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
+
+    }
+
+    private void employeeSortList(ResultSet myResultSet) throws SQLException {
+        while (myResultSet.next()) {
+            Employee e = new Employee((long) myResultSet.getInt("id"),
+                    myResultSet.getString("name"),
+                    myResultSet.getString("email"),
+                    myResultSet.getString("salary"));
+            employeeSort.add(e);
+               addDataToEmployee(employeeSort);
+        }
     }
 }

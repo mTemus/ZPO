@@ -31,6 +31,16 @@
                           </columns>
                         </TableView>
                         <Button fx:id="button_reset" layoutX="10.0" layoutY="407.0" mnemonicParsing="false" onAction="#resetTable" prefHeight="31.0" prefWidth="109.0" text="Odśwież" />
+                        <Text layoutX="14.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Posortuj:" />
+                        <RadioButton fx:id="sortByEmail" layoutX="359.0" layoutY="453.0" mnemonicParsing="false" text="Po EMAIL">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sortGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="sortById" layoutX="165.0" layoutY="453.0" mnemonicParsing="false" text="Po ID" toggleGroup="$sortGroup" />
+                        <RadioButton fx:id="sortBySalary" layoutX="462.0" layoutY="453.0" mnemonicParsing="false" text="Po WYNAGRODZENIE" toggleGroup="$sortGroup" />
+                        <RadioButton fx:id="sortByName" layoutX="244.0" layoutY="453.0" mnemonicParsing="false" text="Po NAZWA" toggleGroup="$sortGroup" />
+                        <RadioButton fx:id="sortByNull" layoutX="91.0" layoutY="453.0" mnemonicParsing="false" selected="true" text="Brak" toggleGroup="$sortGroup" />
                      </children>
                   </AnchorPane>
             </content>
