@@ -58,6 +58,25 @@ public class EmployeeController implements EmployeeDAO {
     private TextField employee_name_field;
 
     @FXML
+    private TextField employee_delete_field;
+
+    @FXML
+    private TextField employee_info_field_delete;
+
+    @FXML
+    private TextField employee_add_field_id;
+
+    @FXML
+    private TextField employee_add_field_name;
+
+    @FXML
+    private TextField employee_add_field_email;
+
+    @FXML
+    private TextField employee_add_field_salary;
+
+
+    @FXML
     public void findEmpolyeeById(ActionEvent event) {
         String employee_id = employee_id_field.getText();
         Integer empl_id = Integer.parseInt(employee_id);
@@ -80,16 +99,41 @@ public class EmployeeController implements EmployeeDAO {
     }
 
     @FXML
-    public void resetTable (ActionEvent event){
+    public void resetTable(ActionEvent event) {
         employees.clear();
         findAll();
+    }
+
+    @FXML
+    public void deleteEmployee(ActionEvent event) {
+        String employee_id = employee_delete_field.getText();
+        Integer empl_id = Integer.parseInt(employee_id);
+        Employee existingEmployeeToDelete = findExistingEmployeeToDelete(empl_id);
+
+        if (existingEmployeeToDelete != null)
+            delete(existingEmployeeToDelete);
+        else
+            employee_info_field_delete.setText("Nie ma pracownika o podanym ID.");
+
+    }
+
+    @FXML
+    public void findExistingEmployee(ActionEvent event) {
+        String emplIdString = employee_add_field_id.getText();
+
+        int employeeToAddId = Integer.parseInt(emplIdString);
+        String employeeToAddName = employee_add_field_name.getText();
+        String employeeToAddEmail = employee_add_field_email.getText();
+        String employeeToAddSalary = employee_add_field_salary.getText();
+
+
     }
 
     private ObservableList<Employee> employees = FXCollections.observableArrayList();
     private ObservableList<Employee> employeeId = FXCollections.observableArrayList();
     private ObservableList<Employee> employeeName = FXCollections.observableArrayList();
 
-    private void addDataToEmployees(ObservableList<Employee> employeesList) {
+    private void addDataToEmployee(ObservableList<Employee> employeesList) {
         addDataToTable(employeesList, col_id, col_name, col_email, col_salary, tbl_employee);
 
     }
@@ -108,10 +152,10 @@ public class EmployeeController implements EmployeeDAO {
     }
 
     private Connection MySQLConnection() {
-        Connection MySQLConnectionion = null;
+        Connection MySQLConnection = null;
 
         try {
-            MySQLConnectionion = DriverManager.getConnection("jdbc:mysql://localhost:3306/zpo" +
+            MySQLConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/zpo" +
                             "?useUnicode=true" +
                             "&useJDBCCompliantTimezoneShift=true" +
                             "&useLegacyDatetimeCode=false" +
@@ -121,18 +165,18 @@ public class EmployeeController implements EmployeeDAO {
             e.printStackTrace();
         }
 
-        return MySQLConnectionion;
+        return MySQLConnection;
     }
 
     public void initialize() {
-
         findAll();
+
     }
 
-    public Employee doQuery(PreparedStatement prpStm) {
+    public Employee doFindingQuery(PreparedStatement prpStm) {
         Employee tmp_empl = null;
-
         ResultSet emplResultFind;
+
         try {
             emplResultFind = prpStm.executeQuery();
             if (emplResultFind.next()) {
@@ -159,7 +203,7 @@ public class EmployeeController implements EmployeeDAO {
             PreparedStatement prpStm = MySQLConnection().prepareStatement("select * from employee where id = ?");
             prpStm.setLong(1, id_emp);
 
-            find_empl = doQuery(prpStm);
+            find_empl = doFindingQuery(prpStm);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -176,7 +220,7 @@ public class EmployeeController implements EmployeeDAO {
             PreparedStatement prpStm = MySQLConnection().prepareStatement("select * from employee where name LIKE ?");
             prpStm.setString(1, name);
 
-            find_empl = doQuery(prpStm);
+            find_empl = doFindingQuery(prpStm);
 
         } catch (
                 SQLException e) {
@@ -196,7 +240,7 @@ public class EmployeeController implements EmployeeDAO {
                         myResultSet.getString("email"),
                         myResultSet.getString("salary"));
                 employees.add(e);
-                addDataToEmployees(employees);
+                addDataToEmployee(employees);
 
             }
             MySQLConnection().close();
@@ -207,15 +251,84 @@ public class EmployeeController implements EmployeeDAO {
 
     }
 
+
+    public Employee findExistingEmployeeToDelete(Integer employeeID) {
+
+        Employee tmpEmployee;
+
+        PreparedStatement prpStm = null;
+        try {
+            prpStm = MySQLConnection().prepareStatement("select * from employee where id = ?");
+            prpStm.setLong(1, employeeID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        tmpEmployee = doFindingQuery(prpStm);
+
+        if (tmpEmployee != null)
+            return tmpEmployee;
+        else
+            return null;
+
+    }
+
+    public Employee findExistingEmployeeToAddOrUpdate(int id, String name, String email, String salary) {
+
+        Employee employeeToUpdate = null, employeeToAdd = null;
+        boolean update = Boolean.parseBoolean(null);
+
+        PreparedStatement prpStm = null;
+        try {
+            prpStm = MySQLConnection().prepareStatement("select * from employee where id = ?");
+            prpStm.setLong(1, id);
+            ResultSet searchResultSet = prpStm.executeQuery();
+
+            if (searchResultSet.next()) {
+                employeeToUpdate = doFindingQuery(prpStm);
+                update = true;
+            } else {
+                employeeToAdd.setId((long) id);
+                employeeToAdd.setName(name);
+                employeeToAdd.setEmail(email);
+                employeeToAdd.setSalary(salary);
+                update = false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if (update)
+            return employeeToUpdate;
+        else
+            return employeeToAdd;
+    }
+
     public void delete(Employee employee) {
 
+        long emplIdToDelete = employee.getId();
+
+        try {
+
+            String Query = "DELETE FROM employee WHERE id = " + emplIdToDelete;
+
+            Statement Stm = MySQLConnection().createStatement();
+            Stm.executeUpdate(Query);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        findAll();
+
     }
 
-    public void save(Employee employee) {
+    public void save(Employee employee, boolean update) {
 
     }
 
-    public void  sortTable() {
+    public void sortTable() {
 
     }
 }

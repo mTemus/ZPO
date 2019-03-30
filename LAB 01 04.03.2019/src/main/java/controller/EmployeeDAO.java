@@ -18,7 +18,7 @@ public interface EmployeeDAO {
     void delete(Employee employee);
 
     /** * Dodaje, jeśli brak, lub aktualizuje pracownika */
-    void save(Employee employee);
+    void save(Employee employee, boolean update);
 
 
 

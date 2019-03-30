@@ -16,11 +16,11 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane layoutX="10.0" layoutY="32.0" prefHeight="500.0" prefWidth="780.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="10.0" layoutY="32.0" prefHeight="538.0" prefWidth="780.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Baza danych">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="780.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="547.0" prefWidth="780.0">
                      <children>
                         <TableView fx:id="tbl_employee" layoutX="10.0" layoutY="14.0" prefHeight="380.0" prefWidth="760.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                           <columns>
@@ -64,16 +64,18 @@
                         <TextField fx:id="employee_delete_field" layoutX="14.0" layoutY="91.0" prefHeight="31.0" prefWidth="205.0" promptText="Podaj id." />
                         <TextField fx:id="employee_info_field_delete" editable="false" layoutX="10.0" layoutY="47.0" prefHeight="31.0" prefWidth="760.0" text="Aby usunąć pracownika, wpisz jego id, następnie wciśnij przycisk &quot;usuń&quot;." />
                         <Button fx:id="employee_button_delete" layoutX="248.0" layoutY="91.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="26.0" prefWidth="150.0" text="Usuń" />
-                        <TextField fx:id="employee_info_field_delUpd" editable="false" layoutX="10.0" layoutY="416.0" prefHeight="31.0" prefWidth="760.0" text="Wynik operacji możesz sprawdzić po wciśnięciu przycisku &quot;odśwież&quot; w zakładce &quot;baza danych&quot;." />
+                        <TextField fx:id="employee_info_field_delUpd" editable="false" layoutX="10.0" layoutY="454.0" prefHeight="31.0" prefWidth="760.0" text="Wynik operacji możesz sprawdzić w zakładce &quot;baza danych&quot;." />
                         <TextArea layoutX="10.0" layoutY="172.0" prefHeight="59.0" prefWidth="760.0" text="Aby dodać pracownika, uzupełnij poniższe pola, a następnie wciśnij przycisk &quot;dodaj&quot;. &#10;Jeżeli pracownik istnieje, to zostanie zaktualizowany." />
-                        <TextField fx:id="employee_delete_field1" layoutX="156.0" layoutY="252.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz nazwę." />
-                        <TextField fx:id="employee_delete_field2" layoutX="156.0" layoutY="297.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz adres e-mail." />
-                        <TextField fx:id="employee_delete_field3" layoutX="156.0" layoutY="340.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz wynagrodzenie." />
-                        <Text layoutX="29.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa:" />
-                        <Text layoutX="29.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail:" />
+                        <TextField fx:id="employee_add_field_name" layoutX="155.0" layoutY="301.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz nazwę." />
+                        <TextField fx:id="employee_add_field_email" layoutX="155.0" layoutY="344.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz adres e-mail." />
+                        <TextField fx:id="employee_add_field_salary" layoutX="155.0" layoutY="387.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz wynagrodzenie." />
+                        <Text layoutX="28.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa:" />
+                        <Text layoutX="29.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail:" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                        <Text layoutX="29.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wynagrodzenie:" />
-                        <Button fx:id="employee_button_add" layoutX="390.0" layoutY="340.0" mnemonicParsing="false" onAction="#findExistingEmployee" prefHeight="26.0" prefWidth="150.0" text="Dodaj" />
+                        <Text layoutX="29.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wynagrodzenie:" />
+                        <Button fx:id="employee_button_add" layoutX="390.0" layoutY="388.0" mnemonicParsing="false" onAction="#findExistingEmployee" prefHeight="26.0" prefWidth="150.0" text="Dodaj" />
+                        <TextField fx:id="employee_add_field_id" layoutX="155.0" layoutY="256.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz nazwę." />
+                        <Text layoutX="28.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id:" />
                      </children>
                   </AnchorPane>
               </content>
