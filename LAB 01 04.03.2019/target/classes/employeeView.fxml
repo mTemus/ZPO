@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeController">
+   <children>
+      <MenuBar layoutX="-28.0" layoutY="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Opcje">
+            <items>
+              <MenuItem fx:id="mi_exit" mnemonicParsing="false" onAction="#exitAction" text="Zamknij" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutX="10.0" layoutY="32.0" prefHeight="538.0" prefWidth="780.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Baza danych">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="547.0" prefWidth="780.0">
+                     <children>
+                        <TableView fx:id="tbl_employee" layoutX="10.0" layoutY="14.0" prefHeight="380.0" prefWidth="760.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                          <columns>
+                            <TableColumn fx:id="col_id" prefWidth="190.0" text="ID" />
+                            <TableColumn fx:id="col_name" prefWidth="190.0" text="NAZWA" />
+                              <TableColumn fx:id="col_email" prefWidth="190.0" text="EMAIL" />
+                              <TableColumn fx:id="col_salary" prefWidth="190.0" text="WYNAGRODZENIE" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="button_reset" layoutX="10.0" layoutY="407.0" mnemonicParsing="false" onAction="#resetTable" prefHeight="31.0" prefWidth="109.0" text="Odśwież" />
+                        <Text layoutX="14.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Posortuj:" />
+                        <RadioButton fx:id="sortByEmail" layoutX="359.0" layoutY="453.0" mnemonicParsing="false" text="Po EMAIL">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sortGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="sortById" layoutX="165.0" layoutY="453.0" mnemonicParsing="false" text="Po ID" toggleGroup="$sortGroup" />
+                        <RadioButton fx:id="sortBySalary" layoutX="462.0" layoutY="453.0" mnemonicParsing="false" text="Po WYNAGRODZENIE" toggleGroup="$sortGroup" />
+                        <RadioButton fx:id="sortByName" layoutX="244.0" layoutY="453.0" mnemonicParsing="false" text="Po NAZWA" toggleGroup="$sortGroup" />
+                        <RadioButton fx:id="sortByNull" layoutX="91.0" layoutY="453.0" mnemonicParsing="false" selected="true" text="Brak" toggleGroup="$sortGroup" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Wyszukaj pracownika">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="580.0">
+                     <children>
+                        <TableView fx:id="tbl_find_employee" layoutX="10.0" layoutY="14.0" prefHeight="139.0" prefWidth="760.0">
+                          <columns>
+                            <TableColumn fx:id="col_id_find" prefWidth="190.0" text="ID" />
+                            <TableColumn fx:id="col_name_find" prefWidth="190.0" text="NAZWA" />
+                              <TableColumn fx:id="col_email_find" prefWidth="190.0" text="EMAIL" />
+                              <TableColumn fx:id="col_salary_find" prefWidth="190.0" text="WYNAGRODZENIE" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="employee_button_id" layoutX="240.0" layoutY="215.0" mnemonicParsing="false" onAction="#findEmpolyeeById" prefHeight="26.0" prefWidth="150.0" text="Szukaj" />
+                        <TextField fx:id="employee_info_field_id" editable="false" layoutX="10.0" layoutY="169.0" prefHeight="31.0" prefWidth="760.0" text="Aby wyszukać pracownika po id, wpisz jego id w poniższym polu, a nastepnie wciśnij przycisk &quot;szukaj&quot;." />
+                        <TextField fx:id="employee_id_field" layoutX="10.0" layoutY="215.0" prefHeight="31.0" prefWidth="205.0" promptText="Podaj id." />
+                        <TextField fx:id="employee_info_field1_name" editable="false" layoutX="10.0" layoutY="267.0" prefHeight="31.0" prefWidth="760.0" text="Aby wyszukać pracownika po nazwie, wpisz jego nazwę w poniższym polu, a nastepnie wciśnij przycisk &quot;szukaj&quot;." />
+                        <TextField fx:id="employee_name_field" layoutX="10.0" layoutY="314.0" prefHeight="31.0" prefWidth="205.0" promptText="Podaj nazwę." />
+                        <Button fx:id="employee_button_name" layoutX="240.0" layoutY="314.0" mnemonicParsing="false" onAction="#findEmpolyeeByName" prefHeight="26.0" prefWidth="150.0" text="Szukaj" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Edycja Tabeli">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="employee_delete_field" layoutX="14.0" layoutY="91.0" prefHeight="31.0" prefWidth="205.0" promptText="Podaj id." />
+                        <TextField fx:id="employee_info_field_delete" editable="false" layoutX="10.0" layoutY="47.0" prefHeight="31.0" prefWidth="760.0" text="Aby usunąć pracownika, wpisz jego id, następnie wciśnij przycisk &quot;usuń&quot;." />
+                        <Button fx:id="employee_button_delete" layoutX="248.0" layoutY="91.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="26.0" prefWidth="150.0" text="Usuń" />
+                        <TextField fx:id="employee_info_field_delUpd" editable="false" layoutX="10.0" layoutY="454.0" prefHeight="31.0" prefWidth="760.0" text="Wynik operacji możesz sprawdzić w zakładce &quot;baza danych&quot;." />
+                        <TextArea layoutX="10.0" layoutY="172.0" prefHeight="59.0" prefWidth="760.0" text="Aby dodać pracownika, uzupełnij poniższe pola, a następnie wciśnij przycisk &quot;dodaj&quot;. &#10;Jeżeli pracownik istnieje, to zostanie zaktualizowany." />
+                        <TextField fx:id="employee_add_field_name" layoutX="155.0" layoutY="301.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz nazwę." />
+                        <TextField fx:id="employee_add_field_email" layoutX="155.0" layoutY="344.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz adres e-mail." />
+                        <TextField fx:id="employee_add_field_salary" layoutX="155.0" layoutY="387.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz wynagrodzenie." />
+                        <Text layoutX="28.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa:" />
+                        <Text layoutX="29.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail:" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text layoutX="29.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wynagrodzenie:" />
+                        <Button fx:id="employee_button_add" layoutX="390.0" layoutY="388.0" mnemonicParsing="false" onAction="#findExistingEmployee" prefHeight="26.0" prefWidth="150.0" text="Dodaj" />
+                        <TextField fx:id="employee_add_field_id" layoutX="155.0" layoutY="256.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz nazwę." />
+                        <Text layoutX="28.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id:" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
