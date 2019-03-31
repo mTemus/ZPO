@@ -294,7 +294,6 @@ public class EmployeeController implements EmployeeDAO {
 
     }
 
-
     public Employee findExistingEmployeeToDelete(Integer employeeID) {
 
         Employee tmpEmployee;
@@ -336,7 +335,6 @@ public class EmployeeController implements EmployeeDAO {
         }
     }
 
-
     public void delete(Employee employee) {
 
         try {
@@ -360,11 +358,6 @@ public class EmployeeController implements EmployeeDAO {
         try {
             if (updateEmployee) {
 
-                System.out.println(employee.getId());
-                System.out.println(employee.getName());
-                System.out.println(employee.getEmail());
-                System.out.println(employee.getSalary());
-
                 String Query = "UPDATE employee " +
                         "SET " +
                         "name = '" + employee.getName() + "', " +
@@ -380,11 +373,6 @@ public class EmployeeController implements EmployeeDAO {
 
             } else {
 
-                System.out.println(employee.getId());
-                System.out.println(employee.getName());
-                System.out.println(employee.getEmail());
-                System.out.println(employee.getSalary());
-
                 String Query = "INSERT INTO employee " +
                         "(id, " +
                         "name, " +
@@ -395,8 +383,6 @@ public class EmployeeController implements EmployeeDAO {
                         "'" + employee.getName() + "', " +
                         "'" + employee.getEmail() + "', " +
                         employee.getSalary() + ");";
-
-                System.out.println(Query);
 
                 Statement Stm = MySQLConnection().createStatement();
                 Stm.executeUpdate(Query);
