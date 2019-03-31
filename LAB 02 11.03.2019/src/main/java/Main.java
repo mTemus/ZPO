@@ -13,13 +13,13 @@ public class Main {
         boolean x = true;
 
         while (x) {
-            System.out.println("1.Najtańsza ostra");
-            System.out.println("2.Najdroższa wegetariańska");
-            System.out.println("3.Pizze mięsne");
-            System.out.println("4.Grupowanie Pizzy po cenie");
-            System.out.println("5.Menu");
-            System.out.println("6.Wyjscie");
-            System.out.println("Podaj operację");
+            System.out.println("1.Najtańsza ostra pizza.");
+            System.out.println("2.Najdroższa wegetariańska pizza.");
+            System.out.println("3.Pizze mięsne.");
+            System.out.println("4.Grupowanie Pizzy po cenie.");
+            System.out.println("5.Menu.");
+            System.out.println("6.Wyjście.");
+            System.out.println("Podaj operację:");
 
             int input = scan.nextInt();
 
@@ -44,16 +44,15 @@ public class Main {
                     break;
 
             }
+            System.out.println("--------------------");
         }
 
     }
 
     public static Pizza findCheapestSpicy() {
         Pizza p = Arrays.stream(Pizza.values())
-                .filter(pizza -> pizza.getIngredients().stream().anyMatch(i -> i.isSpicy()))
-                .sorted((Pizza p1, Pizza p2) -> p1.getIngredients().stream().mapToInt(Ingredients::getPrice).sum() -
+                .filter(pizza -> pizza.getIngredients().stream().anyMatch(i -> i.isSpicy())).min((Pizza p1, Pizza p2) -> p1.getIngredients().stream().mapToInt(Ingredients::getPrice).sum() -
                         p2.getIngredients().stream().mapToInt(Ingredients::getPrice).sum())
-                .findFirst()
                 .orElse(null);
         System.out.println(p);
         return p;
@@ -90,7 +89,7 @@ public class Main {
 
     public static void formatedMenu() {
         Arrays.stream(Pizza.values())
-                .forEach(pizza -> System.out.println(pizza.getName() + " : " + pizza.getIngredients().toString() + " : " + pizza.getIngredients().stream().mapToInt(Ingredients::getPrice).sum()));
+                .forEach(pizza -> System.out.println(pizza.getName() + ": " + pizza.getIngredients().toString() + " - " + pizza.getIngredients().stream().mapToInt(Ingredients::getPrice).sum() + "zl."));
 
     }
 
