@@ -84,7 +84,7 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                         <Text layoutX="29.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wynagrodzenie:" />
                         <Button fx:id="employee_button_add" layoutX="390.0" layoutY="388.0" mnemonicParsing="false" onAction="#findExistingEmployee" prefHeight="26.0" prefWidth="150.0" text="Dodaj" />
-                        <TextField fx:id="employee_add_field_id" layoutX="155.0" layoutY="256.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz nazwę." />
+                        <TextField fx:id="employee_add_field_id" layoutX="155.0" layoutY="256.0" prefHeight="31.0" prefWidth="205.0" promptText="Wpisz id." />
                         <Text layoutX="28.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id:" />
                      </children>
                   </AnchorPane>

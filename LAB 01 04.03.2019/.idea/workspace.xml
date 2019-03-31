@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab1eded-3621-46ea-b971-20660d60f8fb" name="Default Changelist" comment="v0.8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 02 11.03.2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 02 11.03.2019/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 02 11.03.2019/lab2/lab2.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 02 11.03.2019/lab2/pom.xml" beforeDir="false" />
@@ -62,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/EmployeeDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="323">
+              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -80,10 +79,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/EmployeeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="311" column="32" lean-forward="true" selection-start-line="311" selection-start-column="32" selection-end-line="311" selection-end-column="32" />
+            <state relative-caret-position="352">
+              <caret line="110" column="20" lean-forward="true" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5783#6357#0" />
+                <element signature="e#6363#6415#0" />
+                <element signature="e#6421#7153#0" />
+                <element signature="e#7159#7593#0" />
+                <element signature="e#8061#8765#0" />
+                <element signature="e#8772#9300#0" />
+                <element signature="e#9314#9586#0" />
+                <element signature="e#9592#9891#0" />
+                <element signature="e#9898#10272#0" />
               </folding>
             </state>
           </provider>
@@ -319,7 +327,7 @@
       <workItem from="1553932937723" duration="15107000" />
       <workItem from="1553959040734" duration="139000" />
       <workItem from="1553966017648" duration="4477000" />
-      <workItem from="1554013038165" duration="1696000" />
+      <workItem from="1554013038165" duration="6633000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.2">
       <created>1553786367194</created>
@@ -398,11 +406,25 @@
       <option name="project" value="LOCAL" />
       <updated>1553966578440</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="v1.1.1">
+      <created>1554021360208</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1554021360209</updated>
+    </task>
+    <task id="LOCAL-00013" summary="v1.1.2">
+      <created>1554022691994</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1554022691994</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48700000" />
+    <option name="totallyTimeSpent" value="53637000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="0" width="781" height="830" extended-state="0" />
@@ -422,10 +444,10 @@
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.21671388" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.21633238" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32808024" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="right" id="Theme Preview" order="0" />
@@ -485,7 +507,9 @@
     <MESSAGE value="v0.6.3" />
     <MESSAGE value="v0.8" />
     <MESSAGE value="v1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.1" />
+    <MESSAGE value="v1.1.1" />
+    <MESSAGE value="v1.1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.1.2" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://D:/Programy/JDK 1.8/javafx-src.zip!/javafx/application/Application.java">
@@ -556,17 +580,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/EmployeeDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="323">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/EmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="311" column="32" lean-forward="true" selection-start-line="311" selection-start-column="32" selection-end-line="311" selection-end-column="32" />
+        <state relative-caret-position="352">
+          <caret line="110" column="20" lean-forward="true" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5783#6357#0" />
+            <element signature="e#6363#6415#0" />
+            <element signature="e#6421#7153#0" />
+            <element signature="e#7159#7593#0" />
+            <element signature="e#8061#8765#0" />
+            <element signature="e#8772#9300#0" />
+            <element signature="e#9314#9586#0" />
+            <element signature="e#9592#9891#0" />
+            <element signature="e#9898#10272#0" />
           </folding>
         </state>
       </provider>
