@@ -161,7 +161,7 @@ public class EmployeeController implements EmployeeDAO {
         String employeeToAddEmail = employee_add_field_email.getText();
         String employeeToAddSalary = employee_add_field_salary.getText();
 
-        save(findExistingEmployeeToAddOrupdateEmployee(employeeToAddId, employeeToAddName, employeeToAddEmail, employeeToAddSalary), updateEmployee);
+        save(findExistingEmployeeToAddOrUpdate(employeeToAddId, employeeToAddName, employeeToAddEmail, employeeToAddSalary), updateEmployee);
 
     }
 
@@ -316,7 +316,7 @@ public class EmployeeController implements EmployeeDAO {
 
     }
 
-    public Employee findExistingEmployeeToAddOrupdateEmployee(long id, String name, String email, String salary) {
+    public Employee findExistingEmployeeToAddOrUpdate(long id, String name, String email, String salary) {
 
         Employee employeeToFind = new Employee(id, name, email, salary);
 
