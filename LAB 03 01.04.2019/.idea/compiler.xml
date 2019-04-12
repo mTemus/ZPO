@@ -20,7 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="LAB 03 01.04.2019" target="1.5" />
+      <module name="LAB 03 01.04.2019" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

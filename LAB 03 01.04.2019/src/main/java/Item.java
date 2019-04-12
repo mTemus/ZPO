@@ -1,5 +1,3 @@
-package main.java;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Item {
