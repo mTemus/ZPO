@@ -1,71 +1,73 @@
 import java.util.List;
 import java.util.Scanner;
-import java.util.Timer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
 public class Main {
 
-    static double now = 0;
-    static double previous = 0;
-    static double timeTimer = 0;
+    private static double now = 0;
 
-    static List<Item> items = produce100_Items();
-    static Timer singleThreadsTimer = new Timer();
+    private static List<Item> items = produce100_Items();
 
     public static void main(String[] args) {
         int choice;
-        boolean loop = true;
         Scanner scan = new Scanner(System.in);
 
+        System.out.println("1. Single threads application. ");
+        System.out.println("2. Thread pool application. ");
+        System.out.println("Chose your option.");
+        choice = scan.nextInt();
 
-        while (loop) {
+        switch (choice) {
+            case 1:
+                startSingleThreads();
+                break;
+            case 2:
+//                    ExecutorService threadsManager = Executors.newFixedThreadPool(2);
+//
+//                    for (int i = 0; i < 100; i++) {
+//                        int finalI = i;
+//                        threadsManager.submit(() -> runThreads(finalI));
+//                    }
 
-            System.out.println("1. Single threads application. ");
-            System.out.println("2. Thread pool application. ");
-            System.out.println("3. Exit.");
-            System.out.println("Chose your option.");
-            choice = scan.nextInt();
+                break;
+            default:
 
-            switch (choice) {
-                case 1:
-                    startSingleThreads();
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    loop = false;
-                    break;
-                default:
-                    break;
-            }
+                break;
         }
 
 
-//        ExecutorService executor = Executors.newFixedThreadPool(0);
-
-
     }
 
-    static List<Item> produce100_Items() {
-        List<Item> list = Stream
-                .generate(() -> new Item())
+    public static void runThreads(int id) {
+        System.out.println("Thread ID: " + id);
+        items.parallelStream()
+                .parallel()
+                .filter(Item::isNotProduced)
+                .forEach(Item::consumeMe);
+    }
+
+    private static List<Item> produce100_Items() {
+        return Stream
+                .generate(Item::new)
                 .limit(100)
                 .collect(Collectors.toList());
-        return list;
     }
 
-    public static void singleThreadProduce(int singleThreadID) {
+    private static void singleThreadProduce(int singleThreadID) {
         for (int i = singleThreadID; i < items.size(); i += 4)
             items.get(i).produceMe();
     }
 
-    public static void singleThreadConsume(int singleThreadID) {
+    private static void singleThreadConsume(int singleThreadID) {
         for (int i = singleThreadID; i < items.size(); i += 3)
             items.get(i).consumeMe();
     }
 
-    public static void startSingleThreads() {
+    private static void startSingleThreads() {
         Thread producer1 = new Thread(() -> singleThreadProduce(0));
         Thread producer2 = new Thread(() -> singleThreadProduce(1));
         Thread producer3 = new Thread(() -> singleThreadProduce(2));
@@ -83,23 +85,20 @@ public class Main {
         consumer1.start();
         consumer2.start();
         consumer3.start();
-        previous = System.nanoTime();
+        double previous = System.nanoTime();
 
         while (threadsAreAlive(producer1, producer2, producer3, producer4, consumer1, consumer2, consumer3)) {
             now = System.nanoTime();
         }
-        timeTimer = now - previous;
+        double timeTimer = now - previous;
         timeTimer /= 1000000000;
 
         System.out.println("Threads took time: " + timeTimer + "s.");
     }
 
-    public static boolean threadsAreAlive(Thread p1, Thread p2, Thread p3, Thread p4, Thread c1, Thread c2, Thread c3) {
+    private static boolean threadsAreAlive(Thread p1, Thread p2, Thread p3, Thread p4, Thread c1, Thread c2, Thread c3) {
 
-        if (p1.isAlive() || p2.isAlive() || p3.isAlive() || p4.isAlive() || c1.isAlive() || c2.isAlive() || c3.isAlive())
-            return true;
-        else
-            return false;
+        return p1.isAlive() || p2.isAlive() || p3.isAlive() || p4.isAlive() || c1.isAlive() || c2.isAlive() || c3.isAlive();
     }
 
 }

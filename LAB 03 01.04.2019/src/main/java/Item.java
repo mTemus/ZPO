@@ -45,4 +45,18 @@ public class Item {
         }
     }
 
+    public boolean isNotProduced() {
+        if (!produced)
+            return false;
+        else
+            return produced;
+    }
+
+    public boolean isNotConsumed() {
+        if (!consumed)
+            return false;
+        else
+            return consumed;
+    }
+
 }
