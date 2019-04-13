@@ -31,7 +31,6 @@ public class Main {
             switch (choice) {
                 case 1:
                     startSingleThreads();
-
                     break;
                 case 2:
                     break;
@@ -49,7 +48,6 @@ public class Main {
 
     }
 
-
     static List<Item> produce100_Items() {
         List<Item> list = Stream
                 .generate(() -> new Item())
@@ -59,37 +57,16 @@ public class Main {
     }
 
     public static void singleThreadProduce(int singleThreadID, int startFrom) {
-
-//        int produced = 0;
-
-
-        for (int i = startFrom; i < items.size(); i += 4) {
-//            System.out.println("Thread ID " + singleThreadID + " is:");
+        for (int i = startFrom; i < items.size(); i += 4)
             items.get(i).produceMe();
-//            produced++;
-        }
-
-//        System.out.println("Thread ID: " + singleThreadID + " have produced: " + produced + " items.");
-
     }
 
     public static void singleThreadConsume(int singleThreadID, int startFrom) {
-
-//        int consumed = 0;
-
-        for (int i = startFrom; i < items.size(); i += 3) {
-//            System.out.println("Thread ID " + singleThreadID + " is:");
+        for (int i = startFrom; i < items.size(); i += 3)
             items.get(i).consumeMe();
-//            consumed++;
-        }
-
-//        System.out.println("Thread ID: " + singleThreadID + " have consumed: " + consumed + " items.");
-
-
     }
 
     public static void startSingleThreads() {
-
         Thread producer1 = new Thread(() -> singleThreadProduce(0, 0));
         Thread producer2 = new Thread(() -> singleThreadProduce(1, 1));
         Thread producer3 = new Thread(() -> singleThreadProduce(2, 2));
@@ -109,8 +86,13 @@ public class Main {
         consumer3.start();
         previous = System.nanoTime();
 
-        if (!threadsAreAlive(producer1, producer2, producer3, producer4, consumer1, consumer2, consumer3))
-            calculateSingleThreadsTime();
+        while (threadsAreAlive(producer1, producer2, producer3, producer4, consumer1, consumer2, consumer3)) {
+            now = System.nanoTime();
+        }
+        timeTimer = now - previous;
+        timeTimer /= 1000000000;
+
+        System.out.println("Threads took time: " + timeTimer + "s.");
     }
 
     public static boolean threadsAreAlive(Thread p1, Thread p2, Thread p3, Thread p4, Thread c1, Thread c2, Thread c3) {
@@ -119,16 +101,6 @@ public class Main {
             return true;
         else
             return false;
-    }
-
-    public static void calculateSingleThreadsTime() {
-        now = System.nanoTime();
-        timeTimer /= 1000000000;
-
-        System.out.println("Threads time (seconds) : " + timeTimer);
-        timeTimer /= 60;
-
-        System.out.println("Threads time (minutes) : " + timeTimer);
     }
 
 }
