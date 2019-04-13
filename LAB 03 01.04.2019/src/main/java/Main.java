@@ -1,5 +1,7 @@
 import java.util.List;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
@@ -9,8 +11,10 @@ import java.util.stream.Stream;
 public class Main {
 
     static List<Item> items = produce100_Items();
+    static int timerSeconds = 0;
 
     public static void main(String[] args) {
+
 
         int choice;
         boolean loop = true;
@@ -78,6 +82,7 @@ public class Main {
             System.out.println("Thread ID " + singleThreadID + " is:");
             items.get(i).produceMe();
             produced++;
+            timerSeconds++;
         }
 
         System.out.println("Thread ID: " + singleThreadID + " have produced: " + produced + " items.");
