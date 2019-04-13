@@ -14,25 +14,35 @@ public class Main {
 
         int choice;
         boolean loop = true;
-
         Scanner scan = new Scanner(System.in);
-        choice = scan.nextInt();
 
+        while (loop) {
 
-        while(loop){
+            System.out.println("1. Single threads application. ");
+            System.out.println("2. Thread pool application. ");
+            System.out.println("3. Exit.");
+            System.out.println("Take your option.");
+            choice = scan.nextInt();
 
-            System.out.println("1. Single ");
-
-            switch (choice){
+            switch (choice) {
                 case 1:
-                    Thread t1 = new Thread(() -> singleThreadProduce(0, 0));
-                    Thread t2 = new Thread(() -> singleThreadProduce(1, 1));
-                    Thread t3 = new Thread(() -> singleThreadProduce(2, 2));
-                    Thread t4 = new Thread(() -> singleThreadProduce(3, 3));
-                    t1.start();
-                    t2.start();
-                    t3.start();
-                    t4.start();
+                    Thread producer1 = new Thread(() -> singleThreadProduce(0, 0));
+                    Thread producer2 = new Thread(() -> singleThreadProduce(1, 1));
+                    Thread producer3 = new Thread(() -> singleThreadProduce(2, 2));
+                    Thread producer4 = new Thread(() -> singleThreadProduce(3, 3));
+
+                    Thread consumer1 = new Thread(() -> singleThreadConsume(0, 0));
+                    Thread consumer2 = new Thread(() -> singleThreadConsume(1, 1));
+                    Thread consumer3 = new Thread(() -> singleThreadConsume(2, 2));
+                    producer1.start();
+                    producer2.start();
+                    producer3.start();
+                    producer4.start();
+
+                    consumer1.start();
+                    consumer2.start();
+                    consumer3.start();
+
                     break;
                 case 2:
                     break;
@@ -46,8 +56,6 @@ public class Main {
 
 
 //        ExecutorService executor = Executors.newFixedThreadPool(0);
-
-
 
 
     }
@@ -76,7 +84,17 @@ public class Main {
 
     }
 
-    public void singleThreadConsume() {
+    public static void singleThreadConsume(int singleThreadID, int startFrom) {
+
+        int consumed = 0;
+
+        for (int i = startFrom; i < items.size(); i += 3) {
+            System.out.println("Thread ID " + singleThreadID + " is:");
+            items.get(i).consumeMe();
+            consumed++;
+        }
+
+        System.out.println("Thread ID: " + singleThreadID + " have consumed: " + consumed + " items.");
 
 
     }
