@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
@@ -26,28 +27,39 @@ public class Main {
                 startSingleThreads();
                 break;
             case 2:
-//                    ExecutorService threadsManager = Executors.newFixedThreadPool(2);
+//                ExecutorService threadsManager = Executors.newFixedThreadPool(2);
 //
-//                    for (int i = 0; i < 100; i++) {
-//                        int finalI = i;
-//                        threadsManager.submit(() -> runThreads(finalI));
-//                    }
+//                double previous = System.nanoTime();
+//                for (int i = 0; i < 10; i++) {
+//                    int finalI = i;
+//                    threadsManager.execute(new Thread(() -> runThreads(finalI)));
+//                }
+//
+//
+//                threadsManager.shutdown();
+//                if (threadsManager.isShutdown()) {
+//                    now = System.nanoTime();
+//                    double timerTime = (now - previous) / 1000000000;
+//                    System.out.println("Time: " + timerTime + " s.");
+//                }
+
 
                 break;
             default:
                 System.out.println("Switch error");
                 break;
         }
-
-
     }
 
-    public static void runThreads(int id) {
-        System.out.println("Thread ID: " + id);
+    private static void runThreads(int id) {
+        System.out.println("Thread ID: " + Thread.currentThread().getName() + " started.");
+
         items.parallelStream()
-                .parallel()
                 .filter(Item::isNotProduced)
-                .forEach(Item::consumeMe);
+                .forEach(Item::produceMe);
+
+
+        System.out.println("Thread ID: " + Thread.currentThread().getName() + " stopped.");
     }
 
     private static List<Item> produce100_Items() {
@@ -90,8 +102,7 @@ public class Main {
         while (threadsAreAlive(producer1, producer2, producer3, producer4, consumer1, consumer2, consumer3)) {
             now = System.nanoTime();
         }
-        double timeTimer = now - previous;
-        timeTimer /= 1000000000;
+        double timeTimer = (now - previous) / 1000000000;
 
         System.out.println("Threads took time: " + timeTimer + "s.");
     }

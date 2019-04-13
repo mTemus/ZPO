@@ -2,6 +2,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Item {
     private static final AtomicInteger COUNTER = new AtomicInteger();
+
+
     private final String name;
 
     private volatile boolean produced = false;
@@ -47,16 +49,20 @@ public class Item {
 
     public boolean isNotProduced() {
         if (!produced)
-            return false;
+            return true;
         else
             return produced;
     }
 
     public boolean isNotConsumed() {
         if (!consumed)
-            return false;
+            return true;
         else
             return consumed;
+    }
+
+    public String getName() {
+        return name;
     }
 
 }
