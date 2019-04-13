@@ -1,7 +1,6 @@
 import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
-import java.util.TimerTask;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -56,25 +55,25 @@ public class Main {
         return list;
     }
 
-    public static void singleThreadProduce(int singleThreadID, int startFrom) {
-        for (int i = startFrom; i < items.size(); i += 4)
+    public static void singleThreadProduce(int singleThreadID) {
+        for (int i = singleThreadID; i < items.size(); i += 4)
             items.get(i).produceMe();
     }
 
-    public static void singleThreadConsume(int singleThreadID, int startFrom) {
-        for (int i = startFrom; i < items.size(); i += 3)
+    public static void singleThreadConsume(int singleThreadID) {
+        for (int i = singleThreadID; i < items.size(); i += 3)
             items.get(i).consumeMe();
     }
 
     public static void startSingleThreads() {
-        Thread producer1 = new Thread(() -> singleThreadProduce(0, 0));
-        Thread producer2 = new Thread(() -> singleThreadProduce(1, 1));
-        Thread producer3 = new Thread(() -> singleThreadProduce(2, 2));
-        Thread producer4 = new Thread(() -> singleThreadProduce(3, 3));
+        Thread producer1 = new Thread(() -> singleThreadProduce(0));
+        Thread producer2 = new Thread(() -> singleThreadProduce(1));
+        Thread producer3 = new Thread(() -> singleThreadProduce(2));
+        Thread producer4 = new Thread(() -> singleThreadProduce(3));
 
-        Thread consumer1 = new Thread(() -> singleThreadConsume(0, 0));
-        Thread consumer2 = new Thread(() -> singleThreadConsume(1, 1));
-        Thread consumer3 = new Thread(() -> singleThreadConsume(2, 2));
+        Thread consumer1 = new Thread(() -> singleThreadConsume(0));
+        Thread consumer2 = new Thread(() -> singleThreadConsume(1));
+        Thread consumer3 = new Thread(() -> singleThreadConsume(2));
 
         producer1.start();
         producer2.start();
