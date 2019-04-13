@@ -3,6 +3,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Item {
     private static final AtomicInteger COUNTER = new AtomicInteger();
     private final String name;
+
     private volatile boolean produced = false;
     private volatile boolean consumed = false;
 
@@ -43,4 +44,5 @@ public class Item {
             ex.printStackTrace();
         }
     }
+
 }
