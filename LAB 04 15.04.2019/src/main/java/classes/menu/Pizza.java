@@ -11,6 +11,7 @@ public class Pizza {
 
     private Crust crust = null;
     private Size size = null;
+    private Creator creator = null;
 
     public enum Ingredients {
         TOMATO_SAUCE,
@@ -45,6 +46,10 @@ public class Pizza {
 
     public enum Size {
         SMALL, NORMAL, BIG, FAMILY
+    }
+
+    public enum Creator {
+        OWN, MENU
     }
 
     public void makeSmall() {
@@ -88,6 +93,7 @@ public class Pizza {
     }
 
     public void makeCapri() {
+        setCreator(Creator.MENU);
         setFirstIngredient(Ingredients.HAM);
         setSecondIngredient(Ingredients.TOMATO_SAUCE);
         setThirdIngredient(Ingredients.MUSHROOMS);
@@ -97,6 +103,7 @@ public class Pizza {
     }
 
     public void makeVegan() {
+        setCreator(Creator.MENU);
         setFirstIngredient(Ingredients.ONION);
         setSecondIngredient(Ingredients.TOMATO_SAUCE);
         setThirdIngredient(Ingredients.BEAN);
@@ -106,6 +113,7 @@ public class Pizza {
     }
 
     public void makeFourCheese() {
+        setCreator(Creator.MENU);
         setFirstIngredient(Ingredients.CHEESE);
         setSecondIngredient(Ingredients.FETA);
         setThirdIngredient(Ingredients.TOMATO_SAUCE);
@@ -115,6 +123,7 @@ public class Pizza {
     }
 
     public void makeHavai() {
+        setCreator(Creator.MENU);
         setFirstIngredient(Ingredients.CHEESE);
         setSecondIngredient(Ingredients.HAM);
         setThirdIngredient(Ingredients.TOMATO_SAUCE);
@@ -123,7 +132,8 @@ public class Pizza {
         name += "havai pizza";
     }
 
-    public void addSauce() {
+    private void addSauce() {
+        setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.TOMATO_SAUCE);
             name += "tomato sauce ";
@@ -142,7 +152,8 @@ public class Pizza {
         }
     }
 
-    public void addHam() {
+    private void addHam() {
+        setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.HAM);
             name += "ham ";
@@ -161,7 +172,8 @@ public class Pizza {
         }
     }
 
-    public void addCheese() {
+    private void addCheese() {
+        setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.CHEESE);
             name += "cheese ";
@@ -180,7 +192,8 @@ public class Pizza {
         }
     }
 
-    public void addBroccoli() {
+    private void addBroccoli() {
+        setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.BROCCOLI);
             name += "broccoli ";
@@ -199,7 +212,8 @@ public class Pizza {
         }
     }
 
-    public void addPineapple() {
+    private void addPineapple() {
+        setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.PINEAPPLE);
             name += "pineapple ";
@@ -218,7 +232,8 @@ public class Pizza {
         }
     }
 
-    public void addChicken() {
+    private void addChicken() {
+        setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.CHICKEN);
             name += "chicken ";
@@ -237,12 +252,23 @@ public class Pizza {
         }
     }
 
-    public boolean isPizzaReady() {
-        return getFifthIngredient() != null &&
+    private boolean isPizzaReady() {
+        return getCrust() != null &&
+                getSize() != null;
+    }
+
+    private boolean areIngredientsReady() {
+        return getFirstIngredient() != null &&
                 getSecondIngredient() != null &&
-                getThirdIngredient() != null &&
-                getFourthIngredient() != null &&
-                getFifthIngredient() != null;
+                getThirdIngredient() != null;
+    }
+
+    public String haveGoodMeal() {
+        if (isPizzaReady() && creator == Creator.MENU)
+            return name;
+        else if (isPizzaReady() && areIngredientsReady() && creator == Creator.OWN)
+            return name;
+        else return "Pizza is still in progress.";
     }
 
 
@@ -310,5 +336,13 @@ public class Pizza {
 
     public void setSize(Size size) {
         this.size = size;
+    }
+
+    public Creator getCreator() {
+        return creator;
+    }
+
+    public void setCreator(Creator creator) {
+        this.creator = creator;
     }
 }
