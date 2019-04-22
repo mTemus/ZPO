@@ -1,45 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReflectionController">
    <children>
-      <GridPane prefHeight="1000" prefWidth="800">
+      <GridPane prefHeight="800.0" prefWidth="500.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="495.0" minWidth="10.0" prefWidth="162.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="962.0" minWidth="10.0" prefWidth="238.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="962.0" minWidth="10.0" prefWidth="600.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="174.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="174.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="174.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="class_name_field" promptText="package.class_name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="class_name_field" promptText="package.class_name" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
                <GridPane.margin>
-                  <Insets top="3.0" />
+                  <Insets bottom="15.0" left="10.0" right="10.0" top="3.0" />
                </GridPane.margin>
             </TextField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Class name:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Class name:" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
                <GridPane.margin>
-                  <Insets right="7.0" />
+                  <Insets bottom="21.0" right="7.0" />
                </GridPane.margin>
             </Text>
-            <Button mnemonicParsing="false" text="Use class" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <Button mnemonicParsing="false" text="Use class" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
             </Button>
-            <ComboBox fx:id="classes_combobox" prefHeight="31.0" prefWidth="450.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         </children>
+      </GridPane>
+      <GridPane layoutX="494.0" prefHeight="800.0" prefWidth="500.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="116.0" minHeight="0.0" prefHeight="101.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="534.0" minHeight="10.0" prefHeight="336.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="366.0" minHeight="10.0" prefHeight="366.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextArea fx:id="class_methods_textarea" editable="false" prefHeight="291.0" prefWidth="440.0" wrapText="true" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="75.0" />
+                  <Insets bottom="40.0" left="30.0" right="30.0" />
                </GridPane.margin>
-            </ComboBox>
+            </TextArea>
+            <TextField fx:id="class_methods_textfield" editable="false" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="15.0" left="30.0" right="30.0" />
+               </GridPane.margin>
+            </TextField>
          </children>
       </GridPane>
    </children>
