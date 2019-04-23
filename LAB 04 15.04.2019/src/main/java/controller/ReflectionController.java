@@ -38,18 +38,21 @@ public class ReflectionController {
         createObjectOfClass(className);
     }
 
-    public void invokeMethod(ActionEvent event) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void invokeMethod(ActionEvent event) throws InvocationTargetException, IllegalAccessException {
         String methodName = "";
         String methodAnswer = "";
         methodName = method_name_field.getText();
-        System.out.println(methodName);
-        Method chosenMethod = chosenClassObject.getClass().getMethod(methodName);
+        Method chosenMethod = null;
+        try {
+            chosenMethod = chosenClassObject.getClass().getMethod(methodName);
+        } catch (NoSuchMethodException e) {
+            method_answer_field.setText("You used wrong method.");
+        }
 
         if (chosenMethod != null){
             methodAnswer = (String) chosenMethod.invoke(chosenClassObject);
             method_answer_field.setText(methodAnswer);
-        } else
-            method_answer_field.setText("You used wrong method.");
+        }
 
     }
 
