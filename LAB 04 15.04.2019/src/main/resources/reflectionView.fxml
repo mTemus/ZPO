@@ -19,11 +19,13 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="962.0" minWidth="10.0" prefWidth="387.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="174.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="174.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="174.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="294.0" minHeight="10.0" prefHeight="252.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="223.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="285.0" minHeight="0.0" prefHeight="64.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="325.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="325.0" minHeight="10.0" prefHeight="219.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <TextField fx:id="class_name_field" promptText="package.class_name" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
@@ -41,6 +43,47 @@
                   <Insets top="10.0" />
                </GridPane.margin>
             </Button>
+            <ListView fx:id="class_fields_list" prefHeight="185.0" prefWidth="387.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </ListView>
+            <Text fx:id="fields_list_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Fields list:" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="7.0" top="10.0" />
+               </GridPane.margin>
+            </Text>
+            <TextField fx:id="field_field_name_textfield" promptText="Field name." visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <Text fx:id="field_field_name_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Field name:" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="7.0" top="15.0" />
+               </GridPane.margin>
+            </Text>
+            <Text fx:id="field_set_value_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Set value:" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="7.0" top="20.0" />
+               </GridPane.margin>
+            </Text>
+            <TextField fx:id="field_set_value_textfield" promptText="New value of field." visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button fx:id="field_set_field_value_button" mnemonicParsing="false" onAction="#setFieldValue" text="Set field value" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <PasswordField fx:id="field_field_answer_textfield" editable="false" promptText="Waiting for field answer..." visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </PasswordField>
+            <Text fx:id="field_field_answer_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Field answer:" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="7.0" top="13.0" />
+               </GridPane.margin>
+            </Text>
          </children>
       </GridPane>
       <GridPane layoutX="494.0" prefHeight="800.0" prefWidth="500.0">

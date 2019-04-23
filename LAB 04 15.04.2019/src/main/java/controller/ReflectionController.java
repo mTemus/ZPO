@@ -4,9 +4,8 @@ import classes.menu.Pizza;
 import classes.storage.Item;
 import classes.waiting_room.Customer;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -21,6 +20,15 @@ public class ReflectionController {
     public TextField method_name_field;
     public Button invoke_method_button;
     public TextField method_answer_field;
+    public ListView class_fields_list;
+    public Text fields_list_text;
+    public Text field_field_name_text;
+    public TextField field_field_name_textfield;
+    public Text field_set_value_text;
+    public TextField field_set_value_textfield;
+    public Button field_set_field_value_button;
+    public PasswordField field_field_answer_textfield;
+    public Text field_field_answer_text;
 
     private Class reflectPizza = Pizza.class;
     private Class reflectItem = Item.class;
@@ -36,6 +44,7 @@ public class ReflectionController {
     public void useClass(ActionEvent event) {
         String className = class_name_field.getText();
         createObjectOfClass(className);
+
     }
 
     public void invokeMethod(ActionEvent event) throws InvocationTargetException, IllegalAccessException {
@@ -49,11 +58,15 @@ public class ReflectionController {
             method_answer_field.setText("You used wrong method.");
         }
 
-        if (chosenMethod != null){
+        if (chosenMethod != null) {
             methodAnswer = (String) chosenMethod.invoke(chosenClassObject);
             method_answer_field.setText(methodAnswer);
+
         }
 
+    }
+
+    public void setFieldValue(ActionEvent event) {
     }
 
 
@@ -84,6 +97,7 @@ public class ReflectionController {
         if (chosenClassObject != null) {
             Method[] methodsOfChosenClass = chosenClassObject.getClass().getDeclaredMethods();
             showAllMethods(methodsOfChosenClass);
+            showFieldFields();
         } else class_methods_textfield.setText("Wrong class name!");
 
 
@@ -91,18 +105,34 @@ public class ReflectionController {
 
     public void showAllClassFields() {
 
+
+    }
+
+    private void showFieldFields() {
+        fields_list_text.setVisible(true);
+        class_fields_list.setVisible(true);
+        field_field_name_text.setVisible(true);
+        field_field_name_textfield.setVisible(true);
+        field_set_value_text.setVisible(true);
+        field_set_value_textfield.setVisible(true);
+        field_set_field_value_button.setVisible(true);
+        field_field_answer_text.setVisible(true);
+        field_field_answer_textfield.setVisible(true);
     }
 
     private void showAllMethods(Method[] methodsOfChosenClass) {
         StringBuilder allMethods = new StringBuilder();
         StringBuilder getterMethods = new StringBuilder();
         StringBuilder setterMethods = new StringBuilder();
+        StringBuilder privateMethods = new StringBuilder();
 
         for (Method m : methodsOfChosenClass) {
             if (m.getName().contains("get"))
                 getterMethods.append(m.getName()).append("\n");
             else if (m.getName().contains("set"))
                 setterMethods.append(m.getName()).append("\n");
+            else if (m.getName().contains("is") || m.getName().contains("are"))
+                privateMethods.append(m.getName()).append("\n");
             else
                 allMethods.append(m.getName()).append("\n");
         }
