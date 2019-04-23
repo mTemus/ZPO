@@ -58,11 +58,10 @@ public class ReflectionController {
             e.printStackTrace();
         }
 
-        if (chosedClassObject != null){
+        if (chosedClassObject != null) {
             Method[] methodsOfChosenClass = chosedClassObject.getClass().getDeclaredMethods();
             showAllMethods(methodsOfChosenClass);
-        }
-        else class_methods_textfield.setText("Wrong class name!");
+        } else class_methods_textfield.setText("Wrong class name!");
 
 
     }
@@ -72,22 +71,23 @@ public class ReflectionController {
     }
 
     private void showAllMethods(Method[] methodsOfChosenClass) {
-        StringBuilder allMethods = null;
-        String getterMethods = null;
+        StringBuilder allMethods = new StringBuilder();
 
         for (Method m : methodsOfChosenClass) {
-            allMethods.append(m.getName()).append("\n");
-        }
 
-        for (Method m : methodsOfChosenClass) {
-            allMethods.append(m.getName().contains("get")).append("\n");
+            System.out.println(m.getName().contains("get"));
+
+            if (m.getName().contains("get") || m.getName().contains("set")) {
+            } else
+                allMethods.append(m.getName()).append("\n");
+
+
         }
 
 
         class_methods_textfield.setText("Available methods:");
         class_methods_textarea.setText(allMethods.toString());
     }
-
 
 
 }
