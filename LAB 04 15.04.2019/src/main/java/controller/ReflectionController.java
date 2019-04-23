@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionController {
@@ -17,12 +18,15 @@ public class ReflectionController {
     public TextArea class_methods_textarea;
     public TextField class_methods_textfield;
     public Button use_class_button;
+    public TextField method_name_field;
+    public Button invoke_method_button;
+    public TextField method_answer_field;
 
     private Class reflectPizza = Pizza.class;
     private Class reflectItem = Item.class;
     private Class reflectCustomer = Customer.class;
 
-    private Object chosedClassObject = null;
+    private Object chosenClassObject = null;
 
     Method[] pizzaMethods = reflectPizza.getMethods();
     Method[] itemMethods = reflectItem.getMethods();
@@ -33,6 +37,22 @@ public class ReflectionController {
         String className = class_name_field.getText();
         createObjectOfClass(className);
     }
+
+    public void invokeMethod(ActionEvent event) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        String methodName = "";
+        String methodAnswer = "";
+        methodName = method_name_field.getText();
+        System.out.println(methodName);
+        Method chosenMethod = chosenClassObject.getClass().getMethod(methodName);
+
+        if (chosenMethod != null){
+            methodAnswer = (String) chosenMethod.invoke(chosenClassObject);
+            method_answer_field.setText(methodAnswer);
+        } else
+            method_answer_field.setText("You used wrong method.");
+
+    }
+
 
     public void initialize() {
         showAllClasses();
@@ -49,7 +69,7 @@ public class ReflectionController {
 
     private void createObjectOfClass(String className) {
         try {
-            chosedClassObject = Class.forName(className).newInstance();
+            chosenClassObject = Class.forName(className).newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -58,8 +78,8 @@ public class ReflectionController {
             e.printStackTrace();
         }
 
-        if (chosedClassObject != null) {
-            Method[] methodsOfChosenClass = chosedClassObject.getClass().getDeclaredMethods();
+        if (chosenClassObject != null) {
+            Method[] methodsOfChosenClass = chosenClassObject.getClass().getDeclaredMethods();
             showAllMethods(methodsOfChosenClass);
         } else class_methods_textfield.setText("Wrong class name!");
 
@@ -72,16 +92,16 @@ public class ReflectionController {
 
     private void showAllMethods(Method[] methodsOfChosenClass) {
         StringBuilder allMethods = new StringBuilder();
+        StringBuilder getterMethods = new StringBuilder();
+        StringBuilder setterMethods = new StringBuilder();
 
         for (Method m : methodsOfChosenClass) {
-
-            System.out.println(m.getName().contains("get"));
-
-            if (m.getName().contains("get") || m.getName().contains("set")) {
-            } else
+            if (m.getName().contains("get"))
+                getterMethods.append(m.getName()).append("\n");
+            else if (m.getName().contains("set"))
+                setterMethods.append(m.getName()).append("\n");
+            else
                 allMethods.append(m.getName()).append("\n");
-
-
         }
 
 

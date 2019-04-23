@@ -2,7 +2,7 @@ package classes.menu;
 
 public class Pizza {
 
-    private String name;
+    private String name = "";
     private Ingredients firstIngredient = null;
     private Ingredients SecondIngredient = null;
     private Ingredients thirdIngredient = null;
@@ -25,7 +25,7 @@ public class Pizza {
         MUSHROOMS,
         TOMATO,
         FETA,
-        MOZARELLA,
+        MOZZARELLA,
         SUASAGE,
         CHICKEN,
         OLIVES,
@@ -52,47 +52,55 @@ public class Pizza {
         OWN, MENU
     }
 
-    public void makeSmall() {
+    public String makeSmall() {
         setSize(Size.SMALL);
         name += "small ";
+        return name;
     }
 
-    public void makeNormal() {
+    public String makeNormal() {
         setSize(Size.NORMAL);
         name += "normal ";
+        return name;
     }
 
-    public void makeBig() {
+    public String makeBig() {
         setSize(Size.BIG);
         name += "big ";
+        return name;
     }
 
-    public void makeFamily() {
+    public String makeFamily() {
         setSize(Size.FAMILY);
         name += "family ";
+        return name;
     }
 
-    public void useThinCrust() {
+    public String useThinCrust() {
         setCrust(Crust.THIN_CRUST);
         name += "thin crust ";
+        return name;
     }
 
-    public void useThickCrust() {
+    public String useThickCrust() {
         setCrust(Crust.THICK_CRUST);
         name += "thick crust ";
+        return name;
     }
 
-    public void useNormalCrust() {
+    public String useNormalCrust() {
         setCrust(Crust.NORMAL_CRUST);
         name += "normal crust ";
+        return name;
     }
 
-    public void useGlutenFreeCrust() {
+    public String useGlutenFreeCrust() {
         setCrust(Crust.GLUTEN_FREE_CRUST);
         name += "gluten free crust ";
+        return name;
     }
 
-    public void makeCapri() {
+    public String makeCapri() {
         setCreator(Creator.MENU);
         setFirstIngredient(Ingredients.HAM);
         setSecondIngredient(Ingredients.TOMATO_SAUCE);
@@ -100,9 +108,10 @@ public class Pizza {
         setFourthIngredient(Ingredients.CHEESE);
         setFifthIngredient(Ingredients.MUSHROOMS);
         name += "capri pizza";
+        return name;
     }
 
-    public void makeVegan() {
+    public String makeVegan() {
         setCreator(Creator.MENU);
         setFirstIngredient(Ingredients.ONION);
         setSecondIngredient(Ingredients.TOMATO_SAUCE);
@@ -110,19 +119,21 @@ public class Pizza {
         setFourthIngredient(Ingredients.CORN);
         setFifthIngredient(Ingredients.CHEESE);
         name += "vegan pizza";
+        return name;
     }
 
-    public void makeFourCheese() {
+    public String makeFourCheese() {
         setCreator(Creator.MENU);
         setFirstIngredient(Ingredients.CHEESE);
         setSecondIngredient(Ingredients.FETA);
         setThirdIngredient(Ingredients.TOMATO_SAUCE);
-        setFourthIngredient(Ingredients.MOZARELLA);
+        setFourthIngredient(Ingredients.MOZZARELLA);
         setFifthIngredient(Ingredients.BLUE_CHEESE);
         name += "margarita pizza";
+        return name;
     }
 
-    public void makeHavai() {
+    public String makeHavai() {
         setCreator(Creator.MENU);
         setFirstIngredient(Ingredients.CHEESE);
         setSecondIngredient(Ingredients.HAM);
@@ -130,9 +141,10 @@ public class Pizza {
         setFourthIngredient(Ingredients.PINEAPPLE);
         setFifthIngredient(Ingredients.MUSHROOMS);
         name += "havai pizza";
+        return name;
     }
 
-    private void addSauce() {
+    public String addSauce() {
         setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.TOMATO_SAUCE);
@@ -150,9 +162,10 @@ public class Pizza {
             setFifthIngredient(Ingredients.TOMATO_SAUCE);
             name += "tomato sauce pizza";
         }
+        return name;
     }
 
-    private void addHam() {
+    public String addHam() {
         setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.HAM);
@@ -170,9 +183,11 @@ public class Pizza {
             setFifthIngredient(Ingredients.HAM);
             name += "ham pizza";
         }
+
+        return name;
     }
 
-    private void addCheese() {
+    public String addCheese() {
         setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.CHEESE);
@@ -190,9 +205,10 @@ public class Pizza {
             setFifthIngredient(Ingredients.CHEESE);
             name += "cheese pizza";
         }
+        return name;
     }
 
-    private void addBroccoli() {
+    public String addBroccoli() {
         setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.BROCCOLI);
@@ -210,9 +226,10 @@ public class Pizza {
             setFifthIngredient(Ingredients.BROCCOLI);
             name += "broccoli pizza";
         }
+        return name;
     }
 
-    private void addPineapple() {
+    public String addPineapple() {
         setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.PINEAPPLE);
@@ -230,9 +247,10 @@ public class Pizza {
             setFifthIngredient(Ingredients.PINEAPPLE);
             name += "pineapple pizza";
         }
+        return name;
     }
 
-    private void addChicken() {
+    public String addChicken() {
         setCreator(Creator.OWN);
         if (getFirstIngredient() != null) {
             setFifthIngredient(Ingredients.CHICKEN);
@@ -250,6 +268,7 @@ public class Pizza {
             setFifthIngredient(Ingredients.CHICKEN);
             name += "chicken pizza";
         }
+        return name;
     }
 
     private boolean isPizzaReady() {
@@ -271,6 +290,31 @@ public class Pizza {
         else return "Pizza is still in progress.";
     }
 
+    public String ingredientsContent(){
+        String ingredientsCondition = "";
+
+        if (getFirstIngredient() == null)
+            ingredientsCondition += "1: null, ";
+        else ingredientsCondition += "1: full, ";
+
+        if (getSecondIngredient() == null)
+            ingredientsCondition += "2: null, ";
+        else ingredientsCondition += "2: full, ";
+
+        if (getThirdIngredient() == null)
+            ingredientsCondition += "3: null, ";
+        else ingredientsCondition += "3: full, ";
+
+        if (getFourthIngredient() == null)
+            ingredientsCondition += "4: null, ";
+        else ingredientsCondition += "4: full, ";
+
+        if (getFifthIngredient() == null)
+            ingredientsCondition += "5: null. ";
+        else ingredientsCondition += "5: full. ";
+
+        return ingredientsCondition;
+    }
 
     // <------- getters and setters ------->
 

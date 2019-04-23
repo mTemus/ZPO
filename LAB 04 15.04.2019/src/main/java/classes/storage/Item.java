@@ -20,6 +20,28 @@ public class Item {
         return "New price of the item is: " + price + "$.";
     }
 
+    private String checkItem() {
+        String itemCondition = "";
+
+        if (produced)
+            itemCondition += "item is produced, ";
+        else
+            itemCondition += "item is not produced, ";
+
+        if (consumed)
+            itemCondition += "item is consumed, ";
+        else
+            itemCondition += "item is not consumed, ";
+
+        if (sold)
+            itemCondition += "item is sold, ";
+        else
+            itemCondition += "item is not sold.";
+
+        return itemCondition;
+    }
+
+
     private void produceItem() {
         produced = true;
     }
