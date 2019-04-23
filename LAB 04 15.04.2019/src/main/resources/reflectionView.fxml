@@ -36,7 +36,7 @@
                   <Insets bottom="21.0" right="7.0" />
                </GridPane.margin>
             </Text>
-            <Button mnemonicParsing="false" text="Use class" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Button fx:id="use_class_button" mnemonicParsing="false" onAction="#useClass" text="Use class" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
