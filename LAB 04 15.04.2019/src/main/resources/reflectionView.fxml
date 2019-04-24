@@ -84,6 +84,14 @@
                   <Insets right="7.0" top="13.0" />
                </GridPane.margin>
             </Text>
+            <Text fx:id="field_field_type_list_text" strokeType="OUTSIDE" strokeWidth="0.0" text="(Field : field_type)" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="30.0" />
+               </GridPane.margin>
+            </Text>
          </children>
       </GridPane>
       <GridPane layoutX="494.0" prefHeight="800.0" prefWidth="500.0">

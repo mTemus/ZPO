@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -29,6 +30,7 @@ public class ReflectionController {
     public Button field_set_field_value_button;
     public PasswordField field_field_answer_textfield;
     public Text field_field_answer_text;
+    public Text field_field_type_list_text;
 
     private Class reflectPizza = Pizza.class;
     private Class reflectItem = Item.class;
@@ -67,7 +69,22 @@ public class ReflectionController {
     }
 
     public void setFieldValue(ActionEvent event) {
+        Field chosenField = null;
+        String fieldName = field_field_name_textfield.getText();
+        String newFieldValue = field_set_value_textfield.getText();
+
+        try {
+            chosenField = chosenClassObject.getClass().getDeclaredField(fieldName);
+
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
+
+
 
 
     public void initialize() {
@@ -98,14 +115,17 @@ public class ReflectionController {
             Method[] methodsOfChosenClass = chosenClassObject.getClass().getDeclaredMethods();
             showAllMethods(methodsOfChosenClass);
             showFieldFields();
+            showAllClassFields();
         } else class_methods_textfield.setText("Wrong class name!");
 
 
     }
 
-    public void showAllClassFields() {
-
-
+    private void showAllClassFields() {
+        Field[] classFields = chosenClassObject.getClass().getDeclaredFields();
+        for (Field f : classFields) {
+            class_fields_list.getItems().add(f.getName() + " : " + f.getType());
+        }
     }
 
     private void showFieldFields() {
@@ -118,6 +138,7 @@ public class ReflectionController {
         field_set_field_value_button.setVisible(true);
         field_field_answer_text.setVisible(true);
         field_field_answer_textfield.setVisible(true);
+        field_field_type_list_text.setVisible(true);
     }
 
     private void showAllMethods(Method[] methodsOfChosenClass) {
