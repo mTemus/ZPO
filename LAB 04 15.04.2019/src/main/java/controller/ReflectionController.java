@@ -68,7 +68,7 @@ public class ReflectionController {
 
     }
 
-    public void setFieldValue(ActionEvent event) {
+    public void setFieldValue(ActionEvent event) throws IllegalAccessException {
         Field chosenField = null;
         String fieldName = field_field_name_textfield.getText();
         String newFieldValue = field_set_value_textfield.getText();
@@ -80,7 +80,15 @@ public class ReflectionController {
             e.printStackTrace();
         }
 
-
+        if (chosenField.getType().isEnum()){
+            System.out.println("enum");
+        } else if (String.class.equals(chosenField.getType())){
+            System.out.println("str");
+        } else if (int.class.equals(chosenField.getType())){
+            System.out.println("int");
+        } else if (boolean.class.equals(chosenField.getType())){
+            System.out.println("boolean");
+        }
 
     }
 
