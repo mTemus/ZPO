@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.4.3">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.4.4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ReflectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ReflectionController.java" afterDir="false" />
     </list>
@@ -103,10 +103,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/ReflectionController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
-              <caret line="86" column="10" lean-forward="true" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="10" />
+              <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6143#6144#0" expanded="true" />
+                <element signature="e#6237#6238#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -406,7 +406,7 @@
       <workItem from="1555946189803" duration="8572000" />
       <workItem from="1556016461153" duration="15432000" />
       <workItem from="1556105185435" duration="6867000" />
-      <workItem from="1556208812295" duration="5300000" />
+      <workItem from="1556208812295" duration="5673000" />
     </task>
     <task id="LOCAL-00001" summary="Laboratory Instructions">
       <created>1555938558844</created>
@@ -513,11 +513,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556214683768</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="v0.4.4">
+      <created>1556215100489</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1556215100489</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41214000" />
+    <option name="totallyTimeSpent" value="41587000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -620,7 +627,8 @@
     <MESSAGE value="v0.4.1" />
     <MESSAGE value="v0.4.2" />
     <MESSAGE value="v0.4.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.4.3" />
+    <MESSAGE value="v0.4.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.4.4" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -707,10 +715,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/ReflectionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
-          <caret line="86" column="10" lean-forward="true" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="10" />
+          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6143#6144#0" expanded="true" />
+            <element signature="e#6237#6238#0" expanded="true" />
           </folding>
         </state>
       </provider>

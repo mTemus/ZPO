@@ -96,24 +96,42 @@ public class ReflectionController {
 
     }
 
-    private void invokeString(Field field, String newValue) throws InvocationTargetException, IllegalAccessException {
+    private Method lookForSetter(Field field) {
         Method setter = null;
-        Method getter = null;
         String fieldName = field.getName();
         String setterName;
-        String getterName;
-
         fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
         setterName = "set" + fieldName;
-        getterName = "get" + fieldName;
 
         for (Method m : chosenClassObject.getClass().getDeclaredMethods()) {
             String methodName = m.getName();
-            if (methodName.equals(setterName))
+            if (methodName.equals(setterName)) {
                 setter = m;
-            if (methodName.equals(getterName))
-                getter = m;
+                break;
+            }
         }
+        return setter;
+    }
+
+    private Method lookForGetter(Field field) {
+        Method getter = null;
+        String fieldName = field.getName();
+        String getterName;
+        fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        getterName = "get" + fieldName;
+        for (Method m : chosenClassObject.getClass().getDeclaredMethods()) {
+            String methodName = m.getName();
+            if (methodName.equals(getterName)) {
+                getter = m;
+                break;
+            }
+        }
+        return getter;
+    }
+
+    private void invokeString(Field field, String newValue) throws InvocationTargetException, IllegalAccessException {
+        Method setter = lookForSetter(field);
+        Method getter = lookForGetter(field);
 
         invokeStringSetter(setter, newValue);
         invokeStringGetter(getter);
@@ -142,26 +160,11 @@ public class ReflectionController {
     }
 
     private void invokeInt(Field field, String newValue) {
-        Method setter = null;
-        Method getter = null;
-        String fieldName = field.getName();
-        String setterName;
-        String getterName;
+        Method setter = lookForSetter(field);
+        Method getter = lookForGetter(field);
 
-        fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-        setterName = "set" + fieldName;
-        getterName = "get" + fieldName;
-
-        for (Method m : chosenClassObject.getClass().getDeclaredMethods()) {
-            String methodName = m.getName();
-            if (methodName.equals(setterName))
-                setter = m;
-            if (methodName.equals(getterName))
-                getter = m;
-        }
-
-        invokeStringSetter();
-        invokeStringGetter();
+        invokeIntSetter(setter, newValue);
+        invokeIntGetter(getter);
 
     }
 
