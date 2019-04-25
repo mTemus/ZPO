@@ -28,7 +28,7 @@ public class ReflectionController {
     public Text field_set_value_text;
     public TextField field_set_value_textfield;
     public Button field_set_field_value_button;
-    public PasswordField field_field_answer_textfield;
+    public TextField field_field_answer_textfield;
     public Text field_field_answer_text;
     public Text field_field_type_list_text;
 
@@ -61,14 +61,12 @@ public class ReflectionController {
         }
 
         if (chosenMethod != null) {
-            methodAnswer = (String) chosenMethod.invoke(chosenClassObject);
-            method_answer_field.setText(methodAnswer);
-
+            method_answer_field.setText((String) chosenMethod.invoke(chosenClassObject));
         }
 
     }
 
-    public void setFieldValue(ActionEvent event) throws IllegalAccessException {
+    public void setFieldValue(ActionEvent event) throws IllegalAccessException, InvocationTargetException {
         Field chosenField = null;
         String fieldName = field_field_name_textfield.getText();
         String newFieldValue = field_set_value_textfield.getText();
@@ -80,19 +78,90 @@ public class ReflectionController {
             e.printStackTrace();
         }
 
-        if (chosenField.getType().isEnum()){
-            System.out.println("enum");
-        } else if (String.class.equals(chosenField.getType())){
-            System.out.println("str");
-        } else if (int.class.equals(chosenField.getType())){
-            System.out.println("int");
-        } else if (boolean.class.equals(chosenField.getType())){
-            System.out.println("boolean");
+        if (chosenField.getType().isEnum()) {
+            invokeEnumSetter();
+        } else if (String.class.equals(chosenField.getType())) {
+            invokeStringSetter(chosenField, newFieldValue);
+        } else if (int.class.equals(chosenField.getType())) {
+            invokeIntSetter(chosenField, newFieldValue);
+        } else if (boolean.class.equals(chosenField.getType())) {
+            invokeBooleanSetter();
         }
 
     }
 
+    private void invokeEnumSetter() {
 
+    }
+
+    private void invokeEnumGetter() {
+
+    }
+
+    private void invokeString(Field field, String newValue) {
+
+
+    }
+
+    private void invokeStringSetter(Field field, String newValue) throws InvocationTargetException, IllegalAccessException {
+        Method setter = null;
+        Method getter = null;
+        String fieldName = field.getName();
+        String setterName;
+        String getterName;
+        fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        setterName = "set" + fieldName;
+        getterName = "get" + fieldName;
+
+        for (Method m : chosenClassObject.getClass().getDeclaredMethods()) {
+            String methodName = m.getName();
+            if (methodName.equals(setterName))
+                setter = m;
+            if (methodName.equals(getterName))
+                getter = m;
+        }
+
+        if (setter != null)
+            System.out.println(setter.getName());
+        else
+            field_field_answer_textfield.setText("Getting setter error.");
+
+        setter.invoke(chosenClassObject, newValue);
+
+        invokeStringGetter(getter);
+    }
+
+    private void invokeStringGetter(Method getter) {
+        try {
+            String answer = (String) getter.invoke(chosenClassObject);
+            field_field_answer_textfield.setText("New field value: " + answer);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void invokeIntSetter(Field field, String newValue) {
+        try {
+            field.set(chosenClassObject, newValue);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void invokeIntGetter() {
+
+    }
+
+    private void invokeBooleanSetter() {
+
+    }
+
+    private void invokeBooleanGetter() {
+
+    }
 
 
     public void initialize() {
@@ -165,7 +234,6 @@ public class ReflectionController {
             else
                 allMethods.append(m.getName()).append("\n");
         }
-
 
         class_methods_textfield.setText("Available methods:");
         class_methods_textarea.setText(allMethods.toString());

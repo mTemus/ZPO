@@ -74,11 +74,6 @@
                </GridPane.margin>
             </TextField>
             <Button fx:id="field_set_field_value_button" mnemonicParsing="false" onAction="#setFieldValue" text="Set field value" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <PasswordField fx:id="field_field_answer_textfield" editable="false" promptText="Waiting for field answer..." visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin>
-            </PasswordField>
             <Text fx:id="field_field_answer_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Field answer:" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets right="7.0" top="13.0" />
@@ -92,6 +87,11 @@
                   <Insets top="30.0" />
                </GridPane.margin>
             </Text>
+            <TextField fx:id="field_field_answer_textfield" editable="false" promptText="Waiting for a field answer..." visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </TextField>
          </children>
       </GridPane>
       <GridPane layoutX="494.0" prefHeight="800.0" prefWidth="500.0">
