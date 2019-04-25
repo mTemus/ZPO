@@ -57,7 +57,7 @@ public class ReflectionController {
         try {
             chosenMethod = chosenClassObject.getClass().getMethod(methodName);
         } catch (NoSuchMethodException e) {
-            method_answer_field.setText("You used wrong method.");
+            method_answer_field.setText("You used wrong method or method has no answer.");
         }
 
         if (chosenMethod != null) {
@@ -180,8 +180,7 @@ public class ReflectionController {
 
     private void invokeIntGetter(Method getter) {
         try {
-            String answer = (String) getter.invoke(chosenClassObject);
-            field_field_answer_textfield.setText("New field value: " + answer);
+            field_field_answer_textfield.setText("New field value: " + getter.invoke(chosenClassObject));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
