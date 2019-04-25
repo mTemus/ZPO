@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.4.2">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.4.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ReflectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ReflectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/reflectionView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/reflectionView.fxml" afterDir="false" />
     </list>
     <list id="21f1e1fd-4ea7-49a0-a87e-a108c1afd6a2" name="Inne" comment="">
       <change beforePath="$PROJECT_DIR$/../LAB 01 04.03.2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 01 04.03.2019/.idea/workspace.xml" afterDir="false" />
@@ -103,11 +102,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/ReflectionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
+            <state relative-caret-position="273">
+              <caret line="86" column="10" lean-forward="true" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5109#5110#0" expanded="true" />
+                <element signature="e#6143#6144#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/classes/menu/Pizza.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-254">
-              <caret line="279" column="22" selection-start-line="279" selection-start-column="20" selection-end-line="279" selection-end-column="22" />
+            <state relative-caret-position="171">
+              <caret line="313" column="28" selection-start-line="313" selection-start-column="28" selection-end-line="313" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -407,7 +406,7 @@
       <workItem from="1555946189803" duration="8572000" />
       <workItem from="1556016461153" duration="15432000" />
       <workItem from="1556105185435" duration="6867000" />
-      <workItem from="1556208812295" duration="4880000" />
+      <workItem from="1556208812295" duration="5300000" />
     </task>
     <task id="LOCAL-00001" summary="Laboratory Instructions">
       <created>1555938558844</created>
@@ -507,17 +506,24 @@
       <option name="project" value="LOCAL" />
       <updated>1556119575839</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="v0.4.3">
+      <created>1556214683768</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1556214683768</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40794000" />
+    <option name="totallyTimeSpent" value="41214000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.22416107" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.22416107" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -526,7 +532,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -613,7 +619,8 @@
     <MESSAGE value="v0.4" />
     <MESSAGE value="v0.4.1" />
     <MESSAGE value="v0.4.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.4.2" />
+    <MESSAGE value="v0.4.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.4.3" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -680,13 +687,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/classes/menu/Pizza.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-254">
-          <caret line="279" column="22" selection-start-line="279" selection-start-column="20" selection-end-line="279" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -697,13 +697,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/classes/menu/Pizza.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="313" column="28" selection-start-line="313" selection-start-column="28" selection-end-line="313" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/ReflectionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
+        <state relative-caret-position="273">
+          <caret line="86" column="10" lean-forward="true" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5109#5110#0" expanded="true" />
+            <element signature="e#6143#6144#0" expanded="true" />
           </folding>
         </state>
       </provider>

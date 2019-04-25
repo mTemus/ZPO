@@ -81,11 +81,9 @@ public class ReflectionController {
         if (chosenField.getType().isEnum()) {
             invokeEnumSetter();
         } else if (String.class.equals(chosenField.getType())) {
-            invokeStringSetter(chosenField, newFieldValue);
+            invokeString(chosenField, newFieldValue);
         } else if (int.class.equals(chosenField.getType())) {
-            invokeIntSetter(chosenField, newFieldValue);
-        } else if (boolean.class.equals(chosenField.getType())) {
-            invokeBooleanSetter();
+            invokeInt(chosenField, newFieldValue);
         }
 
     }
@@ -98,17 +96,13 @@ public class ReflectionController {
 
     }
 
-    private void invokeString(Field field, String newValue) {
-
-
-    }
-
-    private void invokeStringSetter(Field field, String newValue) throws InvocationTargetException, IllegalAccessException {
+    private void invokeString(Field field, String newValue) throws InvocationTargetException, IllegalAccessException {
         Method setter = null;
         Method getter = null;
         String fieldName = field.getName();
         String setterName;
         String getterName;
+
         fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
         setterName = "set" + fieldName;
         getterName = "get" + fieldName;
@@ -121,14 +115,19 @@ public class ReflectionController {
                 getter = m;
         }
 
-        if (setter != null)
-            System.out.println(setter.getName());
-        else
-            field_field_answer_textfield.setText("Getting setter error.");
-
-        setter.invoke(chosenClassObject, newValue);
-
+        invokeStringSetter(setter, newValue);
         invokeStringGetter(getter);
+
+    }
+
+    private void invokeStringSetter(Method setter, String newValue) {
+        try {
+            setter.invoke(chosenClassObject, newValue);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
     private void invokeStringGetter(Method getter) {
@@ -142,27 +141,50 @@ public class ReflectionController {
         }
     }
 
-    private void invokeIntSetter(Field field, String newValue) {
-        try {
-            field.set(chosenClassObject, newValue);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+    private void invokeInt(Field field, String newValue) {
+        Method setter = null;
+        Method getter = null;
+        String fieldName = field.getName();
+        String setterName;
+        String getterName;
+
+        fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        setterName = "set" + fieldName;
+        getterName = "get" + fieldName;
+
+        for (Method m : chosenClassObject.getClass().getDeclaredMethods()) {
+            String methodName = m.getName();
+            if (methodName.equals(setterName))
+                setter = m;
+            if (methodName.equals(getterName))
+                getter = m;
         }
 
-    }
-
-    private void invokeIntGetter() {
-
-    }
-
-    private void invokeBooleanSetter() {
+        invokeStringSetter();
+        invokeStringGetter();
 
     }
 
-    private void invokeBooleanGetter() {
-
+    private void invokeIntSetter(Method setter, String newValue) {
+        try {
+            setter.invoke(chosenClassObject, Integer.parseInt(newValue));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
+    private void invokeIntGetter(Method getter) {
+        try {
+            String answer = (String) getter.invoke(chosenClassObject);
+            field_field_answer_textfield.setText("New field value: " + answer);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void initialize() {
         showAllClasses();
