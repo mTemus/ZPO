@@ -78,23 +78,19 @@ public class ReflectionController {
             e.printStackTrace();
         }
 
-        if (chosenField.getType().isEnum()) {
-            invokeEnumSetter();
-        } else if (String.class.equals(chosenField.getType())) {
-            invokeString(chosenField, newFieldValue);
-        } else if (int.class.equals(chosenField.getType())) {
-            invokeInt(chosenField, newFieldValue);
-        }
+        if (chosenField != null) {
+            if (chosenField.getType().isEnum()) {
+                invokeEnum(chosenField, newFieldValue);
+            } else if (String.class.equals(chosenField.getType())) {
+                invokeString(chosenField, newFieldValue);
+            } else if (int.class.equals(chosenField.getType())) {
+                invokeInt(chosenField, newFieldValue);
+            }
+        } else
+            field_field_answer_textfield.setText("Wrong field chosen.");
 
     }
 
-    private void invokeEnumSetter() {
-
-    }
-
-    private void invokeEnumGetter() {
-
-    }
 
     private Method lookForSetter(Field field) {
         Method setter = null;
@@ -127,6 +123,35 @@ public class ReflectionController {
             }
         }
         return getter;
+    }
+
+    private void invokeEnum(Field field, String newValue) {
+        Method setter = lookForSetter(field);
+        Method getter = lookForGetter(field);
+
+        invokeEnumSetter(setter, newValue);
+        invokeEnumGetter(getter);
+    }
+
+    private void invokeEnumSetter(Method setter, String newValue) {
+        try {
+            setter.invoke(chosenClassObject, Pizza.Ingredients.valueOf(newValue));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void invokeEnumGetter(Method getter) {
+        try {
+//            String answer = (String) getter.invoke(chosenClassObject);
+            field_field_answer_textfield.setText("New field value: " + getter.invoke(chosenClassObject));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
     private void invokeString(Field field, String newValue) throws InvocationTargetException, IllegalAccessException {
