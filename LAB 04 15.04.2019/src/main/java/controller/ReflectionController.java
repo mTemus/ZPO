@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 
 public class ReflectionController {
 
@@ -128,14 +129,32 @@ public class ReflectionController {
     private void invokeEnum(Field field, String newValue) {
         Method setter = lookForSetter(field);
         Method getter = lookForGetter(field);
+        Type chosenEnum = lookForEnum(field);
 
-        invokeEnumSetter(setter, newValue);
+        invokeEnumSetter(setter, newValue, chosenEnum);
         invokeEnumGetter(getter);
     }
 
-    private void invokeEnumSetter(Method setter, String newValue) {
+    private Type lookForEnum(Field field){
+        Type chosenEnum = null;
+        String fieldName = field.getName();
+
+        for (Field f: chosenClassObject.getClass().getDeclaredFields()) {
+            if (f.getName().equals(fieldName))
+                chosenEnum = f.getType();
+        }
+
+
+        return chosenEnum;
+    }
+
+    private void invokeEnumSetter(Method setter, String newValue, Type chosenEnum) {
+
+
+        //Enum.valueOf((Class<Enum>) field.getType(), value
+
         try {
-            setter.invoke(chosenClassObject, Pizza.Ingredients.valueOf(newValue));
+            setter.invoke(chosenClassObject, Enum.valueOf((Class<Enum>) chosenEnum, newValue));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -145,7 +164,6 @@ public class ReflectionController {
 
     private void invokeEnumGetter(Method getter) {
         try {
-//            String answer = (String) getter.invoke(chosenClassObject);
             field_field_answer_textfield.setText("New field value: " + getter.invoke(chosenClassObject));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -154,7 +172,7 @@ public class ReflectionController {
         }
     }
 
-    private void invokeString(Field field, String newValue) throws InvocationTargetException, IllegalAccessException {
+    private void invokeString(Field field, String newValue) {
         Method setter = lookForSetter(field);
         Method getter = lookForGetter(field);
 
