@@ -102,7 +102,7 @@ public class ReflectionController {
             field_field_answer_textfield.setText("Wrong field chosen.");
     }
 
-    public void showFieldFields() {
+    private void showFieldFields() {
         fields_list_text.setVisible(true);
         class_fields_list.setVisible(true);
         field_field_name_text.setVisible(true);
@@ -116,7 +116,7 @@ public class ReflectionController {
     }
 
 
-    public void createObjectOfClass(String className) {
+    private void createObjectOfClass(String className) {
         try {
             chosenClassObject = Class.forName(className).newInstance();
         } catch (InstantiationException e) {
@@ -176,7 +176,7 @@ public class ReflectionController {
         return getter;
     }
 
-    public void callEnum(Field field, String newValue) {
+    private void callEnum(Field field, String newValue) {
         Method setter = lookForSetter(field);
         Method getter = lookForGetter(field);
         Type chosenEnum = lookForEnum(field);
@@ -218,7 +218,7 @@ public class ReflectionController {
         }
     }
 
-    public void callString(Field field, String newValue) {
+    private void callString(Field field, String newValue) {
         Method setter = lookForSetter(field);
         Method getter = lookForGetter(field);
 
@@ -248,7 +248,7 @@ public class ReflectionController {
         }
     }
 
-    public void callInt(Field field, String newValue) {
+    private void callInt(Field field, String newValue) {
         Method setter = lookForSetter(field);
         Method getter = lookForGetter(field);
 
@@ -277,7 +277,7 @@ public class ReflectionController {
         }
     }
 
-    void showAllMethods(Method[] methodsOfChosenClass) {
+    private void showAllMethods(Method[] methodsOfChosenClass) {
         StringBuilder allMethods = new StringBuilder();
         StringBuilder getterMethods = new StringBuilder();
         StringBuilder setterMethods = new StringBuilder();
