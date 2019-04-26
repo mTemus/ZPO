@@ -35,9 +35,7 @@ public class ReflectionController {
     public Text field_field_answer_text;
     public Text field_field_type_list_text;
 
-
     private static Object chosenClassObject = null;
-
 
     public void initialize() {
         showAllClasses();
@@ -63,7 +61,6 @@ public class ReflectionController {
 
     public void invokeMethod(ActionEvent event) throws InvocationTargetException, IllegalAccessException {
         String methodName = "";
-        String methodAnswer = "";
         methodName = method_name_field.getText();
         Method chosenMethod = null;
         try {
@@ -78,7 +75,7 @@ public class ReflectionController {
 
     }
 
-    public void setFieldValue(ActionEvent event) throws IllegalAccessException, InvocationTargetException {
+    public void setFieldValue(ActionEvent event) {
         Field chosenField = null;
         String fieldName = field_field_name_textfield.getText();
         String newFieldValue = field_set_value_textfield.getText();
