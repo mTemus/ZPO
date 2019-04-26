@@ -42,16 +42,19 @@ public class Item {
     }
 
 
-    private void produceItem() {
+    private String produceItem() {
         produced = true;
+        return "Item produced.";
     }
 
-    private void consumeItem() {
+    private String consumeItem() {
         consumed = true;
+        return "Item consumed.";
     }
 
-    private void sellItem() {
+    private String sellItem() {
         sold = true;
+        return "Item sold.";
     }
 
     public String getName() {
