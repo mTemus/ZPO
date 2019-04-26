@@ -1,18 +1,19 @@
 package controller;
 
+import classes.menu.Pizza;
+import classes.storage.Item;
+import classes.waiting_room.Customer;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import operations.ClassOperations;
-import operations.FieldOperations;
-import operations.MethodOperations;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 
 public class ReflectionController {
 
@@ -30,25 +31,34 @@ public class ReflectionController {
     public Text field_set_value_text;
     public TextField field_set_value_textfield;
     public Button field_set_field_value_button;
-    public static TextField field_field_answer_textfield;
+    public TextField field_field_answer_textfield;
     public Text field_field_answer_text;
     public Text field_field_type_list_text;
 
 
     private static Object chosenClassObject = null;
-    private FieldOperations FO = new FieldOperations();
-    private ClassOperations CO = new ClassOperations();
-    private MethodOperations MO = new MethodOperations();
+
 
     public void initialize() {
-        CO.showAllClasses();
+        showAllClasses();
+    }
+
+    private void showAllClasses() {
+        Class reflectPizza = Pizza.class;
+        Class reflectItem = Item.class;
+        Class reflectCustomer = Customer.class;
+
+        class_methods_textfield.setText("Available classes:");
+        class_methods_textarea.setText(
+                reflectPizza.getName() + "\n" +
+                        reflectItem.getName() + "\n" +
+                        reflectCustomer.getName()
+        );
     }
 
     public void useClass(ActionEvent event) {
         String className = class_name_field.getText();
-        CO.createObjectOfClass(className);
-        FO.setChosenClassObject(chosenClassObject);
-
+        createObjectOfClass(className);
     }
 
     public void invokeMethod(ActionEvent event) throws InvocationTargetException, IllegalAccessException {
@@ -82,11 +92,11 @@ public class ReflectionController {
 
         if (chosenField != null) {
             if (chosenField.getType().isEnum()) {
-                FO.callEnum(chosenField, newFieldValue);
+                callEnum(chosenField, newFieldValue);
             } else if (String.class.equals(chosenField.getType())) {
-                FO.callString(chosenField, newFieldValue);
+                callString(chosenField, newFieldValue);
             } else if (int.class.equals(chosenField.getType())) {
-                FO.callInt(chosenField, newFieldValue);
+                callInt(chosenField, newFieldValue);
             }
         } else
             field_field_answer_textfield.setText("Wrong field chosen.");
@@ -105,11 +115,187 @@ public class ReflectionController {
         field_field_type_list_text.setVisible(true);
     }
 
-    public Object getChosenClassObject() {
-        return chosenClassObject;
+
+    public void createObjectOfClass(String className) {
+        try {
+            chosenClassObject = Class.forName(className).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if (chosenClassObject != null) {
+            Method[] methodsOfChosenClass = chosenClassObject.getClass().getDeclaredMethods();
+            showAllMethods(methodsOfChosenClass);
+            showFieldFields();
+            showAllClassFields();
+        } else class_methods_textfield.setText("Wrong class name!");
+        
     }
 
-    public void setChosenClassObject(Object chosenClassObject) {
-        ReflectionController.chosenClassObject = chosenClassObject;
+    private void showAllClassFields() {
+        Field[] classFields = chosenClassObject.getClass().getDeclaredFields();
+        for (Field f : classFields) {
+            class_fields_list.getItems().add(f.getName() + " : " + f.getType());
+        }
     }
+
+    private Method lookForSetter(Field field) {
+        Method setter = null;
+        String fieldName = field.getName();
+        String setterName;
+        fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        setterName = "set" + fieldName;
+
+        for (Method m : chosenClassObject.getClass().getDeclaredMethods()) {
+            String methodName = m.getName();
+            if (methodName.equals(setterName)) {
+                setter = m;
+                break;
+            }
+        }
+        return setter;
+    }
+
+    private Method lookForGetter(Field field) {
+        Method getter = null;
+        String fieldName = field.getName();
+        String getterName;
+        fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        getterName = "get" + fieldName;
+        for (Method m : chosenClassObject.getClass().getDeclaredMethods()) {
+            String methodName = m.getName();
+            if (methodName.equals(getterName)) {
+                getter = m;
+                break;
+            }
+        }
+        return getter;
+    }
+
+    public void callEnum(Field field, String newValue) {
+        Method setter = lookForSetter(field);
+        Method getter = lookForGetter(field);
+        Type chosenEnum = lookForEnum(field);
+
+        callEnumSetter(setter, newValue, chosenEnum);
+        callEnumGetter(getter);
+    }
+
+    private Type lookForEnum(Field field) {
+        Type chosenEnum = null;
+        String fieldName = field.getName();
+
+        for (Field f : chosenClassObject.getClass().getDeclaredFields()) {
+            if (f.getName().equals(fieldName))
+                chosenEnum = f.getType();
+        }
+
+
+        return chosenEnum;
+    }
+
+    private void callEnumSetter(Method setter, String newValue, Type chosenEnum) {
+        try {
+            setter.invoke(chosenClassObject, Enum.valueOf((Class<Enum>) chosenEnum, newValue));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void callEnumGetter(Method getter) {
+        try {
+            field_field_answer_textfield.setText("New field value: " + getter.invoke(chosenClassObject));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void callString(Field field, String newValue) {
+        Method setter = lookForSetter(field);
+        Method getter = lookForGetter(field);
+
+        callStringSetter(setter, newValue);
+        callStringGetter(getter);
+
+    }
+
+    private void callStringSetter(Method setter, String newValue) {
+        try {
+            setter.invoke(chosenClassObject, newValue);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void callStringGetter(Method getter) {
+        try {
+            String answer = (String) getter.invoke(chosenClassObject);
+            field_field_answer_textfield.setText("New field value: " + answer);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void callInt(Field field, String newValue) {
+        Method setter = lookForSetter(field);
+        Method getter = lookForGetter(field);
+
+        callIntSetter(setter, newValue);
+        callIntGetter(getter);
+
+    }
+
+    private void callIntSetter(Method setter, String newValue) {
+        try {
+            setter.invoke(chosenClassObject, Integer.parseInt(newValue));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void callIntGetter(Method getter) {
+        try {
+            field_field_answer_textfield.setText("New field value: " + getter.invoke(chosenClassObject));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void showAllMethods(Method[] methodsOfChosenClass) {
+        StringBuilder allMethods = new StringBuilder();
+        StringBuilder getterMethods = new StringBuilder();
+        StringBuilder setterMethods = new StringBuilder();
+        StringBuilder privateMethods = new StringBuilder();
+
+        for (Method m : methodsOfChosenClass) {
+            if (m.getName().contains("get"))
+                getterMethods.append(m.getName()).append("\n");
+            else if (m.getName().contains("set"))
+                setterMethods.append(m.getName()).append("\n");
+            else if (m.getName().contains("is") || m.getName().contains("are"))
+                privateMethods.append(m.getName()).append("\n");
+            else
+                allMethods.append(m.getName()).append("\n");
+        }
+
+        class_methods_textfield.setText("Available methods:");
+        class_methods_textarea.setText(allMethods.toString());
+    }
+
 }
