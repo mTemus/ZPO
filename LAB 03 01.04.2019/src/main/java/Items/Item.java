@@ -1,3 +1,5 @@
+package Items;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Item {
@@ -10,7 +12,7 @@ public class Item {
     private volatile boolean consumed = false;
 
     public Item() {
-        this.name = "Item-" + COUNTER.getAndIncrement();
+        this.name = "Items.Item-" + COUNTER.getAndIncrement();
     }
 
     public synchronized void produceMe() {
@@ -45,20 +47,6 @@ public class Item {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
-    }
-
-    public boolean isNotProduced() {
-        if (!produced)
-            return true;
-        else
-            return produced;
-    }
-
-    public boolean isNotConsumed() {
-        if (!consumed)
-            return true;
-        else
-            return consumed;
     }
 
     public String getName() {
