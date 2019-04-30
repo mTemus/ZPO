@@ -1,14 +1,14 @@
 package Operations;
 
-class TimeOperations {
+public class TimeOperations {
 
-    void showActionTime(double now, double previous) {
+    public void showActionTime(double now, double previous) {
 
         double timeTimer = (now - previous) / 1000000000;
+        timeTimer *= -1;
 
         System.out.println("Threads took time: " + timeTimer + "s.");
     }
-
 
 
 }

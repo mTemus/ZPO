@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be00477e-fa73-4894-b2e3-e6cf05575ecc" name="Default Changelist" comment="v0.2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Operations/TimeOperations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Operations/MultiThreadsOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 01 04.03.2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 01 04.03.2019/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 01 04.03.2019/target/classes/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 01 04.03.2019/target/classes/controller/EmployeeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 01 04.03.2019/target/classes/employeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 01 04.03.2019/target/classes/employeeView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 02 11.03.2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 02 11.03.2019/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 02 11.03.2019/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 02 11.03.2019/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Items/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Operations/TimeOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Operations/TimeOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 04 15.04.2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 04 15.04.2019/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 04 15.04.2019/src/main/java/controller/ReflectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 04 15.04.2019/src/main/java/controller/ReflectionController.java" afterDir="false" />
     </list>
@@ -31,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="66" column="36" selection-start-line="66" selection-start-column="36" selection-end-line="66" selection-end-column="36" />
+            <state relative-caret-position="170">
+              <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="170">
+              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,10 +53,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Operations/MultiThreadsOperations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#237#238#0" expanded="true" />
+                <element signature="e#300#301#0" expanded="true" />
+                <element signature="e#373#374#0" expanded="true" />
+                <element signature="e#436#437#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Operations/TimeOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="68">
+              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -94,9 +110,10 @@
         <option value="$PROJECT_DIR$/src/main/java/Items/Item.java" />
         <option value="$PROJECT_DIR$/src/main/java/Operations/SingleThreadConsumer.java" />
         <option value="$PROJECT_DIR$/src/main/java/Operations/SingleThreadProducer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java" />
         <option value="$PROJECT_DIR$/src/main/java/Operations/TimeOperations.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Operations/MultiThreadsOperations.java" />
       </list>
     </option>
   </component>
@@ -236,7 +253,7 @@
       <workItem from="1556446557188" duration="192000" />
       <workItem from="1556458723565" duration="888000" />
       <workItem from="1556535488210" duration="112000" />
-      <workItem from="1556640415548" duration="2409000" />
+      <workItem from="1556640415548" duration="3180000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.1">
       <created>1555060708361</created>
@@ -343,11 +360,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555178079783</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="v0.5.1">
+      <created>1556642886569</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1556642886570</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55081000" />
+    <option name="totallyTimeSpent" value="55852000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -448,20 +472,14 @@
     <MESSAGE value="v0.3.5" />
     <MESSAGE value="v0.3.5.1" />
     <MESSAGE value="v0.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.4" />
+    <MESSAGE value="v0.5.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.5.1" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Programy/JDK 1.8/src.zip!/java/util/function/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -499,20 +517,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="66" column="36" selection-start-line="66" selection-start-column="36" selection-end-line="66" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="170">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -521,8 +529,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Operations/TimeOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="68">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Programy/JDK 1.8/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Operations/MultiThreadsOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#237#238#0" expanded="true" />
+            <element signature="e#300#301#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

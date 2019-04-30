@@ -1,5 +1,7 @@
 import Items.Item;
+import Operations.MultiThreadsOperations;
 import Operations.SingleThreadsOperations;
+import Operations.TimeOperations;
 
 import java.util.List;
 import java.util.Scanner;
@@ -10,10 +12,11 @@ import java.util.stream.Stream;
 
 
 public class Main {
-
-    static SingleThreadsOperations STO = new SingleThreadsOperations();
-
     private static double now = 0;
+    private static double previous;
+
+    private static TimeOperations TO = new TimeOperations();
+
 
     private static volatile List<Item> items = produce100_Items();
 
@@ -28,10 +31,14 @@ public class Main {
 
         switch (choice) {
             case 1:
-                STO.startSingleThreads(items);
+                SingleThreadsOperations.startSingleThreads(items);
                 break;
             case 2:
-                parallelMultithreading();
+                previous = System.nanoTime();
+                MultiThreadsOperations.runParallelStream(items);
+                now = System.nanoTime();
+
+                TO.showActionTime(now,previous);
                 break;
             default:
                 System.out.println("Switch error");

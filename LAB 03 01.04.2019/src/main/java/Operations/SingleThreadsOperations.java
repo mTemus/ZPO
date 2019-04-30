@@ -5,11 +5,11 @@ import Items.Item;
 import java.util.List;
 
 public class SingleThreadsOperations {
-    static TimeOperations TO = new TimeOperations();
-
+    private static TimeOperations TO = new TimeOperations();
     private static double now = 0;
-    static Thread tp;
-    static Thread tc;
+    private static double previous;
+    private static Thread tp;
+    private static Thread tc;
 
     private static void singleThreadProduce(int singleThreadID, List<Item> items) {
         for (int i = singleThreadID; i < items.size(); i += 4)
@@ -22,7 +22,7 @@ public class SingleThreadsOperations {
     }
 
     public static void startSingleThreads(List<Item> items) {
-        double previous = System.nanoTime();
+        previous = System.nanoTime();
         for (int i = 0; i < 4; i++) {
 
             int finalI1 = i;
