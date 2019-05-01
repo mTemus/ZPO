@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="be00477e-fa73-4894-b2e3-e6cf05575ecc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Operations/ThreadPoolOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Operations/ThreadPoolOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Operations/TimeOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Operations/TimeOperations.java" afterDir="false" />
     </list>
     <list id="5500445c-52ae-4cb9-a339-49c5db3cf2ba" name="INNE" comment="">
       <change beforePath="$PROJECT_DIR$/../LAB 01 04.03.2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 01 04.03.2019/.idea/workspace.xml" afterDir="false" />
@@ -45,20 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="17">
               <caret line="13" selection-start-line="13" selection-end-line="21" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Operations/MultiThreadsOperations.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -69,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Operations/ThreadPoolOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+            <state relative-caret-position="346">
+              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -266,7 +251,7 @@
       <workItem from="1556458723565" duration="888000" />
       <workItem from="1556535488210" duration="112000" />
       <workItem from="1556640415548" duration="5152000" />
-      <workItem from="1556705537228" duration="693000" />
+      <workItem from="1556705537228" duration="2670000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.1">
       <created>1555060708361</created>
@@ -387,11 +372,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556643691837</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="v6.1">
+      <created>1556706492762</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1556706492775</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58517000" />
+    <option name="totallyTimeSpent" value="60494000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -404,7 +396,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23288591" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -494,7 +485,8 @@
     <MESSAGE value="v0.4" />
     <MESSAGE value="v0.5.1" />
     <MESSAGE value="v6.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="v6.0" />
+    <MESSAGE value="v6.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="v6.1" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -543,26 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" selection-start-line="13" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Operations/MultiThreadsOperations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Operations/TimeOperations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -570,10 +542,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Operations/MultiThreadsOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="13" selection-start-line="13" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Operations/ThreadPoolOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+        <state relative-caret-position="346">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
