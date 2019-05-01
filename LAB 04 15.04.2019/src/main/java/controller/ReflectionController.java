@@ -14,7 +14,6 @@ import javafx.scene.text.Text;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Type;
 
 public class ReflectionController {
 
@@ -146,8 +145,6 @@ public class ReflectionController {
             class_fields_list.getItems().add(f.getName() + " : " + f.getType());
         }
     }
-
-
 
     private void showAllMethods(Method[] methodsOfChosenClass) {
         StringBuilder allMethods = new StringBuilder();
