@@ -1,14 +1,12 @@
 package Operations;
 
 import Items.Item;
-
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ThreadPoolOperations {
-    private static double now = 0;
     private static double previous;
     private static int poolSize = 12;
     private int working = 0;
@@ -31,12 +29,10 @@ public class ThreadPoolOperations {
             }
             ));
         }
-
         threadsManager.shutdown();
-
     }
 
-    public void setThreadPool() {
+    private void setThreadPool() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Please write amount of threads in thread pool, but please take a even number:");
         int pool = scan.nextInt();
@@ -45,7 +41,6 @@ public class ThreadPoolOperations {
             System.out.println("Please take a even number: ");
             pool = scan.nextInt();
         }
-
         poolSize = pool;
 
     }
@@ -63,23 +58,19 @@ public class ThreadPoolOperations {
             Thread.sleep(1);
             multiThreadConsume(consumerId++, items, size);
         }
-
     }
-
 
     private static void multiThreadProduce(int singleThreadID, List<Item> items, int size) {
         for (int i = singleThreadID; i < items.size(); i += size)
             items.get(i).produceMe();
-
     }
 
     private static void multiThreadConsume(int singleThreadID, List<Item> items, int size) {
         for (int i = singleThreadID; i < items.size(); i += size)
             items.get(i).consumeMe();
-        now = System.nanoTime();
+        double now = System.nanoTime();
 
         if (singleThreadID == (consumerId - 1))
             TO.showActionTime(now, previous);
     }
-
 }

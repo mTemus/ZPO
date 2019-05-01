@@ -7,7 +7,6 @@ import java.util.List;
 public class SingleThreadsOperations {
     private static TimeOperations TO = new TimeOperations();
     private static double now = 0;
-    private static double previous;
     private static Thread tp;
     private static Thread tc;
 
@@ -22,9 +21,9 @@ public class SingleThreadsOperations {
     }
 
     public static void startSingleThreads(List<Item> items) {
-        previous = System.nanoTime() * -1;
-        for (int i = 0; i < 4; i++) {
+        double previous = System.nanoTime();
 
+        for (int i = 0; i < 4; i++) {
             int finalI1 = i;
             tp = new Thread(() -> singleThreadProduce(finalI1, items));
             tp.start();
@@ -35,10 +34,10 @@ public class SingleThreadsOperations {
                 tc.start();
             }
         }
+
         while (tp.isAlive() || tc.isAlive())
-            now = System.nanoTime() * -1;
+            now = System.nanoTime();
 
-        TO.showActionTime(previous, now);
+        TO.showActionTime(now, previous);
     }
-
 }
