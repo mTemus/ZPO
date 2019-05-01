@@ -43,7 +43,7 @@ public class Main {
                 TO.showActionTime(now,previous);
                 break;
             case 3:
-                TPO.runThreadPool(items);
+                TPO.runFixedThreadPool(items);
                 break;
             default:
                 System.out.println("Switch error");
