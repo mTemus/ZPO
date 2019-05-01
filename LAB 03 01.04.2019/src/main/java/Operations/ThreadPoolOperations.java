@@ -3,6 +3,7 @@ package Operations;
 import Items.Item;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -16,6 +17,7 @@ public class ThreadPoolOperations {
     private static TimeOperations TO = new TimeOperations();
 
     public void runFixedThreadPool(List<Item> items) {
+        setThreadPool();
         previous = System.nanoTime();
         ExecutorService threadsManager = Executors.newFixedThreadPool(poolSize);
 
@@ -34,6 +36,19 @@ public class ThreadPoolOperations {
 
     }
 
+    public void setThreadPool() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please write amount of threads in thread pool, but please take a even number:");
+        int pool = scan.nextInt();
+
+        while (pool % 2 != 0) {
+            System.out.println("Please take a even number: ");
+            pool = scan.nextInt();
+        }
+
+        poolSize = pool;
+
+    }
 
     private void manageThreads(List<Item> items, int size) throws InterruptedException {
         size /= 2;

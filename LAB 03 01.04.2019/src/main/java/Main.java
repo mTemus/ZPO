@@ -26,8 +26,9 @@ public class Main {
         int choice;
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("1. Single threads application. ");
-        System.out.println("2. Thread pool application. ");
+        System.out.println("1. Seven threads (4 producers, 3 consumers). ");
+        System.out.println("2. Parallel streams. ");
+        System.out.println("3. Fixed threads pool. ");
         System.out.println("Chose your option.");
         choice = scan.nextInt();
 
@@ -39,8 +40,7 @@ public class Main {
                 previous = System.nanoTime();
                 MultiThreadsOperations.runParallelStream(items);
                 now = System.nanoTime();
-
-                TO.showActionTime(now,previous);
+                TO.showActionTime(now, previous);
                 break;
             case 3:
                 TPO.runFixedThreadPool(items);
@@ -56,9 +56,6 @@ public class Main {
         ForkJoinPool customThreadPool = new ForkJoinPool(2);
         customThreadPool.submit(
                 () -> items.parallelStream().forEach(Item::produceMe));
-
-
-
 
 
         if (customThreadPool.isShutdown()) {
@@ -86,9 +83,6 @@ public class Main {
                 .limit(100)
                 .collect(Collectors.toList());
     }
-
-
-
 
 
 }
