@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 public class ThreadPoolOperations {
     private static double now = 0;
     private static double previous;
-    private static int poolSize = 8;
+    private static int poolSize = 12;
     private int working = 0;
     private int producerId = 0;
     private static int consumerId = 0;
@@ -62,7 +62,8 @@ public class ThreadPoolOperations {
         for (int i = singleThreadID; i < items.size(); i += size)
             items.get(i).consumeMe();
         now = System.nanoTime();
-        if (singleThreadID == consumerId)
+
+        if (singleThreadID == (consumerId - 1))
             TO.showActionTime(now, previous);
     }
 
