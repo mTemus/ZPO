@@ -3,8 +3,6 @@ package classes.storage;
 import java.util.Random;
 
 public class Item {
-
-
     private String name;
     private int price;
 
@@ -12,15 +10,17 @@ public class Item {
     private boolean consumed = false;
     private boolean sold = false;
 
-    private String generatePrice() {
+    public String generatePrice() {
         Random randomPrice = new Random();
+        String strPrice;
 
         price = randomPrice.nextInt() * 10 + randomPrice.nextInt() * 100 + randomPrice.nextInt() * 1000;
+        strPrice = "New price of the item is: " + price + "$.";
 
-        return "New price of the item is: " + price + "$.";
+        return strPrice;
     }
 
-    private String checkItem() {
+    public String checkItem() {
         String itemCondition = "";
 
         if (produced)
@@ -41,20 +41,22 @@ public class Item {
         return itemCondition;
     }
 
-
-    private String produceItem() {
+    public String produceItem() {
+        String itemCondition = "Item produced.";
         produced = true;
-        return "Item produced.";
+        return itemCondition;
     }
 
-    private String consumeItem() {
+    public String consumeItem() {
+        String itemCondition = "Item consumed.";
         consumed = true;
-        return "Item consumed.";
+        return itemCondition;
     }
 
-    private String sellItem() {
+    public String sellItem() {
+        String itemCondition = "Item sold.";
         sold = true;
-        return "Item sold.";
+        return itemCondition;
     }
 
     public String getName() {

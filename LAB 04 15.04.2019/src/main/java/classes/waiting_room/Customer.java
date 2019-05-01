@@ -11,10 +11,15 @@ public class Customer {
 
     public String generatePlaceInQueue() {
         Random placeGenerator = new Random();
+        String answer;
 
-        setPlaceInQueue((int) placeGenerator.nextDouble() * 10);
+        setPlaceInQueue((placeGenerator.nextInt()));
 
-        return "Place in queue is: " + placeInQueue;
+        System.out.println(placeGenerator.nextInt());
+        System.out.println(getPlaceInQueue());
+
+        answer = "Place in queue is: " + placeInQueue;
+        return answer;
     }
 
 

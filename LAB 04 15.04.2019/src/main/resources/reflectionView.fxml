@@ -74,7 +74,7 @@
                </GridPane.margin>
             </TextField>
             <Button fx:id="field_set_field_value_button" mnemonicParsing="false" onAction="#setFieldValue" text="Set field value" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Text fx:id="field_field_answer_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Field answer:" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+            <Text fx:id="field_field_answer_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Getter:" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets right="7.0" top="13.0" />
                </GridPane.margin>
