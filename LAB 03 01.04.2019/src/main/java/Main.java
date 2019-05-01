@@ -1,6 +1,7 @@
 import Items.Item;
 import Operations.MultiThreadsOperations;
 import Operations.SingleThreadsOperations;
+import Operations.ThreadPoolOperations;
 import Operations.TimeOperations;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class Main {
     private static double previous;
 
     private static TimeOperations TO = new TimeOperations();
+    private static ThreadPoolOperations TPO = new ThreadPoolOperations();
 
 
     private static volatile List<Item> items = produce100_Items();
@@ -40,6 +42,9 @@ public class Main {
 
                 TO.showActionTime(now,previous);
                 break;
+            case 3:
+                TPO.runThreadPool(items);
+                break;
             default:
                 System.out.println("Switch error");
                 break;
@@ -53,21 +58,7 @@ public class Main {
                 () -> items.parallelStream().forEach(Item::produceMe));
 
 
-//        ExecutorService threadsManager = Executors.newFixedThreadPool(2);
-//
-//
-//        for (int i = 0; i < 2; i++) {
-//            int finalI = i;
-//            threadsManager.execute(new Thread(() -> {
-//                try {
-//                    runThreads(finalI);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }));
-//        }
-//
-//        threadsManager.shutdown();
+
 
 
         if (customThreadPool.isShutdown()) {

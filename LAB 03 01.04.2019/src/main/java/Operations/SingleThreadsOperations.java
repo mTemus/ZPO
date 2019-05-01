@@ -22,7 +22,7 @@ public class SingleThreadsOperations {
     }
 
     public static void startSingleThreads(List<Item> items) {
-        previous = System.nanoTime();
+        previous = System.nanoTime() * -1;
         for (int i = 0; i < 4; i++) {
 
             int finalI1 = i;
@@ -36,7 +36,7 @@ public class SingleThreadsOperations {
             }
         }
         while (tp.isAlive() || tc.isAlive())
-            now = System.nanoTime();
+            now = System.nanoTime() * -1;
 
         TO.showActionTime(previous, now);
     }
