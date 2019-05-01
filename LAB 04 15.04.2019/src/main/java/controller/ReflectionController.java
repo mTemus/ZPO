@@ -1,7 +1,7 @@
 package controller;
 
 import classes.menu.Pizza;
-import classes.operations.FieldOperations;
+import operations.FieldOperations;
 import classes.storage.Item;
 import classes.waiting_room.Customer;
 import javafx.event.ActionEvent;
@@ -169,10 +169,6 @@ public class ReflectionController {
 
     public static Object getChosenClassObject() {
         return chosenClassObject;
-    }
-
-    public static void setChosenClassObject(Object chosenClassObject) {
-        ReflectionController.chosenClassObject = chosenClassObject;
     }
 
 
