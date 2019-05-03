@@ -153,7 +153,6 @@ public class ReflectionController {
 
     private void showAllMethods(Method[] methodsOfChosenClass) {
         StringBuilder allMethods = new StringBuilder();
-        StringBuilder getterMethods = new StringBuilder();
         StringBuilder setterMethods = new StringBuilder();
         StringBuilder privateMethods = new StringBuilder();
 
