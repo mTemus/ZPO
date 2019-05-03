@@ -71,7 +71,7 @@ public class ReflectionController {
         }
 
         if (chosenMethod != null) {
-            method_answer_field.setText((String) chosenMethod.invoke(chosenClassObject));
+            method_answer_field.setText(chosenMethod.invoke(chosenClassObject).toString());
         }
     }
 
@@ -89,12 +89,17 @@ public class ReflectionController {
 
         if (chosenField != null) {
             if (chosenField.getType().isEnum()) {
+
                 FO.callEnum(chosenField, newFieldValue);
                  field_field_answer_textfield.setText(FO.getAnswer());
+
             } else if (String.class.equals(chosenField.getType())) {
+
                 FO.callString(chosenField, newFieldValue);
                  field_field_answer_textfield.setText(FO.getAnswer());
+
             } else if (int.class.equals(chosenField.getType())) {
+
                 FO.callInt(chosenField, newFieldValue);
                  field_field_answer_textfield.setText(FO.getAnswer());
             }
@@ -154,7 +159,7 @@ public class ReflectionController {
 
         for (Method m : methodsOfChosenClass) {
             if (m.getName().contains("get"))
-                getterMethods.append(m.getName()).append("\n");
+                allMethods.append(m.getName()).append("\n");
             else if (m.getName().contains("set"))
                 setterMethods.append(m.getName()).append("\n");
             else if (m.getName().contains("is") || m.getName().contains("are"))
