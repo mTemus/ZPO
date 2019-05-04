@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoadClassController">
+   <children>
+      <ComboBox fx:id="classes_combobox" layoutX="75.0" layoutY="144.0" onAction="#takeThisClass" prefHeight="31.0" prefWidth="650.0" promptText="Choose a class then click button below to move on." />
+      <Button fx:id="classes_button" layoutX="334.0" layoutY="307.0" mnemonicParsing="false" onAction="#chooseThisClass" text="Choose this class" />
+   </children>
+</AnchorPane>
