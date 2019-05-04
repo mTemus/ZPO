@@ -12,7 +12,7 @@ import java.io.IOException;
 public class StageOperations {
 
     public void changeSceneToReflections(ActionEvent event) throws IOException {
-        Parent EventViewParent = FXMLLoader.load(getClass().getResource("/userView.fxml"));
+        Parent EventViewParent = FXMLLoader.load(getClass().getResource("/reflectionsView.fxml"));
         Scene eventScene = new Scene(EventViewParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(eventScene);
