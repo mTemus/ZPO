@@ -60,21 +60,33 @@ public class ReflectionsController {
         pizzas.clear();
         className = "";
         objectsQuantity = 0;
-//        objectsIDX = 0;
+        objectsIDX = 0;
 
         SO.changeSceneToLoadClass(event);
     }
 
     public void createNewClassObject(ActionEvent event) {
+        OO.createObjectOfClass(className);
+        updateIDX();
+        updateLists();
     }
 
     public void useObjectById(ActionEvent event) {
+        int pointerI = Integer.parseInt(classes_enter_object_id_field.getText());
+        if (pointerI <= objectsIDX) {
+            objectsI = pointerI;
+            classes_current_object_id_field.setText("Object id: " + objectsI);
+            classes_error_field_textfield.clear();
+        } else {
+            classes_error_field_textfield.setText("Wrong object id. There is no such ID, last ID is: " + objectsIDX);
+        }
+
     }
 
     public void deleteObjectById(ActionEvent event) {
     }
 
-    public void initialize() {
+    public void initialize() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         className = LoadClassController.getChosenClassName();
         updateIDX();
         OO.createObjectOfClass(className);
@@ -86,20 +98,16 @@ public class ReflectionsController {
         users = ObjectOperations.getUsers();
         items = ObjectOperations.getItems();
         pizzas = ObjectOperations.getPizzas();
-
-        System.out.println(users);
-        System.out.println(items);
-        System.out.println(pizzas);
-
     }
 
     private void updateIDX() {
         ++objectsQuantity;
         objectsIDX = objectsQuantity - 1;
+        classes_current_object_id_field.setText("Object id: " + objectsIDX);
     }
 
-    private void initializeFields() {
-        Object chosenClassObject = users.get(objectsIDX);
+    private void initializeFields() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        Object chosenClassObject = Class.forName(className).newInstance();
 
         Field[] fields = chosenClassObject.getClass().getDeclaredFields();
         Method[] methods = chosenClassObject.getClass().getDeclaredMethods();
@@ -112,5 +120,15 @@ public class ReflectionsController {
         classes_class_methods_textarea.setText(allMethods.toString());
     }
 
+    public static ObservableList<UserBean> getUsers() {
+        return users;
+    }
 
+    public static ObservableList<PizzaBean> getPizzas() {
+        return pizzas;
+    }
+
+    public static ObservableList<ItemBean> getItems() {
+        return items;
+    }
 }

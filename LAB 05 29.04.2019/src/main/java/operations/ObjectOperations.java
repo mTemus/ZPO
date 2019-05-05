@@ -3,6 +3,7 @@ package operations;
 import beanClasses.ItemBean;
 import beanClasses.PizzaBean;
 import beanClasses.UserBean;
+import controller.ReflectionsController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -31,6 +32,7 @@ public class ObjectOperations {
     }
 
     private void createItem(String className) {
+        items = ReflectionsController.getItems();
         try {
             items.add((ItemBean) Class.forName(className).newInstance());
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
@@ -39,6 +41,7 @@ public class ObjectOperations {
     }
 
     private void createPizza(String className) {
+        pizzas = ReflectionsController.getPizzas();
         try {
             pizzas.add((PizzaBean) Class.forName(className).newInstance());
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
@@ -47,6 +50,7 @@ public class ObjectOperations {
     }
 
     private void createUser(String className) {
+        users = ReflectionsController.getUsers();
         try {
             users.add((UserBean) Class.forName(className).newInstance());
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
