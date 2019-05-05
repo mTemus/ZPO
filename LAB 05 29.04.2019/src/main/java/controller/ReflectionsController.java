@@ -10,9 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import operations.ObjectOperations;
 
-import java.time.LocalDate;
-import java.time.Month;
-
 public class ReflectionsController {
     public TableView class_fields_tableView;
     public TableColumn col_object_id;
@@ -61,35 +58,29 @@ public class ReflectionsController {
 
     public void initialize() {
         className = LoadClassController.getChosenClassName();
-        updateIDX();
         OO.createObjectOfClass(className);
+        updateIDX();
         updateLists();
-        classes_class_name_text.setText(className);
-
-        System.out.println(objectsQuantity);
-        System.out.println(objectsIDX);
-
-        users.get(objectsIDX).setId(1);
-        users.get(objectsIDX).setJoinDate(LocalDate.now());
-        users.get(objectsIDX).setLogin("Temus");
-        users.get(objectsIDX).setPassword("xd");
-
-        System.out.println(users.get(objectsIDX).getId());
-        System.out.println(users.get(objectsIDX).getJoinDate());
-        System.out.println(users.get(objectsIDX).getLogin());
-        System.out.println(users.get(objectsIDX).getPassword());
-
+        initializeFields();
     }
 
     private void updateLists() {
-        System.out.println(users);
-        users = ObjectOperations.users;
-        System.out.println(users);
+        users = ObjectOperations.getUsers();
+        items = ObjectOperations.getItems();
+        pizzas = ObjectOperations.getPizzas();
     }
 
     private void updateIDX() {
         ++objectsQuantity;
         objectsIDX = objectsQuantity - 1;
     }
+
+    private void initializeFields() {
+        Object chosenClassObject = users.get(objectsIDX);
+
+        classes_class_name_text.setText(chosenClassObject.getClass().getName());
+
+    }
+
 
 }

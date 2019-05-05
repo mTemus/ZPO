@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 
 public class ObjectOperations {
 
-    public static ObservableList<UserBean> users = FXCollections.observableArrayList();
+    private static ObservableList<UserBean> users = FXCollections.observableArrayList();
     private static ObservableList<PizzaBean> pizzas = FXCollections.observableArrayList();
     private static ObservableList<ItemBean> items = FXCollections.observableArrayList();
 
@@ -52,7 +52,18 @@ public class ObjectOperations {
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println(users);
     }
 
+
+    public static ObservableList<UserBean> getUsers() {
+        return users;
+    }
+
+    public static ObservableList<PizzaBean> getPizzas() {
+        return pizzas;
+    }
+
+    public static ObservableList<ItemBean> getItems() {
+        return items;
+    }
 }
