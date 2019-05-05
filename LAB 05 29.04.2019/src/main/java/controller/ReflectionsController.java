@@ -8,7 +8,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import operations.FieldOperations;
+import operations.MethodOperations;
 import operations.ObjectOperations;
+import operations.StageOperations;
+
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 public class ReflectionsController {
     public TableView class_fields_tableView;
@@ -37,14 +44,25 @@ public class ReflectionsController {
     private static int objectsI;
     private static String className;
 
-    ObjectOperations OO = new ObjectOperations();
+    private ObjectOperations OO = new ObjectOperations();
+    private FieldOperations FO = new FieldOperations();
+    private MethodOperations MO = new MethodOperations();
+    private StageOperations SO = new StageOperations();
 
     private static ObservableList<UserBean> users = FXCollections.observableArrayList();
     private static ObservableList<PizzaBean> pizzas = FXCollections.observableArrayList();
     private static ObservableList<ItemBean> items = FXCollections.observableArrayList();
 
 
-    public void choseOtherClass(ActionEvent event) {
+    public void choseOtherClass(ActionEvent event) throws IOException {
+        users.clear();
+        items.clear();
+        pizzas.clear();
+        className = "";
+        objectsQuantity = 0;
+//        objectsIDX = 0;
+
+        SO.changeSceneToLoadClass(event);
     }
 
     public void createNewClassObject(ActionEvent event) {
@@ -58,8 +76,8 @@ public class ReflectionsController {
 
     public void initialize() {
         className = LoadClassController.getChosenClassName();
-        OO.createObjectOfClass(className);
         updateIDX();
+        OO.createObjectOfClass(className);
         updateLists();
         initializeFields();
     }
@@ -68,6 +86,11 @@ public class ReflectionsController {
         users = ObjectOperations.getUsers();
         items = ObjectOperations.getItems();
         pizzas = ObjectOperations.getPizzas();
+
+        System.out.println(users);
+        System.out.println(items);
+        System.out.println(pizzas);
+
     }
 
     private void updateIDX() {
@@ -78,8 +101,15 @@ public class ReflectionsController {
     private void initializeFields() {
         Object chosenClassObject = users.get(objectsIDX);
 
-        classes_class_name_text.setText(chosenClassObject.getClass().getName());
+        Field[] fields = chosenClassObject.getClass().getDeclaredFields();
+        Method[] methods = chosenClassObject.getClass().getDeclaredMethods();
 
+        StringBuilder allMethods = MO.getAllMethods(methods);
+        StringBuilder allFields = FO.getAllFields(fields);
+
+        classes_class_name_text.setText(chosenClassObject.getClass().getName());
+        classes_class_fields_textarea.setText(allFields.toString());
+        classes_class_methods_textarea.setText(allMethods.toString());
     }
 
 

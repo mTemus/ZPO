@@ -20,5 +20,14 @@ public class StageOperations {
         window.show();
     }
 
+    public void changeSceneToLoadClass(ActionEvent event) throws IOException {
+        Parent EventViewParent = FXMLLoader.load(getClass().getResource("/loadClassView.fxml"));
+        Scene eventScene = new Scene(EventViewParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(eventScene);
+        window.setTitle("Choose a class");
+        window.show();
+    }
+
 
 }
