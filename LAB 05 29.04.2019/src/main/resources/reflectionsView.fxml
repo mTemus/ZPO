@@ -1,86 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
-          fx:controller="controller.ReflectionsController">
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReflectionsController">
     <columnConstraints>
-        <ColumnConstraints/>
+        <ColumnConstraints />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints/>
+        <RowConstraints />
     </rowConstraints>
-    <AnchorPane prefHeight="750.0" prefWidth="1200.0">
-        <TabPane prefHeight="750.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
-            <Tab text="Untitled Tab">
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <TableView fx:id="class_fields_tableView" prefHeight="711.0" prefWidth="1200.0">
-                        <columns>
-                            <TableColumn fx:id="col_object_id" text="Object ID"/>
-                            <TableColumn fx:id="col_field_name" prefWidth="373.0" text="Field Name"/>
-                            <TableColumn fx:id="col_field_type" minWidth="6.0" prefWidth="373.0"
-                                         text="Field Type"/>
-                            <TableColumn fx:id="col_field_actual_value" minWidth="0.0" prefWidth="373.0"
-                                         text="Field Actual Value"/>
-                        </columns>
-                    </TableView>
-                </AnchorPane>
-            </Tab>
-            <Tab text="Class overview">
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <TextArea fx:id="classes_class_fields_textarea" editable="false" layoutX="14.0"
-                              layoutY="97.0" prefHeight="554.0" prefWidth="300.0" wrapText="true"/>
-                    <Text layoutX="14.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                          text="Class fields:"/>
-                    <Button fx:id="classes_chose_other_clas_buttons" layoutX="14.0" layoutY="666.0"
-                            mnemonicParsing="false" onAction="#choseOtherClass"
-                            text="Chose other class"/>
-                    <Button fx:id="classes_create_new_object_button" layoutX="334.0" layoutY="144.0"
-                            mnemonicParsing="false" onAction="#createNewClassObject"
-                            text="Create new object"/>
-                    <TextField fx:id="classes_current_object_id_field" editable="false" layoutX="334.0"
-                               layoutY="97.0" prefHeight="30.0" prefWidth="140.0"
-                               promptText="Cuttent object id"/>
-                    <TextField fx:id="classes_enter_object_id_field" layoutX="334.0" layoutY="238.0"
-                               prefHeight="31.0" prefWidth="140.0" promptText="Enter object id"/>
-                    <Button fx:id="classes_use_object_button" layoutX="334.0" layoutY="290.0"
-                            mnemonicParsing="false" onAction="#useObjectById" prefHeight="31.0"
-                            prefWidth="140.0" text="Use object"/>
-                    <TextField fx:id="classes_field_name_textfield" layoutX="617.0" layoutY="97.0"
-                               prefHeight="31.0" prefWidth="569.0" promptText="Field name."/>
-                    <PasswordField fx:id="classes_new_value_textfield" layoutX="1000.0" layoutY="144.0"
-                                   promptText="New value."/>
-                    <Button fx:id="classes_invoke_setter_button" layoutX="1040.0" layoutY="188.0"
-                            mnemonicParsing="false" text="Invoke setter"/>
-                    <Text layoutX="565.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                          text="Field:"/>
-                    <Text layoutX="920.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                          text="New value:"/>
-                    <TextField fx:id="classes_current_value_textfield" editable="false" layoutX="715.0"
-                               layoutY="144.0" promptText="Current value."/>
-                    <Button fx:id="classes_invoke_getter_button" layoutX="755.0" layoutY="188.0"
-                            mnemonicParsing="false" text="Invoke getter"/>
-                    <Text layoutX="617.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                          text="Current value:" textAlignment="CENTER"/>
-                    <Button fx:id="classes_delete_object_button" layoutX="492.0" layoutY="290.0"
-                            mnemonicParsing="false" onAction="#deleteObjectById" text="Delete object"/>
-                    <TextArea fx:id="classes_class_methods_textarea" layoutX="334.0" layoutY="373.0"
-                              prefHeight="278.0" prefWidth="266.0"/>
-                    <Text layoutX="334.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                          text="Class methods:"/>
-                    <TextField fx:id="classes_error_field_textfield" editable="false" layoutX="622.0"
-                               layoutY="620.0" prefHeight="31.0" prefWidth="570.0"/>
-                    <Text fx:id="classes_class_name_text" layoutX="14.0" layoutY="53.0"
-                          strokeType="OUTSIDE" strokeWidth="0.0" text="class name"
-                          textAlignment="CENTER">
-                        <font>
-                            <Font size="36.0"/>
-                        </font>
-                    </Text>
-                </AnchorPane>
-            </Tab>
-        </TabPane>
-    </AnchorPane>
+   <children>
+       <AnchorPane prefHeight="750.0" prefWidth="1200.0">
+          <children>
+              <TabPane prefHeight="750.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
+                 <tabs>
+                     <Tab text="Untitled Tab">
+                        <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                               <children>
+                                   <TableView fx:id="class_fields_tableView" prefHeight="711.0" prefWidth="1200.0">
+                                       <columns>
+                                           <TableColumn fx:id="col_object_id" text="Object ID" />
+                                           <TableColumn fx:id="col_field_name" prefWidth="373.0" text="Field Name" />
+                                           <TableColumn fx:id="col_field_type" minWidth="6.0" prefWidth="373.0" text="Field Type" />
+                                           <TableColumn fx:id="col_field_actual_value" minWidth="0.0" prefWidth="373.0" text="Field Actual Value" />
+                                       </columns>
+                                   </TableView>
+                               </children>
+                            </AnchorPane>
+                        </content>
+                     </Tab>
+                     <Tab text="Class overview">
+                        <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                               <children>
+                                   <TextArea fx:id="classes_class_fields_textarea" editable="false" layoutX="14.0" layoutY="97.0" prefHeight="554.0" prefWidth="300.0" wrapText="true" />
+                                   <Text layoutX="14.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class fields:" />
+                                   <Button fx:id="classes_chose_other_class_button" layoutX="14.0" layoutY="666.0" mnemonicParsing="false" onAction="#choseOtherClass" text="Chose other class" />
+                                   <Button fx:id="classes_create_new_object_button" layoutX="334.0" layoutY="144.0" mnemonicParsing="false" onAction="#createNewClassObject" text="Create new object" />
+                                   <TextField fx:id="classes_current_object_id_field" editable="false" layoutX="334.0" layoutY="97.0" prefHeight="30.0" prefWidth="140.0" promptText="Cuttent object id" />
+                                   <TextField fx:id="classes_enter_object_id_field" layoutX="334.0" layoutY="238.0" prefHeight="31.0" prefWidth="140.0" promptText="Enter object id" />
+                                   <Button fx:id="classes_use_object_button" layoutX="334.0" layoutY="290.0" mnemonicParsing="false" onAction="#useObjectById" prefHeight="31.0" prefWidth="140.0" text="Use object" />
+                                   <TextField fx:id="classes_field_name_textfield" layoutX="617.0" layoutY="97.0" prefHeight="31.0" prefWidth="569.0" promptText="Field name." />
+                                   <PasswordField fx:id="classes_new_value_textfield" layoutX="1000.0" layoutY="144.0" promptText="New value." />
+                                   <Button fx:id="classes_invoke_setter_button" layoutX="1040.0" layoutY="188.0" mnemonicParsing="false" text="Invoke setter" />
+                                   <Text layoutX="565.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field:" />
+                                   <Text layoutX="920.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New value:" />
+                                   <TextField fx:id="classes_current_value_textfield" editable="false" layoutX="715.0" layoutY="144.0" promptText="Current value." />
+                                   <Button fx:id="classes_invoke_getter_button" layoutX="755.0" layoutY="188.0" mnemonicParsing="false" text="Invoke getter" />
+                                   <Text layoutX="617.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current value:" textAlignment="CENTER" />
+                                   <Button fx:id="classes_delete_object_button" layoutX="492.0" layoutY="290.0" mnemonicParsing="false" onAction="#deleteObjectById" text="Delete object" />
+                                   <TextArea fx:id="classes_class_methods_textarea" layoutX="334.0" layoutY="373.0" prefHeight="278.0" prefWidth="266.0" />
+                                   <Text layoutX="334.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class methods:" />
+                                   <TextField fx:id="classes_error_field_textfield" editable="false" layoutX="622.0" layoutY="620.0" prefHeight="31.0" prefWidth="570.0" />
+                                   <Text fx:id="classes_class_name_text" layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="class name" textAlignment="CENTER">
+                                       <font>
+                                           <Font size="36.0" />
+                                       </font>
+                                   </Text>
+                               </children>
+                            </AnchorPane>
+                        </content>
+                     </Tab>
+                 </tabs>
+              </TabPane>
+          </children>
+       </AnchorPane>
+   </children>
 </GridPane>

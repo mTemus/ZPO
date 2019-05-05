@@ -1,11 +1,17 @@
 package controller;
 
+import beanClasses.ItemBean;
+import beanClasses.PizzaBean;
 import beanClasses.UserBean;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import operations.ObjectOperations;
+
+import java.time.LocalDate;
+import java.time.Month;
 
 public class ReflectionsController {
     public TableView class_fields_tableView;
@@ -14,7 +20,7 @@ public class ReflectionsController {
     public TableColumn col_field_type;
     public TableColumn col_field_actual_value;
     public TextArea classes_class_fields_textarea;
-    public Button classes_chose_other_clas_buttons;
+    public Button classes_chose_other_class_button;
     public Button classes_create_new_object_button;
     public TextField classes_current_object_id_field;
     public TextField classes_enter_object_id_field;
@@ -28,12 +34,17 @@ public class ReflectionsController {
     public TextArea classes_class_methods_textarea;
     public TextField classes_error_field_textfield;
     public Text classes_class_name_text;
-    private Object actualObject;
-    private int objectsQuantity = 1;
-    private int objectsIDX = objectsQuantity - 1;
-    private int objectsI;
 
-    ObservableList<UserBean> users = FXCollections.observableArrayList();
+    private static int objectsQuantity = 0;
+    private static int objectsIDX;
+    private static int objectsI;
+    private static String className;
+
+    ObjectOperations OO = new ObjectOperations();
+
+    private static ObservableList<UserBean> users = FXCollections.observableArrayList();
+    private static ObservableList<PizzaBean> pizzas = FXCollections.observableArrayList();
+    private static ObservableList<ItemBean> items = FXCollections.observableArrayList();
 
 
     public void choseOtherClass(ActionEvent event) {
@@ -47,4 +58,38 @@ public class ReflectionsController {
 
     public void deleteObjectById(ActionEvent event) {
     }
+
+    public void initialize() {
+        className = LoadClassController.getChosenClassName();
+        updateIDX();
+        OO.createObjectOfClass(className);
+        updateLists();
+        classes_class_name_text.setText(className);
+
+        System.out.println(objectsQuantity);
+        System.out.println(objectsIDX);
+
+        users.get(objectsIDX).setId(1);
+        users.get(objectsIDX).setJoinDate(LocalDate.now());
+        users.get(objectsIDX).setLogin("Temus");
+        users.get(objectsIDX).setPassword("xd");
+
+        System.out.println(users.get(objectsIDX).getId());
+        System.out.println(users.get(objectsIDX).getJoinDate());
+        System.out.println(users.get(objectsIDX).getLogin());
+        System.out.println(users.get(objectsIDX).getPassword());
+
+    }
+
+    private void updateLists() {
+        System.out.println(users);
+        users = ObjectOperations.users;
+        System.out.println(users);
+    }
+
+    private void updateIDX() {
+        ++objectsQuantity;
+        objectsIDX = objectsQuantity - 1;
+    }
+
 }
