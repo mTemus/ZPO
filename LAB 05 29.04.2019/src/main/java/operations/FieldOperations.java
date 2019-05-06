@@ -37,7 +37,7 @@ public class FieldOperations {
         return chosenEnum;
     }
 
-    private static void callEnumSetter(Method setter, String newValue, Type chosenEnum) {
+    public void callEnumSetter(Method setter, String newValue, Type chosenEnum) {
         try {
             setter.invoke(chosenClassObject, Enum.valueOf((Class<Enum>) chosenEnum, newValue));
         } catch (IllegalAccessException | InvocationTargetException e) {
@@ -45,15 +45,16 @@ public class FieldOperations {
         }
     }
 
-    private void callEnumGetter(Method getter) {
+    public String callEnumGetter(Method getter) {
         try {
             setAnswer("New field value: " + getter.invoke(chosenClassObject));
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
+        return getAnswer();
     }
 
-    private void callStringSetter(Method setter, String newValue) {
+    public void callStringSetter(Method setter, String newValue) {
         try {
             setter.invoke(chosenClassObject, newValue);
         } catch (IllegalAccessException | InvocationTargetException e) {
@@ -61,16 +62,16 @@ public class FieldOperations {
         }
     }
 
-    private void callStringGetter(Method getter) {
+    public String callStringGetter(Method getter) {
         try {
             setAnswer("New field value: " + getter.invoke(chosenClassObject));
-
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
+        return getAnswer();
     }
 
-    private void callIntSetter(Method setter, String newValue) {
+    public void callIntSetter(Method setter, String newValue) {
         try {
             setter.invoke(chosenClassObject, Integer.parseInt(newValue));
         } catch (IllegalAccessException | InvocationTargetException e) {
@@ -78,15 +79,16 @@ public class FieldOperations {
         }
     }
 
-    private void callIntGetter(Method getter) {
+    public String callIntGetter(Method getter) {
         try {
             setAnswer("New field value: " + getter.invoke(chosenClassObject));
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
+        return getAnswer();
     }
 
-    private void callLocalDataSetter(Method setter, String newValue) {
+    public void callLocalDataSetter(Method setter, String newValue) {
         try {
             setter.invoke(chosenClassObject, LocalDate.parse(newValue));
         } catch (IllegalAccessException | InvocationTargetException e) {
@@ -94,12 +96,13 @@ public class FieldOperations {
         }
     }
 
-    private void callLocalDataSGetter(Method getter) {
+    public String callLocalDataSGetter(Method getter) {
         try {
             setAnswer("New field value: " + getter.invoke(chosenClassObject));
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
+        return getAnswer();
     }
 
     public String getAnswer() {
