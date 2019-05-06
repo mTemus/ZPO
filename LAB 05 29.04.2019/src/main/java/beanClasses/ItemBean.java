@@ -7,7 +7,6 @@ public class ItemBean implements Serializable {
 
     private int price;
     private String name;
-    private boolean sold;
     private LocalDate productionDate;
     private ItemType type;
 
@@ -32,14 +31,6 @@ public class ItemBean implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public boolean isSold() {
-        return sold;
-    }
-
-    public void setSold(boolean sold) {
-        this.sold = sold;
     }
 
     public LocalDate getProductionDate() {

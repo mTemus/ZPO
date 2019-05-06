@@ -87,7 +87,7 @@ public class FieldOperations {
     public String callIntGetter(Method getter) {
         getTheChosen();
         try {
-            setAnswer((String) getter.invoke(chosenClassObject));
+            setAnswer(getter.invoke(chosenClassObject).toString());
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
