@@ -16,6 +16,7 @@ import operations.StageOperations;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 import java.time.LocalDate;
 
 public class ReflectionsController {
@@ -133,29 +134,36 @@ public class ReflectionsController {
         classes_class_methods_textarea.setText(allMethods.toString());
     }
 
-    public void setFieldValue() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public void setFieldValue() {
         Field chosenField = null;
         String fieldName = classes_field_name_textfield.getText();
         String newFieldValue = classes_new_value_textfield.getText();
 
-        try {
-            chosenField = chosenClassObject.getClass().getDeclaredField(fieldName);
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
-
-        if (chosenField != null) {
-            if (chosenField.getType().isEnum()) {
-                FO.callEnum(chosenField, newFieldValue);
-            } else if (String.class.equals(chosenField.getType())) {
-                FO.callString(chosenField, newFieldValue);
-            } else if (int.class.equals(chosenField.getType())) {
-                FO.callInt(chosenField, newFieldValue);
-            } else if (LocalDate.class.equals(chosenField.getType())){
-                FO.callLocalData(chosenField, newFieldValue);
+        if (fieldName != null && newFieldValue != null) {
+            try {
+                chosenField = chosenClassObject.getClass().getDeclaredField(fieldName);
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
             }
+            if (chosenField != null) {
+                Method setter = MO.lookForMethod(chosenClassObject, chosenField, "set");
+
+                if (chosenField.getType().isEnum()) {
+                    Type enumToConvertOn = FO.lookForEnum(chosenField);
+                    FO.callEnumSetter(setter, newFieldValue, enumToConvertOn);
+                } else if (String.class.equals(chosenField.getType())) {
+                    FO.callStringSetter(setter, newFieldValue);
+                } else if (int.class.equals(chosenField.getType())) {
+                    FO.callIntSetter(setter, newFieldValue);
+                } else if (LocalDate.class.equals(chosenField.getType())) {
+                    FO.callLocalDataSetter(setter, newFieldValue);
+                }
+            } else
+                classes_error_field_textfield.setText("You chose wrong field.");
         } else
-            classes_error_field_textfield.setText("You chose wrong field.");
+            classes_error_field_textfield.setText("Please write field name and it value correctly.");
+
+
     }
 
 

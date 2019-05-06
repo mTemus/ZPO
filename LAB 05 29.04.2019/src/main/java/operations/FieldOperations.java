@@ -26,7 +26,7 @@ public class FieldOperations {
         setChosenClassObject(ReflectionsController.getChosenClassObject());
     }
 
-    private Type lookForEnum(Field field) {
+    public Type lookForEnum(Field field) {
         Type chosenEnum = null;
         String fieldName = field.getName();
 
