@@ -16,6 +16,7 @@ import operations.StageOperations;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.time.LocalDate;
 
 public class ReflectionsController {
     public TableView class_fields_tableView;
@@ -150,6 +151,8 @@ public class ReflectionsController {
                 FO.callString(chosenField, newFieldValue);
             } else if (int.class.equals(chosenField.getType())) {
                 FO.callInt(chosenField, newFieldValue);
+            } else if (LocalDate.class.equals(chosenField.getType())){
+                FO.callLocalData(chosenField, newFieldValue);
             }
         } else
             classes_error_field_textfield.setText("You chose wrong field.");
