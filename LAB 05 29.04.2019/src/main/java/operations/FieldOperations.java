@@ -12,7 +12,6 @@ public class FieldOperations {
     private static Object chosenClassObject;
     private static String answer;
 
-
     public StringBuilder getAllFields(Field[] fields) {
         StringBuilder allFields = new StringBuilder();
 
@@ -129,4 +128,5 @@ public class FieldOperations {
     public static void setChosenClassObject(Object chosenClassObject) {
         FieldOperations.chosenClassObject = chosenClassObject;
     }
+
 }

@@ -72,7 +72,12 @@ public class ReflectionsController {
     public void createNewClassObject(ActionEvent event) {
         OO.createObjectOfClass(className);
         updateIDX();
-        updateLists();
+        updateListsAfterOO();
+        try {
+            overvriteNewObject();
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+            e.printStackTrace();
+        }
     }
 
     public void useObjectById(ActionEvent event) {
@@ -81,6 +86,11 @@ public class ReflectionsController {
             objectsI = pointerI;
             classes_current_object_id_field.setText("Object id: " + objectsI);
             classes_error_field_textfield.clear();
+            try {
+                overvriteNewObject();
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+                e.printStackTrace();
+            }
         } else {
             classes_error_field_textfield.setText("Wrong object id. There is no such ID, last ID is: " + objectsIDX);
         }
@@ -92,7 +102,7 @@ public class ReflectionsController {
             --objectsIDX;
 
         OO.deleteObjectOfClass(className, objectsI);
-        updateLists();
+        updateListsAfterOO();
         --objectsQuantity;
         classes_current_object_id_field.clear();
         classes_enter_object_id_field.clear();
@@ -102,6 +112,7 @@ public class ReflectionsController {
 
     public void invokeSetter(ActionEvent event) {
         setFieldValue();
+        overwriteObject();
     }
 
     public void invokeGetter(ActionEvent event) {
@@ -113,11 +124,11 @@ public class ReflectionsController {
         className = LoadClassController.getChosenClassName();
         updateIDX();
         OO.createObjectOfClass(className);
-        updateLists();
+        updateListsAfterOO();
         initializeFields();
     }
 
-    private void updateLists() {
+    private void updateListsAfterOO() {
         users = ObjectOperations.getUsers();
         items = ObjectOperations.getItems();
         pizzas = ObjectOperations.getPizzas();
@@ -126,6 +137,7 @@ public class ReflectionsController {
     private void updateIDX() {
         ++objectsQuantity;
         objectsIDX = objectsQuantity - 1;
+        objectsI = objectsIDX;
         classes_current_object_id_field.setText("Object id: " + objectsIDX);
     }
 
@@ -203,6 +215,27 @@ public class ReflectionsController {
 
     }
 
+    private void overwriteObject() {
+        chosenClassObject = FieldOperations.getChosenClassObject();
+
+        if (chosenClassObject.getClass().equals(UserBean.class))
+            users.set(objectsI, (UserBean) chosenClassObject);
+        else if (chosenClassObject.getClass().equals(ItemBean.class))
+            items.set(objectsI, (ItemBean) chosenClassObject);
+        else if (chosenClassObject.getClass().equals(PizzaBean.class))
+            pizzas.set(objectsI, (PizzaBean) chosenClassObject);
+    }
+
+    private void overvriteNewObject() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        Object tmpObject = Class.forName(className).newInstance();
+
+        if (tmpObject.getClass().equals(ItemBean.class))
+            chosenClassObject = items.get(objectsI);
+        else if (tmpObject.getClass().equals(UserBean.class))
+            chosenClassObject = users.get(objectsI);
+        else if (tmpObject.getClass().equals(PizzaBean.class))
+            chosenClassObject = pizzas.get(objectsI);
+    }
 
     public static ObservableList<UserBean> getUsers() {
         return users;
