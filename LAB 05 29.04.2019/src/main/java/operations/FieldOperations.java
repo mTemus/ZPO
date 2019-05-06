@@ -49,7 +49,7 @@ public class FieldOperations {
     public String callEnumGetter(Method getter) {
         getTheChosen();
         try {
-            setAnswer((String) getter.invoke(chosenClassObject));
+            setAnswer(getter.invoke(chosenClassObject).toString());
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
@@ -106,7 +106,7 @@ public class FieldOperations {
     public String callLocalDataSGetter(Method getter) {
         getTheChosen();
         try {
-            setAnswer((String) getter.invoke(chosenClassObject));
+            setAnswer(getter.invoke(chosenClassObject).toString());
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
