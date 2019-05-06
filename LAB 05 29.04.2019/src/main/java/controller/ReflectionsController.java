@@ -32,7 +32,7 @@ public class ReflectionsController {
     public TextField classes_enter_object_id_field;
     public Button classes_use_object_button;
     public TextField classes_field_name_textfield;
-    public PasswordField classes_new_value_textfield;
+    public TextField classes_new_value_textfield;
     public Button classes_invoke_setter_button;
     public TextField classes_current_value_textfield;
     public Button classes_invoke_getter_button;
@@ -100,6 +100,15 @@ public class ReflectionsController {
 
     }
 
+    public void invokeSetter(ActionEvent event) {
+        setFieldValue();
+    }
+
+    public void invokeGetter(ActionEvent event) {
+        getFieldValue();
+    }
+
+
     public void initialize() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         className = LoadClassController.getChosenClassName();
         updateIDX();
@@ -134,7 +143,7 @@ public class ReflectionsController {
         classes_class_methods_textarea.setText(allMethods.toString());
     }
 
-    public void setFieldValue() {
+    private void setFieldValue() {
         Field chosenField = null;
         String fieldName = classes_field_name_textfield.getText();
         String newFieldValue = classes_new_value_textfield.getText();
@@ -162,7 +171,35 @@ public class ReflectionsController {
                 classes_error_field_textfield.setText("You chose wrong field.");
         } else
             classes_error_field_textfield.setText("Please write field name and it value correctly.");
+    }
 
+    private void getFieldValue() {
+        Field chosenField = null;
+        String fieldName = classes_field_name_textfield.getText();
+        String answer = "";
+
+        if (fieldName != null) {
+            try {
+                chosenField = chosenClassObject.getClass().getDeclaredField(fieldName);
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+            if (chosenField != null) {
+                Method getter = MO.lookForMethod(chosenClassObject, chosenField, "get");
+                if (chosenField.getType().isEnum()) {
+                    answer = FO.callEnumGetter(getter);
+                } else if (String.class.equals(chosenField.getType())) {
+                    answer = FO.callStringGetter(getter);
+                } else if (int.class.equals(chosenField.getType())) {
+                    answer = FO.callIntGetter(getter);
+                } else if (LocalDate.class.equals(chosenField.getType())) {
+                    answer = FO.callLocalDataSGetter(getter);
+                }
+                classes_current_value_textfield.setText(answer);
+            } else
+                classes_error_field_textfield.setText("You chose wrong field.");
+        } else
+            classes_error_field_textfield.setText("Please write field name correctly.");
 
     }
 
@@ -186,4 +223,6 @@ public class ReflectionsController {
     public static void setChosenClassObject(Object chosenClassObject) {
         ReflectionsController.chosenClassObject = chosenClassObject;
     }
+
+
 }

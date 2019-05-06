@@ -17,7 +17,7 @@
           <children>
               <TabPane prefHeight="750.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
                  <tabs>
-                     <Tab text="Untitled Tab">
+                     <Tab text="Table of objects">
                         <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                <children>
@@ -45,12 +45,11 @@
                                    <TextField fx:id="classes_enter_object_id_field" layoutX="334.0" layoutY="238.0" prefHeight="31.0" prefWidth="140.0" promptText="Enter object id" />
                                    <Button fx:id="classes_use_object_button" layoutX="334.0" layoutY="290.0" mnemonicParsing="false" onAction="#useObjectById" prefHeight="31.0" prefWidth="140.0" text="Use object" />
                                    <TextField fx:id="classes_field_name_textfield" layoutX="617.0" layoutY="97.0" prefHeight="31.0" prefWidth="569.0" promptText="Field name." />
-                                   <PasswordField fx:id="classes_new_value_textfield" layoutX="1000.0" layoutY="144.0" promptText="New value." />
-                                   <Button fx:id="classes_invoke_setter_button" layoutX="1040.0" layoutY="188.0" mnemonicParsing="false" text="Invoke setter" />
+                                   <Button fx:id="classes_invoke_setter_button" layoutX="1040.0" layoutY="188.0" mnemonicParsing="false" onAction="#invokeSetter" text="Invoke setter" />
                                    <Text layoutX="565.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field:" />
                                    <Text layoutX="920.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New value:" />
                                    <TextField fx:id="classes_current_value_textfield" editable="false" layoutX="715.0" layoutY="144.0" promptText="Current value." />
-                                   <Button fx:id="classes_invoke_getter_button" layoutX="755.0" layoutY="188.0" mnemonicParsing="false" text="Invoke getter" />
+                                   <Button fx:id="classes_invoke_getter_button" layoutX="755.0" layoutY="188.0" mnemonicParsing="false" onAction="#invokeGetter" text="Invoke getter" />
                                    <Text layoutX="617.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current value:" textAlignment="CENTER" />
                                    <Button fx:id="classes_delete_object_button" layoutX="492.0" layoutY="290.0" mnemonicParsing="false" onAction="#deleteObjectById" text="Delete object" />
                                    <TextArea fx:id="classes_class_methods_textarea" layoutX="334.0" layoutY="373.0" prefHeight="278.0" prefWidth="266.0" />
@@ -61,6 +60,7 @@
                                            <Font size="36.0" />
                                        </font>
                                    </Text>
+                              <TextField fx:id="classes_new_value_textfield" layoutX="1000.0" layoutY="144.0" promptText="New value." />
                                </children>
                             </AnchorPane>
                         </content>
