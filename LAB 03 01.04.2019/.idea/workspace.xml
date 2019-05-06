@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be00477e-fa73-4894-b2e3-e6cf05575ecc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Operations/ThreadPoolOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Operations/ThreadPoolOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LAB 05 29.04.2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 05 29.04.2019/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LAB 05 29.04.2019/src/main/java/controller/LoadClassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 05 29.04.2019/src/main/java/controller/LoadClassController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LAB 05 29.04.2019/src/main/java/controller/ReflectionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 05 29.04.2019/src/main/java/controller/ReflectionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LAB 05 29.04.2019/src/main/java/operations/FieldOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 05 29.04.2019/src/main/java/operations/FieldOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LAB 05 29.04.2019/src/main/java/operations/ObjectOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 05 29.04.2019/src/main/java/operations/ObjectOperations.java" afterDir="false" />
     </list>
     <list id="5500445c-52ae-4cb9-a339-49c5db3cf2ba" name="INNE" comment="">
-      <change beforePath="$PROJECT_DIR$/../LAB 01 04.03.2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 01 04.03.2019/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LAB 01 04.03.2019/target/classes/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 01 04.03.2019/target/classes/controller/EmployeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LAB 01 04.03.2019/target/classes/employeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 01 04.03.2019/target/classes/employeeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LAB 02 11.03.2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 02 11.03.2019/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LAB 02 11.03.2019/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 02 11.03.2019/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LAB 04 15.04.2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 04 15.04.2019/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LAB 04 15.04.2019/src/main/java/controller/ReflectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LAB 04 15.04.2019/src/main/java/controller/ReflectionController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="119">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,11 +39,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Operations/ThreadPoolOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="170">
+              <caret line="19" column="60" lean-forward="true" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Operations/MultiThreadsOperations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -169,7 +174,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LAB 04 15.04.2019" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
@@ -242,6 +247,7 @@
       <workItem from="1556640415548" duration="5152000" />
       <workItem from="1556705537228" duration="4486000" />
       <workItem from="1556717202845" duration="1384000" />
+      <workItem from="1557138777815" duration="714000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.1">
       <created>1555060708361</created>
@@ -394,7 +400,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63694000" />
+    <option name="totallyTimeSpent" value="64408000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -407,9 +413,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23624161" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23959732" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -418,7 +423,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -540,20 +545,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Operations/MultiThreadsOperations.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        <state relative-caret-position="323">
+          <caret line="28" column="48" lean-forward="true" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Operations/SingleThreadsOperations.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" column="48" lean-forward="true" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+        <state relative-caret-position="119">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -567,20 +572,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Operations/MultiThreadsOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Operations/ThreadPoolOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        <state relative-caret-position="170">
+          <caret line="19" column="60" lean-forward="true" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

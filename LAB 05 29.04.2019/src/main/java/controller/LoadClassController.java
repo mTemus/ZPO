@@ -3,6 +3,7 @@ package controller;
 import beanClasses.ItemBean;
 import beanClasses.PizzaBean;
 import beanClasses.UserBean;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -19,6 +20,8 @@ public class LoadClassController {
 
     public void takeThisClass(ActionEvent event) {
         chosenClassName = (String) classes_combobox.getValue();
+
+
     }
 
     public void chooseThisClass(ActionEvent event) {

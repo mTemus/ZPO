@@ -7,6 +7,8 @@ import controller.ReflectionsController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.Ref;
+
 public class ObjectOperations {
 
     private static ObservableList<UserBean> users = FXCollections.observableArrayList();
@@ -28,7 +30,6 @@ public class ObjectOperations {
                 System.out.println("Creating class object error by class name");
                 break;
         }
-
     }
 
     private void createItem(String className) {
@@ -58,6 +59,37 @@ public class ObjectOperations {
         }
     }
 
+    public void deleteObjectOfClass(String className, int id) {
+        switch (className) {
+            case "beanClasses.ItemBean":
+                deleteItem(id);
+                break;
+            case "beanClasses.PizzaBean":
+                deletePizza(id);
+                break;
+            case "beanClasses.UserBean":
+                deleteUser(id);
+                break;
+            default:
+                System.out.println("Creating class object error by class name");
+                break;
+        }
+    }
+
+    private void deleteItem(int id) {
+        items = ReflectionsController.getItems();
+        items.remove(id);
+    }
+
+    private void deletePizza(int id) {
+        pizzas = ReflectionsController.getPizzas();
+        pizzas.remove(id);
+    }
+
+    private void deleteUser(int id) {
+        users = ReflectionsController.getUsers();
+        users.remove(id);
+    }
 
     public static ObservableList<UserBean> getUsers() {
         return users;

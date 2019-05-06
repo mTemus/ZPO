@@ -53,6 +53,8 @@ public class ReflectionsController {
     private static ObservableList<PizzaBean> pizzas = FXCollections.observableArrayList();
     private static ObservableList<ItemBean> items = FXCollections.observableArrayList();
 
+    private static Object chosenClassObject;
+
 
     public void choseOtherClass(ActionEvent event) throws IOException {
         users.clear();
@@ -84,6 +86,16 @@ public class ReflectionsController {
     }
 
     public void deleteObjectById(ActionEvent event) {
+        if (objectsIDX > objectsI)
+            --objectsIDX;
+
+        OO.deleteObjectOfClass(className, objectsI);
+        updateLists();
+        --objectsQuantity;
+        classes_current_object_id_field.clear();
+        classes_enter_object_id_field.clear();
+        classes_error_field_textfield.setText("Deleting successful, please load new object.");
+
     }
 
     public void initialize() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
@@ -107,7 +119,7 @@ public class ReflectionsController {
     }
 
     private void initializeFields() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        Object chosenClassObject = Class.forName(className).newInstance();
+        chosenClassObject = Class.forName(className).newInstance();
 
         Field[] fields = chosenClassObject.getClass().getDeclaredFields();
         Method[] methods = chosenClassObject.getClass().getDeclaredMethods();
@@ -120,6 +132,30 @@ public class ReflectionsController {
         classes_class_methods_textarea.setText(allMethods.toString());
     }
 
+    public void setFieldValue() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        Field chosenField = null;
+        String fieldName = classes_field_name_textfield.getText();
+        String newFieldValue = classes_new_value_textfield.getText();
+
+        try {
+            chosenField = chosenClassObject.getClass().getDeclaredField(fieldName);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        if (chosenField != null) {
+            if (chosenField.getType().isEnum()) {
+                FO.callEnum(chosenField, newFieldValue);
+            } else if (String.class.equals(chosenField.getType())) {
+                FO.callString(chosenField, newFieldValue);
+            } else if (int.class.equals(chosenField.getType())) {
+                FO.callInt(chosenField, newFieldValue);
+            }
+        } else
+            classes_error_field_textfield.setText("You chose wrong field.");
+    }
+
+
     public static ObservableList<UserBean> getUsers() {
         return users;
     }
@@ -130,5 +166,13 @@ public class ReflectionsController {
 
     public static ObservableList<ItemBean> getItems() {
         return items;
+    }
+
+    public static Object getChosenClassObject() {
+        return chosenClassObject;
+    }
+
+    public static void setChosenClassObject(Object chosenClassObject) {
+        ReflectionsController.chosenClassObject = chosenClassObject;
     }
 }
