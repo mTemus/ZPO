@@ -43,13 +43,14 @@ public class ObjectOperations {
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        setCreatedObjects(getCreatedObjects() + 1);
 
         if (isDeletedIDLess(idx)) {
             items.get(getCreatedObjects()).setObjectID(Integer.parseInt(deletedIDs.get(0).toString()));
             deletedIDs.remove(0);
         } else
             items.get(getCreatedObjects()).setObjectID(idx++);
+
+        setCreatedObjects(getCreatedObjects() + 1);
     }
 
     private void createPizza(String className, int idx) {
@@ -59,14 +60,14 @@ public class ObjectOperations {
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        setCreatedObjects(getCreatedObjects() + 1);
+
 
         if (isDeletedIDLess(idx)) {
             pizzas.get(getCreatedObjects()).setObjectID(Integer.parseInt(deletedIDs.get(0).toString()));
             deletedIDs.remove(0);
         } else
             pizzas.get(getCreatedObjects()).setObjectID(idx++);
-
+        setCreatedObjects(getCreatedObjects() + 1);
     }
 
     private void createUser(String className, int idx) {
@@ -76,12 +77,13 @@ public class ObjectOperations {
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        setCreatedObjects(getCreatedObjects() + 1);
+
         if (isDeletedIDLess(idx)) {
             users.get(getCreatedObjects()).setObjectID(Integer.parseInt(deletedIDs.get(0).toString()));
             deletedIDs.remove(0);
         } else
             users.get(getCreatedObjects()).setObjectID(idx++);
+        setCreatedObjects(getCreatedObjects() + 1);
     }
 
     private void addDeletedIDtoArray(int id) {

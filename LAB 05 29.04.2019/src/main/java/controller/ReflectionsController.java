@@ -162,6 +162,7 @@ public class ReflectionsController {
         if (fieldName != null && newFieldValue != null) {
             try {
                 chosenField = getChosenClassObject().getClass().getDeclaredField(fieldName);
+                System.out.println(getChosenClassObject().toString());
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();
             }
