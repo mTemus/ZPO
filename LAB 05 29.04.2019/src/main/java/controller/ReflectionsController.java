@@ -99,8 +99,6 @@ public class ReflectionsController {
         }
         clearFields();
 
-
-        setTableItems(users);
     }
 
     public void deleteObjectById(ActionEvent event) {
@@ -249,22 +247,22 @@ public class ReflectionsController {
         classes_new_value_textfield.clear();
     }
 
-    private void setTableItems(ObservableList<UserBean> usersList) {
-//            col_id_user.setCellValueFactory(new PropertyValueFactory<User, Long>("id"));
-//            col_name_user.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
-//            col_surname_user.setCellValueFactory(new PropertyValueFactory<User, String>("surname"));
-//            col_login_user.setCellValueFactory(new PropertyValueFactory<User, String>("login"));
-//            col_password_user.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
-//            col_email_user.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
-//            col_date_user.setCellValueFactory(new PropertyValueFactory<User, String>("date"));
-//            tbl_users.setItems(usersList);
-
-            col_object_id.setCellValueFactory(new PropertyValueFactory<UserBean, Integer>("ObjectID"));
-            col_field_name.setCellValueFactory(new PropertyValueFactory<UserBean, String>(Arrays.toString(usersList.getClass().getDeclaredFields())));
-//            col_field_actual_value.setCellValueFactory(new PropertyValueFactory<UserBean, String>(usersList.getClass().getDeclaredFields()instanceof UserBean));
-            class_fields_tableView.setItems(usersList);
-
-    }
+//    private void setTableItems(ObservableList<UserBean> usersList) {
+////            col_id_user.setCellValueFactory(new PropertyValueFactory<User, Long>("id"));
+////            col_name_user.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
+////            col_surname_user.setCellValueFactory(new PropertyValueFactory<User, String>("surname"));
+////            col_login_user.setCellValueFactory(new PropertyValueFactory<User, String>("login"));
+////            col_password_user.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
+////            col_email_user.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
+////            col_date_user.setCellValueFactory(new PropertyValueFactory<User, String>("date"));
+////            tbl_users.setItems(usersList);
+//
+//            col_object_id.setCellValueFactory(new PropertyValueFactory<UserBean, Integer>("ObjectID"));
+//            col_field_name.setCellValueFactory(new PropertyValueFactory<UserBean, String>(Arrays.toString(usersList.getClass().getDeclaredFields())));
+////            col_field_actual_value.setCellValueFactory(new PropertyValueFactory<UserBean, String>(usersList.getClass().getDeclaredFields()instanceof UserBean));
+//            class_fields_tableView.setItems(usersList);
+//
+//    }
 
 
     public static ObservableList<UserBean> getUsers() {
