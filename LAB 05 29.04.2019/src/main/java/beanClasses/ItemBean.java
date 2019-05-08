@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public class ItemBean implements Serializable {
 
+    private int objectID;
     private int price;
     private String name;
     private LocalDate productionDate;
@@ -47,5 +48,9 @@ public class ItemBean implements Serializable {
 
     public void setType(ItemType type) {
         this.type = type;
+    }
+
+    public void setObjectID(int objectID) {
+        this.objectID = objectID;
     }
 }

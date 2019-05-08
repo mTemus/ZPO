@@ -74,7 +74,7 @@ public class ReflectionsController {
         updateIDX();
         updateListsAfterOO();
         try {
-            overvriteNewObject();
+            overwriteNewObject();
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }
@@ -87,7 +87,7 @@ public class ReflectionsController {
             classes_current_object_id_field.setText("Object id: " + objectsI);
             classes_error_field_textfield.clear();
             try {
-                overvriteNewObject();
+                overwriteNewObject();
             } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
                 e.printStackTrace();
             }
@@ -119,7 +119,6 @@ public class ReflectionsController {
         getFieldValue();
     }
 
-
     public void initialize() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         className = LoadClassController.getChosenClassName();
         updateIDX();
@@ -142,15 +141,15 @@ public class ReflectionsController {
     }
 
     private void initializeFields() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        chosenClassObject = Class.forName(className).newInstance();
+        setChosenClassObject(Class.forName(className).newInstance());
 
-        Field[] fields = chosenClassObject.getClass().getDeclaredFields();
-        Method[] methods = chosenClassObject.getClass().getDeclaredMethods();
+        Field[] fields = getChosenClassObject().getClass().getDeclaredFields();
+        Method[] methods = getChosenClassObject().getClass().getDeclaredMethods();
 
         StringBuilder allMethods = MO.getAllMethods(methods);
         StringBuilder allFields = FO.getAllFields(fields);
 
-        classes_class_name_text.setText(chosenClassObject.getClass().getName());
+        classes_class_name_text.setText(getChosenClassObject().getClass().getName());
         classes_class_fields_textarea.setText(allFields.toString());
         classes_class_methods_textarea.setText(allMethods.toString());
     }
@@ -162,12 +161,12 @@ public class ReflectionsController {
 
         if (fieldName != null && newFieldValue != null) {
             try {
-                chosenField = chosenClassObject.getClass().getDeclaredField(fieldName);
+                chosenField = getChosenClassObject().getClass().getDeclaredField(fieldName);
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();
             }
             if (chosenField != null) {
-                Method setter = MO.lookForMethod(chosenClassObject, chosenField, "set");
+                Method setter = MO.lookForMethod(getChosenClassObject(), chosenField, "set");
 
                 if (chosenField.getType().isEnum()) {
                     Type enumToConvertOn = FO.lookForEnum(chosenField);
@@ -192,12 +191,12 @@ public class ReflectionsController {
 
         if (fieldName != null) {
             try {
-                chosenField = chosenClassObject.getClass().getDeclaredField(fieldName);
+                chosenField = getChosenClassObject().getClass().getDeclaredField(fieldName);
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();
             }
             if (chosenField != null) {
-                Method getter = MO.lookForMethod(chosenClassObject, chosenField, "get");
+                Method getter = MO.lookForMethod(getChosenClassObject(), chosenField, "get");
                 if (chosenField.getType().isEnum()) {
                     answer = FO.callEnumGetter(getter);
                 } else if (String.class.equals(chosenField.getType())) {
@@ -216,26 +215,33 @@ public class ReflectionsController {
     }
 
     private void overwriteObject() {
-        chosenClassObject = FieldOperations.getChosenClassObject();
+        setChosenClassObject(FieldOperations.getChosenClassObject());
 
-        if (chosenClassObject.getClass().equals(UserBean.class))
-            users.set(objectsI, (UserBean) chosenClassObject);
-        else if (chosenClassObject.getClass().equals(ItemBean.class))
-            items.set(objectsI, (ItemBean) chosenClassObject);
-        else if (chosenClassObject.getClass().equals(PizzaBean.class))
-            pizzas.set(objectsI, (PizzaBean) chosenClassObject);
+        if (getChosenClassObject().getClass().equals(UserBean.class))
+            users.set(objectsI, (UserBean) getChosenClassObject());
+        else if (getChosenClassObject().getClass().equals(ItemBean.class))
+            items.set(objectsI, (ItemBean) getChosenClassObject());
+        else if (getChosenClassObject().getClass().equals(PizzaBean.class))
+            pizzas.set(objectsI, (PizzaBean) getChosenClassObject());
     }
 
-    private void overvriteNewObject() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    private void overwriteNewObject() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         Object tmpObject = Class.forName(className).newInstance();
 
         if (tmpObject.getClass().equals(ItemBean.class))
-            chosenClassObject = items.get(objectsI);
+            setChosenClassObject(items.get(objectsI));
         else if (tmpObject.getClass().equals(UserBean.class))
-            chosenClassObject = users.get(objectsI);
+            setChosenClassObject(users.get(objectsI));
         else if (tmpObject.getClass().equals(PizzaBean.class))
-            chosenClassObject = pizzas.get(objectsI);
+            setChosenClassObject(pizzas.get(objectsI));
     }
+
+    private void setTableItems() {
+
+        // id każdego obiektu inicjować przy jego tworzeniu
+
+    }
+
 
     public static ObservableList<UserBean> getUsers() {
         return users;

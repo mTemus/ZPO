@@ -113,11 +113,11 @@ public class FieldOperations {
         return getAnswer();
     }
 
-    public String getAnswer() {
+    private String getAnswer() {
         return answer;
     }
 
-    public void setAnswer(String answer) {
+    private void setAnswer(String answer) {
         FieldOperations.answer = answer;
     }
 
@@ -125,7 +125,7 @@ public class FieldOperations {
         return chosenClassObject;
     }
 
-    public static void setChosenClassObject(Object chosenClassObject) {
+    private static void setChosenClassObject(Object chosenClassObject) {
         FieldOperations.chosenClassObject = chosenClassObject;
     }
 

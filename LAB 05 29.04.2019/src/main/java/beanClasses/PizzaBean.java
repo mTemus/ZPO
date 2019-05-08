@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class PizzaBean implements Serializable {
+
+    private int objectID;
     private int price;
     private String name;
     private LocalDate dateOfMade;
@@ -46,5 +48,9 @@ public class PizzaBean implements Serializable {
 
     public void setPizzaType(PizzaType pizzaType) {
         this.pizzaType = pizzaType;
+    }
+
+    public void setObjectID(int objectID) {
+        this.objectID = objectID;
     }
 }

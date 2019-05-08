@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public class UserBean implements Serializable {
 
+    private int objectID;
     private int id;
     private String login;
     private String password;
@@ -56,5 +57,9 @@ public class UserBean implements Serializable {
 
     public void setPermissions(Permissions permissions) {
         this.permissions = permissions;
+    }
+
+    public void setObjectID(int objectID) {
+        this.objectID = objectID;
     }
 }
