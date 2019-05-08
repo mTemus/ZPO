@@ -121,8 +121,8 @@ public class ReflectionsController {
 
     public void initialize() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         className = LoadClassController.getChosenClassName();
-        updateIDX();
         OO.createObjectOfClass(className);
+        updateIDX();
         updateListsAfterOO();
         initializeFields();
     }
