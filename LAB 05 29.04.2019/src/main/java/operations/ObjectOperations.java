@@ -60,6 +60,13 @@ public class ObjectOperations {
             e.printStackTrace();
         }
         setCreatedObjects(getCreatedObjects() + 1);
+
+        if (isDeletedIDLess(idx)) {
+            pizzas.get(getCreatedObjects()).setObjectID(Integer.parseInt(deletedIDs.get(0).toString()));
+            deletedIDs.remove(0);
+        } else
+            pizzas.get(getCreatedObjects()).setObjectID(idx++);
+
     }
 
     private void createUser(String className, int idx) {
@@ -70,6 +77,11 @@ public class ObjectOperations {
             e.printStackTrace();
         }
         setCreatedObjects(getCreatedObjects() + 1);
+        if (isDeletedIDLess(idx)) {
+            users.get(getCreatedObjects()).setObjectID(Integer.parseInt(deletedIDs.get(0).toString()));
+            deletedIDs.remove(0);
+        } else
+            users.get(getCreatedObjects()).setObjectID(idx++);
     }
 
     private void addDeletedIDtoArray(int id) {

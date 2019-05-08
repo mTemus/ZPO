@@ -42,7 +42,7 @@ public class ReflectionsController {
     public Text classes_class_name_text;
 
     private static int objectsQuantity = 0;
-    private static int objectsIDX;
+    private static int objectsIDX = 0;
     private static int objectsI;
     private static String className;
 
@@ -70,7 +70,7 @@ public class ReflectionsController {
     }
 
     public void createNewClassObject(ActionEvent event) {
-        OO.createObjectOfClass(className);
+        OO.createObjectOfClass(className, objectsIDX);
         updateIDX();
         updateListsAfterOO();
         try {
@@ -121,8 +121,8 @@ public class ReflectionsController {
 
     public void initialize() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         className = LoadClassController.getChosenClassName();
-        OO.createObjectOfClass(className);
         updateIDX();
+        OO.createObjectOfClass(className, objectsIDX);
         updateListsAfterOO();
         initializeFields();
     }
