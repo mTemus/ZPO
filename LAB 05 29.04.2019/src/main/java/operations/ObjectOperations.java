@@ -143,11 +143,4 @@ public class ObjectOperations {
         ObjectOperations.createdObjects = createdObjects;
     }
 
-    public int getIdx() {
-        return idx;
-    }
-
-    public void setIdx(int idx) {
-        ObjectOperations.idx = idx;
-    }
 }
