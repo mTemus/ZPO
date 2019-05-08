@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import operations.FieldOperations;
 import operations.MethodOperations;
@@ -18,6 +19,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class ReflectionsController {
     public TableView class_fields_tableView;
@@ -96,6 +98,9 @@ public class ReflectionsController {
             classes_error_field_textfield.setText("Wrong object id. There is no such ID, last ID is: " + objectsIDX);
         }
         clearFields();
+
+
+        setTableItems(users);
     }
 
     public void deleteObjectById(ActionEvent event) {
@@ -245,17 +250,19 @@ public class ReflectionsController {
     }
 
     private void setTableItems(ObservableList<UserBean> usersList) {
-            col_id_user.setCellValueFactory(new PropertyValueFactory<User, Long>("id"));
-            col_name_user.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
-            col_surname_user.setCellValueFactory(new PropertyValueFactory<User, String>("surname"));
-            col_login_user.setCellValueFactory(new PropertyValueFactory<User, String>("login"));
-            col_password_user.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
-            col_email_user.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
-            col_date_user.setCellValueFactory(new PropertyValueFactory<User, String>("date"));
-            tbl_users.setItems(usersList);
+//            col_id_user.setCellValueFactory(new PropertyValueFactory<User, Long>("id"));
+//            col_name_user.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
+//            col_surname_user.setCellValueFactory(new PropertyValueFactory<User, String>("surname"));
+//            col_login_user.setCellValueFactory(new PropertyValueFactory<User, String>("login"));
+//            col_password_user.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
+//            col_email_user.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
+//            col_date_user.setCellValueFactory(new PropertyValueFactory<User, String>("date"));
+//            tbl_users.setItems(usersList);
 
-            col_object_id.setCellValueFactory(usersList.getClass().getName());
-
+            col_object_id.setCellValueFactory(new PropertyValueFactory<UserBean, Integer>("ObjectID"));
+            col_field_name.setCellValueFactory(new PropertyValueFactory<UserBean, String>(Arrays.toString(usersList.getClass().getDeclaredFields())));
+//            col_field_actual_value.setCellValueFactory(new PropertyValueFactory<UserBean, String>(usersList.getClass().getDeclaredFields()instanceof UserBean));
+            class_fields_tableView.setItems(usersList);
 
     }
 
