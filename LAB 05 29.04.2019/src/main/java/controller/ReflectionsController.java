@@ -78,6 +78,7 @@ public class ReflectionsController {
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }
+        clearFields();
     }
 
     public void useObjectById(ActionEvent event) {
@@ -94,7 +95,7 @@ public class ReflectionsController {
         } else {
             classes_error_field_textfield.setText("Wrong object id. There is no such ID, last ID is: " + objectsIDX);
         }
-
+        clearFields();
     }
 
     public void deleteObjectById(ActionEvent event) {
@@ -237,9 +238,24 @@ public class ReflectionsController {
             setChosenClassObject(pizzas.get(objectsI));
     }
 
-    private void setTableItems() {
+    private void clearFields() {
+        classes_field_name_textfield.clear();
+        classes_current_value_textfield.clear();
+        classes_new_value_textfield.clear();
+    }
 
-        // id każdego obiektu inicjować przy jego tworzeniu
+    private void setTableItems(ObservableList<UserBean> usersList) {
+            col_id_user.setCellValueFactory(new PropertyValueFactory<User, Long>("id"));
+            col_name_user.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
+            col_surname_user.setCellValueFactory(new PropertyValueFactory<User, String>("surname"));
+            col_login_user.setCellValueFactory(new PropertyValueFactory<User, String>("login"));
+            col_password_user.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
+            col_email_user.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
+            col_date_user.setCellValueFactory(new PropertyValueFactory<User, String>("date"));
+            tbl_users.setItems(usersList);
+
+            col_object_id.setCellValueFactory(usersList.getClass().getName());
+
 
     }
 

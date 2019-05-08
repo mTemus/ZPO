@@ -53,4 +53,8 @@ public class PizzaBean implements Serializable {
     public void setObjectID(int objectID) {
         this.objectID = objectID;
     }
+
+    public int getObjectID() {
+        return objectID;
+    }
 }
