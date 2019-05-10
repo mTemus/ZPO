@@ -7,7 +7,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import operations.FieldOperations;
 import operations.MethodOperations;
@@ -19,7 +18,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
-import java.util.Arrays;
 
 public class ReflectionsController {
     public TableView class_fields_tableView;
@@ -47,6 +45,8 @@ public class ReflectionsController {
     private static int objectsIDX = 0;
     private static int objectsI;
     private static String className;
+    public Button annotation_change_column_name_button;
+    public TextField annotations_new_column_name_textfield;
 
     private ObjectOperations OO = new ObjectOperations();
     private FieldOperations FO = new FieldOperations();
@@ -69,6 +69,12 @@ public class ReflectionsController {
         objectsIDX = 0;
 
         SO.changeSceneToLoadClass(event);
+    }
+
+
+    public void changeColumnName(ActionEvent event) {
+
+
     }
 
     public void createNewClassObject(ActionEvent event) {
