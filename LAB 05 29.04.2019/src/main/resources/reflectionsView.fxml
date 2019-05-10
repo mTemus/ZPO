@@ -61,21 +61,11 @@
                                        </font>
                                    </Text>
                               <TextField fx:id="classes_new_value_textfield" layoutX="1000.0" layoutY="144.0" promptText="New value." />
+                              <Button fx:id="annotation_change_column_name_button" layoutX="840.0" layoutY="559.0" mnemonicParsing="false" onAction="#changeColumnName" text="Use Annotation" />
                                </children>
                             </AnchorPane>
                         </content>
                      </Tab>
-                  <Tab text="Annotatioon">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TextField fx:id="annotations_new_column_name_textfield" layoutX="170.0" layoutY="14.0" prefHeight="31.0" prefWidth="563.0" promptText="New column name." />
-                              <Text layoutX="38.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Annotation value:" />
-                              <Button fx:id="annotation_change_column_name_button" layoutX="170.0" layoutY="57.0" mnemonicParsing="false" onAction="#changeColumnName" text="Change column name" />
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </Tab>
                  </tabs>
               </TabPane>
           </children>

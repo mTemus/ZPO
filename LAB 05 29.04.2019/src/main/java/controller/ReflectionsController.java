@@ -1,6 +1,7 @@
 package controller;
 
-import operations.NamedAnnotationOperations;
+import model.TableModel;
+import operations.*;
 import beanClasses.ItemBean;
 import beanClasses.PizzaBean;
 import beanClasses.UserBean;
@@ -9,13 +10,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
-import operations.FieldOperations;
-import operations.MethodOperations;
-import operations.ObjectOperations;
-import operations.StageOperations;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
@@ -47,17 +45,18 @@ public class ReflectionsController {
     private static int objectsI;
     private static String className;
     public Button annotation_change_column_name_button;
-    public TextField annotations_new_column_name_textfield;
 
     private ObjectOperations OO = new ObjectOperations();
     private FieldOperations FO = new FieldOperations();
     private MethodOperations MO = new MethodOperations();
     private StageOperations SO = new StageOperations();
     private NamedAnnotationOperations NAO = new NamedAnnotationOperations();
+    private TableModelOperations TMO = new TableModelOperations();
 
     private static ObservableList<UserBean> users = FXCollections.observableArrayList();
     private static ObservableList<PizzaBean> pizzas = FXCollections.observableArrayList();
     private static ObservableList<ItemBean> items = FXCollections.observableArrayList();
+    private static ObservableList<TableModel> models = FXCollections.observableArrayList();
 
     private static Object chosenClassObject;
 
@@ -89,6 +88,9 @@ public class ReflectionsController {
             e.printStackTrace();
         }
         clearFields();
+
+        setTableWithItems();
+
     }
 
     public void useObjectById(ActionEvent event) {
@@ -254,6 +256,17 @@ public class ReflectionsController {
         classes_current_value_textfield.clear();
         classes_new_value_textfield.clear();
     }
+
+    private void setTableWithItems() {
+        models.clear();
+        try {
+            models = TMO.convertItemsOnTableModel(items);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 //    private void setTableItems(ObservableList<UserBean> usersList) {
 ////            col_id_user.setCellValueFactory(new PropertyValueFactory<User, Long>("id"));

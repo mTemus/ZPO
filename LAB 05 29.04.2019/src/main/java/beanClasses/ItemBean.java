@@ -7,12 +7,12 @@ public class ItemBean implements Serializable {
 
     private int objectID;
     private int price;
-    private String name;
-    private LocalDate productionDate;
-    private ItemType type;
+    private String name = "no_name";
+    private LocalDate productionDate = LocalDate.now();
+    private ItemType type = ItemType.NO_TYPE;
 
     private enum ItemType {
-        GAME, BOOK, SMARTPHONE, PLUSH;
+        GAME, BOOK, SMARTPHONE, PLUSH, NO_TYPE;
     }
 
     public ItemBean() {
