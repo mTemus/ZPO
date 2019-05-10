@@ -1,5 +1,6 @@
 package controller;
 
+import annotation.NamedAdnotationOperations;
 import beanClasses.ItemBean;
 import beanClasses.PizzaBean;
 import beanClasses.UserBean;
@@ -52,6 +53,7 @@ public class ReflectionsController {
     private FieldOperations FO = new FieldOperations();
     private MethodOperations MO = new MethodOperations();
     private StageOperations SO = new StageOperations();
+    private NamedAdnotationOperations NAO = new NamedAdnotationOperations();
 
     private static ObservableList<UserBean> users = FXCollections.observableArrayList();
     private static ObservableList<PizzaBean> pizzas = FXCollections.observableArrayList();
@@ -73,8 +75,7 @@ public class ReflectionsController {
 
 
     public void changeColumnName(ActionEvent event) {
-
-
+        col_field_name.setText(NAO.getName());
     }
 
     public void createNewClassObject(ActionEvent event) {

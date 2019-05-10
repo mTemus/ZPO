@@ -1,21 +1,31 @@
 package annotation;
 
-
 import javafx.scene.control.TableColumn;
 
-@Named(name = this.newName)
+import javax.xml.soap.Name;
+import java.lang.reflect.Method;
+import java.util.Locale;
+
+
 public class NamedAdnotationOperations {
     //Przykład: @Named(“nazwa”) String getName() powoduje że w nagłówku kolumny widnieje słowo “nazwa” a nie “name”.
 
-    String newName;
+    @Named(name = "kaczka")
+    public String getName() {
+        Method declaredMethod;
+        Named named = null;
+        String newColumnHeader = "";
+        
+        try {
+            declaredMethod = NamedAdnotationOperations.class.getDeclaredMethod("getName");
+            named = declaredMethod.getAnnotation(Named.class);
+            newColumnHeader = named.name();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
 
-    public TableColumn getName(String newName){
-        TableColumn column = null;
-
-
-        return column;
+        return newColumnHeader;
     }
-
 
 
 }
