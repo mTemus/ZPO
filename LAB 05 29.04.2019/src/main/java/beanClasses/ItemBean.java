@@ -12,7 +12,7 @@ public class ItemBean implements Serializable {
     private ItemType type = ItemType.NO_TYPE;
 
     private enum ItemType {
-        GAME, BOOK, SMARTPHONE, PLUSH, NO_TYPE;
+        GAME, BOOK, SMARTPHONE, PLUSH, NO_TYPE
     }
 
     public ItemBean() {

@@ -60,8 +60,6 @@ public class ObjectOperations {
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
         if (isDeletedIDLess(idx)) {
             pizzas.get(getCreatedObjects()).setObjectID(Integer.parseInt(deletedIDs.get(0).toString()));
             deletedIDs.remove(0);
@@ -102,7 +100,6 @@ public class ObjectOperations {
             }
         return state;
     }
-
 
     public void deleteObjectOfClass(String className, int id) {
         switch (className) {

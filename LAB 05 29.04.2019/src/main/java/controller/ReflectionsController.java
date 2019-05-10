@@ -1,5 +1,7 @@
 package controller;
 
+import com.sun.org.apache.bcel.internal.generic.SWITCH;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.TableModel;
 import operations.*;
 import beanClasses.ItemBean;
@@ -68,6 +70,7 @@ public class ReflectionsController {
         className = "";
         objectsQuantity = 0;
         objectsIDX = 0;
+        objectsI = 0;
 
         SO.changeSceneToLoadClass(event);
     }
@@ -79,8 +82,8 @@ public class ReflectionsController {
     }
 
     public void createNewClassObject(ActionEvent event) {
-        OO.createObjectOfClass(className, objectsIDX);
         updateIDX();
+        OO.createObjectOfClass(className, objectsIDX);
         updateListsAfterOO();
         try {
             overwriteNewObject();
@@ -89,7 +92,7 @@ public class ReflectionsController {
         }
         clearFields();
 
-        setTableWithItems();
+        setTableWithData();
 
     }
 
@@ -139,6 +142,8 @@ public class ReflectionsController {
         OO.createObjectOfClass(className, objectsIDX);
         updateListsAfterOO();
         initializeFields();
+        setTableWithData();
+        setTableView(models);
     }
 
     private void updateListsAfterOO() {
@@ -176,7 +181,6 @@ public class ReflectionsController {
         if (fieldName != null && newFieldValue != null) {
             try {
                 chosenField = getChosenClassObject().getClass().getDeclaredField(fieldName);
-                System.out.println(getChosenClassObject().toString());
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();
             }
@@ -257,6 +261,26 @@ public class ReflectionsController {
         classes_new_value_textfield.clear();
     }
 
+    private void setTableWithData() {
+
+        switch (className) {
+            case "beanClasses.ItemBean":
+                setTableWithItems();
+                break;
+            case "beanClasses.UserBean":
+                setTableWithUsers();
+                break;
+            case "beanClasses.PizzaBean":
+                setTableWithPizzas();
+                break;
+            default:
+                System.out.println("Switch classname error.");
+                break;
+        }
+
+    }
+
+
     private void setTableWithItems() {
         models.clear();
         try {
@@ -264,26 +288,37 @@ public class ReflectionsController {
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
+        setTableView(models);
+    }
 
+    private void setTableWithUsers() {
+        models.clear();
+        try {
+            models = TMO.convertUsersOnTableModel(users);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        setTableView(models);
+    }
+
+    private void setTableWithPizzas() {
+        models.clear();
+        try {
+            models = TMO.convertPizzasOnTableModel(pizzas);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        setTableView(models);
     }
 
 
-//    private void setTableItems(ObservableList<UserBean> usersList) {
-////            col_id_user.setCellValueFactory(new PropertyValueFactory<User, Long>("id"));
-////            col_name_user.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
-////            col_surname_user.setCellValueFactory(new PropertyValueFactory<User, String>("surname"));
-////            col_login_user.setCellValueFactory(new PropertyValueFactory<User, String>("login"));
-////            col_password_user.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
-////            col_email_user.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
-////            col_date_user.setCellValueFactory(new PropertyValueFactory<User, String>("date"));
-////            tbl_users.setItems(usersList);
-//
-//            col_object_id.setCellValueFactory(new PropertyValueFactory<UserBean, Integer>("ObjectID"));
-//            col_field_name.setCellValueFactory(new PropertyValueFactory<UserBean, String>(Arrays.toString(usersList.getClass().getDeclaredFields())));
-////            col_field_actual_value.setCellValueFactory(new PropertyValueFactory<UserBean, String>(usersList.getClass().getDeclaredFields()instanceof UserBean));
-//            class_fields_tableView.setItems(usersList);
-//
-//    }
+    private void setTableView(ObservableList<TableModel> models) {
+        col_object_id.setCellValueFactory(new PropertyValueFactory<TableModel, Integer>("id"));
+        col_field_name.setCellValueFactory(new PropertyValueFactory<TableModel, String>("fieldName"));
+        col_field_type.setCellValueFactory(new PropertyValueFactory<TableModel, String>("fieldType"));
+        col_field_actual_value.setCellValueFactory(new PropertyValueFactory<UserBean, String>("fieldValue"));
+        class_fields_tableView.setItems(models);
+    }
 
 
     public static ObservableList<UserBean> getUsers() {
