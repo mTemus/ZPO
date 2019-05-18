@@ -7,13 +7,13 @@ public class UserBean implements Serializable {
 
     private int objectID;
     private int id;
-    private String login;
-    private String password;
-    private LocalDate joinDate;
-    private Permissions permissions;
+    private String login = "null";
+    private String password = "null";
+    private LocalDate joinDate = LocalDate.now();
+    private Permissions permissions = Permissions.NO_PERMISSIONS;
 
     private enum Permissions {
-        USER, ADMINISTRATOR, BOSS
+        USER, ADMINISTRATOR, BOSS, NO_PERMISSIONS
     }
 
     public UserBean() {

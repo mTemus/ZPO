@@ -55,6 +55,7 @@ public class ObjectOperations {
 
     private void createPizza(String className, int idx) {
         pizzas = ReflectionsController.getPizzas();
+
         try {
             pizzas.add((PizzaBean) Class.forName(className).newInstance());
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {

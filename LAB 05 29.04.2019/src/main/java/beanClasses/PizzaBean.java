@@ -7,12 +7,12 @@ public class PizzaBean implements Serializable {
 
     private int objectID;
     private int price;
-    private String name;
-    private LocalDate dateOfMade;
-    private PizzaType pizzaType;
+    private String name = "no_name";
+    private LocalDate dateOfMade = LocalDate.now();
+    private PizzaType pizzaType = PizzaType.NO_TYPE;
 
     private enum PizzaType {
-        HAVAI, VEGETARIAN, CAPRI, MARGARITA, EXTRA_HOT;
+        HAVAI, VEGETARIAN, CAPRI, MARGARITA, EXTRA_HOT, NO_TYPE
     }
 
     public PizzaBean() {
