@@ -1,4 +1,4 @@
-package lab7;
+package lab7.service;
 
 import lab7.model.User;
 import lab7.repository.UserRepository;

@@ -1,10 +1,10 @@
 package lab7.controller;
 
-import lab7.DTO.CreateUserDTO;
-import lab7.DTO.UpdateUserDTO;
-import lab7.DTO.UserDTO;
-import lab7.UserMapper;
-import lab7.UserService;
+import lab7.dataTransferObject.CreateUserDTO;
+import lab7.dataTransferObject.UpdateUserDTO;
+import lab7.dataTransferObject.UserDTO;
+import lab7.mapper.UserMapper;
+import lab7.service.UserService;
 import lab7.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,8 +1,8 @@
-package lab7;
+package lab7.mapper;
 
-import lab7.DTO.CreateUserDTO;
-import lab7.DTO.UpdateUserDTO;
-import lab7.DTO.UserDTO;
+import lab7.dataTransferObject.CreateUserDTO;
+import lab7.dataTransferObject.UpdateUserDTO;
+import lab7.dataTransferObject.UserDTO;
 import lab7.model.User;
 import org.springframework.stereotype.Component;
 
