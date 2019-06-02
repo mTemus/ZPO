@@ -1,8 +1,18 @@
 package lab7.dataTransferObject;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDTO {
     private long id;
     private String name;
+
+    public UserDTO(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public long getId() {
         return id;
